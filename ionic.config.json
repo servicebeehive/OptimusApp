@@ -1,0 +1,7 @@
+{
+  "name": "optimusApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

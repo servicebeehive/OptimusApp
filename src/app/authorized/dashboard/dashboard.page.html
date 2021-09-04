@@ -1,0 +1,119 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <app-header [pageTitle]="title"></app-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-card color="primary">
+  <ion-card-content class="">
+    <ion-label>
+      <ion-text>Current Balance</ion-text>
+     <h2 class="title-large">$4500,933</h2>
+     </ion-label>
+     <ion-item color="none" class=" ion-no-padding" lines="none">
+
+      <ion-label>
+        <p>Monthly Profit</p>
+        <h2 class="title-middile">$12,1360</h2>
+      </ion-label>
+      
+      <ion-badge slot="end"  color="none"><ion-icon name="caret-up-outline" color="success"></ion-icon> 11%</ion-badge>
+    </ion-item>
+  </ion-card-content>
+
+ 
+ 
+</ion-card>
+<h6 class=" ion-padding-start">My Profile</h6>
+<ion-slides pager="false" [options]="slideOpts"   >
+  <ion-slide> 
+    <ion-card class=" width-100">
+      <ion-card-content class="">
+        <ion-item lines="none" class=" ion-no-padding">
+          <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="start"></ion-img>
+          <ion-label>
+            LTH/BIDR cd
+            <h2 class="title-middile">$55,500</h2>
+          </ion-label>
+          <ion-badge slot="end" color="none">
+            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 11%
+          </ion-badge>
+        </ion-item>
+    
+      </ion-card-content>
+    </ion-card>
+    
+  </ion-slide>
+  <ion-slide> 
+    <ion-card class=" width-100">
+      <ion-card-content class="">
+        <ion-item lines="none" class=" ion-no-padding">
+          <ion-img style="width:40px;" src="assets/icon/bitcoin.svg" slot="start"></ion-img>
+          <ion-label>
+            BTI/BIDR 
+            <h2 class="title-middile">$25,500</h2>
+          </ion-label>
+          <ion-badge slot="end" color="none">
+            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 5%
+          </ion-badge>
+        </ion-item>
+    
+      </ion-card-content>
+    </ion-card>
+    
+  </ion-slide>
+  <ion-slide> 
+    <ion-card class=" width-100">
+      <ion-card-content class="">
+        <ion-item lines="none" class=" ion-no-padding">
+          <ion-img style="width:40px;" src="assets/icon/litecoin.svg" slot="start"></ion-img>
+          <ion-label>
+          
+            LTC/LTDR 
+            <h2 class="title-middile">$45,500</h2>
+          </ion-label>
+          <ion-badge slot="end" color="none">
+            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 9%
+          </ion-badge>
+        </ion-item>
+    
+      </ion-card-content>
+    </ion-card>
+    
+  </ion-slide>
+</ion-slides>
+<h6 class=" ion-padding-start">Ranking List</h6>
+<ion-item color="secondary" lines="full">
+  <ion-img style="width:40px;" src="assets/icon/litecoin.svg" slot="start"></ion-img>
+  <ion-label>
+    <h2>LIT</h2>
+    <p>Today</p>
+  </ion-label>
+  <ion-badge slot="end" color="none">
+    <h4>$12,12</h4>
+    <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 9%
+  </ion-badge>
+</ion-item>
+<ion-item color="secondary" lines="full">
+  <ion-img style="width:40px;" src="assets/icon/bitcoin.svg" slot="start"></ion-img>
+  <ion-label>
+    <h2>BIT</h2>
+    <p>Today</p>
+  </ion-label>
+  <ion-badge slot="end" color="none">
+    <h4>$15,12</h4>
+    <ion-icon name="caret-down-outline" color="danger"></ion-icon>- 6%
+  </ion-badge>
+</ion-item>
+<ion-item color="secondary" lines="full">
+  <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="start"></ion-img>
+  <ion-label>
+    <h2>ETH</h2>
+    <p>Today</p>
+  </ion-label>
+  <ion-badge slot="end" color="none">
+    <h4>$40,12</h4>
+    <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 2%
+  </ion-badge>
+</ion-item>
+</ion-content>
