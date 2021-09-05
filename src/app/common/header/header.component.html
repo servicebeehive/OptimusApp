@@ -1,11 +1,13 @@
 
-			<ion-toolbar>
-						<ion-title>{{pageTitle}}</ion-title>
+			<ion-toolbar color="headcolor">
+						<ion-title color="tertiary">{{pageTitle}}
+							<p *ngIf="pageTitle=='Welcome to'" class=" ion-no-padding text-small  ion-no-margin">Cryptohashh</p>
+						</ion-title>
 
-						<ion-button slot="end" class=" ion-no-padding" fill="clear">
-							<ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+						<ion-button slot="end" class=" ion-no-padding" color="tertiary" fill="clear">
+							<ion-icon slot="icon-only"  name="notifications-outline"></ion-icon>
 						</ion-button>
-						<ion-button slot="end" fill="clear" (click)='testClick()'>
+						<ion-button slot="end" fill="clear"  color="tertiary"  (click)='testClick()'>
 							<ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
 						</ion-button>
 		</ion-toolbar>

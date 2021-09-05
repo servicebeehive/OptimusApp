@@ -8,7 +8,15 @@ import { HomeService } from 'src/app/services/home/home.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  title='Home'
+  title='Welcome to'
+  headcolor="primary"
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay:true
+ 
+  }
+  
   constructor(public homeServices:HomeService) {}
 
   ngOnInit(): void {
