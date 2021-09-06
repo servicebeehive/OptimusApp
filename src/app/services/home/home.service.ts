@@ -1,16 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
+import { loginDetail } from 'src/app/models/login.model';
+import { ReturnResult } from 'src/app/models/return-result';
+import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class HomeService extends BaseService {
 
-  constructor(public config:ConfigService<IConfig>) { }
+  constructor(public httpClient: HttpClient, 
+              public controllers: Controllers,
+              public config:ConfigService<IConfig>) {
+                super(httpClient,config.getSettingsObject().APIUrl);
+               }
 
-  public getListItem(){
-    console.log('APIurl Test',this.config.getSettingsObject().APIUrl);
-    console.log('BaseRefUrl Test',this.config.getSettingsObject().BaseRefUrl)
+  public async getListItem(): Promise<ReturnResult<loginDetail[]>> {
+    return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
   }
+
 }

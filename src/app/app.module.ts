@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { ConfigInit } from './services/config/config.init';
 import { ConfigService } from './services/config/config.service';
+import { Controllers } from './models/controllers';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ConfigService } from './services/config/config.service';
       ],
       multi: true
     },
+    Controllers
   ],
   bootstrap: [AppComponent],
 })
