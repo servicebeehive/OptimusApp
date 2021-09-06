@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   constructor(public homeServices:HomeService) {}
 
   ngOnInit(): void {
-    this.getListItem()
+    //this.getListItem()
   }
 
   public getListItem() {

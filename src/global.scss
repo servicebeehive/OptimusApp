@@ -18,3 +18,13 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.error-class{
+    --background: #FF0000;
+    --color:#070707;
+}
+
+.success-class{
+    --background: #42ba96;
+    --color:#070707;
+}
