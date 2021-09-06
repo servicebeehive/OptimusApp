@@ -31,8 +31,6 @@ export class HomePage implements OnInit {
       const returnResult = res
       console.log('returnResult',returnResult)
       if (returnResult.success) {
-        if (returnResult?.data != null)
-          console.log('data',returnResult.data)
       } 
     })
   }
