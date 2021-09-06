@@ -29,7 +29,6 @@ export class HomePage implements OnInit {
   public getListItem() {
     this.homeServices.getListItem().then((res: ReturnResult<loginDetail[]>) => {
       const returnResult = res
-      console.log('returnResult',returnResult)
       if (returnResult.success) {
       } 
     })
