@@ -11,8 +11,8 @@ import { HomeService } from 'src/app/services/home/home.service';
 })
 export class HomePage implements OnInit {
 
-  title='Welcome to'
-  headcolor="primary"
+  public title : string ='Welcome to'
+  public headcolor : string ="primary"
 
   slideOpts = {
     initialSlide: 0,
