@@ -1,6 +1,3 @@
 {
-    "APIUrl": "http://13.233.81.41:1608",
-    "BaseRefUrl": "http://localhost:5001",
-    "AuthenticationUrl": "http://127.0.0.1:5000",
-    "SwiftRouterUrl": "http://localhost:51258"
+    "APIUrl": "http://13.233.81.41:1608"
 }
