@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-title="Dashboard"
+public title:string = "Dashboard";
+public slideOpts:string = '';
   constructor() { }
 
   ngOnInit() {
