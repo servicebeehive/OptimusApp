@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button color="clear" (click)='dismiss()'><ion-icon color="tertiary" name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6">
+        
+          <ion-img src="assets/logo.png" alt="logo-image"></ion-img>
+        </ion-col>
+      </ion-row>
+      <h3 class="ion-text-center text-white">Registration</h3>
+    <ion-grid>
+      <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+
+        <ion-col size="12">
+          <ion-input type="text" value="" placeholder="Name"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="text" value="" placeholder="Email"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="text" value="" placeholder="Phone Number"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="Password" value="" placeholder="Password"></ion-input>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input type="Password" value="" placeholder="Confirm Password"></ion-input>
+        </ion-col>
+        <ion-col  size="12">
+          <ion-item lines="none">
+            <ion-label class="text-white">I Agree <a href="" class="text-white">Term and Condition</a></ion-label>
+            <ion-checkbox slot="start" color="tertiary"></ion-checkbox>
+          </ion-item>
+       </ion-col>
+
+      </ion-row>
+    </ion-grid>
+      <ion-grid>
+        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+
+          <ion-col>
+            <ion-button type="submit" expand="block" color="tertiary" (click)="onSignin()">Register</ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+  </form>
+</ion-content>

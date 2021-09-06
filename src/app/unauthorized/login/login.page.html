@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6">
+            <ion-img src="assets/logo.png" alt="logo-image"></ion-img>
+        </ion-col>
+      </ion-row>
+      <h3 class="ion-text-center text-white">Login</h3>
+      <ion-grid>
+        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+          <ion-col size="12">
+            <ion-input type="text" value="" placeholder="Username"></ion-input>
+          </ion-col>
+          <ion-col size="12" class=" ion-margin-bottom">
+            <ion-input type="Password" value="" placeholder="Password"></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button expand="block" color="tertiary" (click)="onSignin()">Sign in</ion-button>
+          </ion-col>
+          <ion-col size="12" class="ion-text-center">
+            <a href="" class="text-white " expand="block" color="clear" >Forgot Password?</a>
+          </ion-col>
+          <ion-col size="12">
+            <p class="ion-text-center text-white">Don't have an account?</p>
+            <ion-button expand="block" color="tertiary" fill="outline" (click)="onSignUp()">Sig up Now</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+
+
+  </form>
+</ion-content>
