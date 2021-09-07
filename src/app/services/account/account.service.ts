@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 import { userDetail } from 'src/app/models/userdetail.model';
 
 @Injectable({
@@ -8,32 +9,38 @@ export class AccountService {
 
   private ACCESS_TOKEN?: userDetail | null;
 
-  constructor() { }
-
-  public get accessToken(): string | null {
-    if (this.ACCESS_TOKEN != null) {
-      return this.ACCESS_TOKEN.usertoken;
-    } else {
-      const local_access_token = localStorage.getItem('access-token');
-      if (local_access_token != null) {
-        return local_access_token;
-      }
-      return null;
-    }
+  constructor(private storage: Storage) {
+    this.init();
   }
 
-  public setAccessToken(userDetail:userDetail) {
-    console.log('userDetail',userDetail)
+  async init() {
+    await this.storage.create();
+  }
+
+  public async accessToken() {
+    const local_access_token = await this.storage.get('access-token');
+    console.log('Got value', local_access_token);
+    if (local_access_token != null) {
+      return local_access_token;
+    }
+    return null;
+  }
+
+  public async setAccessToken(userDetail: userDetail) {
     if (userDetail.usertoken == null) {
-      localStorage.removeItem('access-token');
+      await this.storage.remove('access-token');
       return;
     }
-    else{
-      localStorage.setItem('access-token', userDetail.usertoken);
+    else {
+      await this.storage.set('access-token', userDetail.usertoken);
     }
   }
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     return this.accessToken != null;
+  }
+
+  public async removeToken(): Promise<void> {
+    await this.storage.remove('access-token');
   }
 }

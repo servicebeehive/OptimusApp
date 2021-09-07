@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { loginDetail } from 'src/app/models/login.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { userDetail } from 'src/app/models/userdetail.model';
@@ -22,7 +22,9 @@ export class LoginPage implements OnInit {
     public fb: FormBuilder,
     public loginService:LoginService,
     public notificationService:NotificationService,
-    public accountServices:AccountService) { }
+    public accountServices:AccountService,
+    public toast: ToastController,
+    public alertController: AlertController) { }
 
   addloginDetail = this.fb.group({
     username: ['', [Validators.required]],
@@ -33,21 +35,37 @@ export class LoginPage implements OnInit {
 
   }
 
-  public onSignin() {
+  public async onSignin():Promise<void> {
 
     const loginDetail_data = new loginDetail();
     loginDetail_data.emailaddress = this.addloginDetail.value.username;
     loginDetail_data.pwd = this.addloginDetail.value.password;
-    this.loginService.getUserDetails(loginDetail_data).then((result: ReturnResult<userDetail>)=>{
-      if(result.success){
-        console.log('result.data[0]',result.data)
-        this.accountServices.setAccessToken(result.data)
-        this.router.navigate(['authorized/dashboard']);
-      }
-      else{
-        this.notificationService.showToast<userDetail>(result)
-      }
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: loginDetail_data.emailaddress,
+      buttons: ['OK']
+    });
 
+    await alert.present();
+
+    this.loginService.getUserDetails(loginDetail_data).then((result: ReturnResult<userDetail>)=>{
+      this.toast.create({
+        message: result.message,
+        position: 'top',
+        duration: 3000,
+        cssClass: result.success ? "success-class" : "error-class"
+      }).then((toastData) => {
+        toastData.present();
+      });
+      // if(result.success){
+      //   this.accountServices.setAccessToken(result.data)
+      //   this.router.navigate(['authorized/dashboard']);
+      // }
+      // else{
+      //   this.notificationService.showToast<userDetail>(result)
+      // }
     })
   }
 
