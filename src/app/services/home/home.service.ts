@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { loginDetail } from 'src/app/models/login.model';
@@ -14,12 +15,22 @@ export class HomeService extends BaseService {
 
   constructor(public httpClient: HttpClient, 
               public controllers: Controllers,
-              public config:ConfigService<IConfig>) {
+              public config:ConfigService<IConfig>,
+              public toast: ToastController) {
                 super(httpClient,config.getSettingsObject().APIUrl);
                }
 
-  public async getListItem(): Promise<ReturnResult<loginDetail[]>> {
-    return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
+  public getListItem(): void {
+    console.log('config.getSettingsObject().APIUrl',this.config.getSettingsObject().APIUrl)
+    this.toast.create({
+      message: this.config.getSettingsObject().APIUrl,
+      position: 'top',
+      duration: 3000,
+      cssClass: "error-class"
+    }).then((toastData) => {
+      toastData.present();
+    });
+    //return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
   }
 
 }

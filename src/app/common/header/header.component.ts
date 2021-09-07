@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() pageTitle:string=''
-  @Input() headcolor:string=''
-  constructor(public router:Router) { }
+  @Input() pageTitle: string = ''
+  @Input() headcolor: string = ''
+  constructor(public router: Router,
+    public accountServices: AccountService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  public testClick(){
+  public onClicklogin(): void {
     this.router.navigate(['login']);
   }
 

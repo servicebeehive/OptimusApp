@@ -12,6 +12,7 @@ export class NotificationService {
   public showToast<T>(result: ReturnResult<T>): void {
     this.toast.create({
       message: result.message,
+      position: 'top',
       duration: 3000,
       cssClass: result.success ? "success-class" : "error-class"
     }).then((toastData) => {

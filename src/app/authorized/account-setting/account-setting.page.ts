@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'app-account-setting',
@@ -8,13 +9,16 @@ import { Router } from '@angular/router';
 })
 export class AccountSettingPage implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(public router: Router,
+    public accountService: AccountService) { }
 
   ngOnInit() {
   }
 
-  public logOut(){
-    this.router.navigate(['unauthorized/home']);
+  public onClickLogout(): void {
+    this.accountService.removeToken().then(()=>{
+      this.router.navigate(['unauthorized/home']);
+    })
   }
 
 }
