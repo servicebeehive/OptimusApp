@@ -16,9 +16,8 @@ export class AccountSettingPage implements OnInit {
   }
 
   public onClickLogout(): void {
-    this.accountService.removeToken().then(()=>{
-      this.router.navigate(['unauthorized/home']);
-    })
+    this.accountService.removeToken();
+    this.router.navigate(['unauthorized/home']);
   }
 
 }

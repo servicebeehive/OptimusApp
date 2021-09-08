@@ -3,11 +3,10 @@
 		<p *ngIf="pageTitle=='Welcome to'" class=" ion-no-padding text-small  ion-no-margin">Cryptohashh</p>
 	</ion-title>
 
-	<ion-button slot="end" class=" ion-no-padding" color="tertiary" fill="clear">
+	<ion-button *ngIf="islogeedIn" slot="end" class=" ion-no-padding" color="tertiary" fill="clear">
 		<ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
 	</ion-button>
-	<ion-button  slot="end" fill="clear" color="tertiary" (click)='onClicklogin()'>
+	<ion-button  *ngIf="!islogeedIn" slot="end" fill="clear" color="tertiary" (click)='onClicklogin()'>
 		<ion-icon slot="icon-only" name="exit"></ion-icon>
 	</ion-button>
-	<p>{{accountServices.isLoggedIn()}}</p>
 </ion-toolbar>

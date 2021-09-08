@@ -7,40 +7,42 @@ import { userDetail } from 'src/app/models/userdetail.model';
 })
 export class AccountService {
 
-  private ACCESS_TOKEN?: userDetail | null;
+  public ACCESS_TOKEN?: string;
 
-  constructor(private storage: Storage) {
-    this.init();
+  constructor(public storage: Storage) {
+    this.storage.create();
   }
 
-  async init() {
-    await this.storage.create();
+  public accessToken(): Promise<string> | null {
+    return new Promise((resolve, reject) => {
+      this.storage.get('access-token').then((res: string) => {
+        this.ACCESS_TOKEN = res;
+        resolve(this.ACCESS_TOKEN)
+      })
+    })
+
   }
 
-  public async accessToken() {
-    const local_access_token = await this.storage.get('access-token');
-    console.log('Got value', local_access_token);
-    if (local_access_token != null) {
-      return local_access_token;
-    }
-    return null;
-  }
-
-  public async setAccessToken(userDetail: userDetail) {
+  public setAccessToken(userDetail: userDetail) {
+    this.ACCESS_TOKEN = userDetail.usertoken;
     if (userDetail.usertoken == null) {
-      await this.storage.remove('access-token');
+      this.storage.remove('access-token');
       return;
     }
     else {
-      await this.storage.set('access-token', userDetail.usertoken);
+      this.storage.set('access-token', userDetail.usertoken);
     }
   }
 
   public isLoggedIn(): boolean {
-    return this.accessToken != null;
+  this.accessToken().then(response=>{
+    this.ACCESS_TOKEN = response;
+    })
+     return this.ACCESS_TOKEN != null;
   }
 
-  public async removeToken(): Promise<void> {
-    await this.storage.remove('access-token');
+  public removeToken(): void {
+    this.ACCESS_TOKEN = null;
+    this.storage.remove('access-token');
   }
 }

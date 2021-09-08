@@ -15,22 +15,12 @@ export class HomeService extends BaseService {
 
   constructor(public httpClient: HttpClient, 
               public controllers: Controllers,
-              public config:ConfigService<IConfig>,
-              public toast: ToastController) {
+              public config:ConfigService<IConfig>) {
                 super(httpClient,config.getSettingsObject().APIUrl);
                }
 
-  public getListItem(): void {
-    console.log('config.getSettingsObject().APIUrl',this.config.getSettingsObject().APIUrl)
-    this.toast.create({
-      message: this.config.getSettingsObject().APIUrl,
-      position: 'top',
-      duration: 3000,
-      cssClass: "error-class"
-    }).then((toastData) => {
-      toastData.present();
-    });
-    //return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
+  public getListItem(): Promise<ReturnResult<loginDetail[]>> {
+    return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
   }
 
 }
