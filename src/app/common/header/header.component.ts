@@ -10,8 +10,11 @@ import { AccountService } from 'src/app/services/account/account.service';
 export class HeaderComponent implements OnInit {
   @Input() pageTitle: string = ''
   @Input() headcolor: string = ''
+  public islogeedIn?: boolean = false
   constructor(public router: Router,
-    public accountServices: AccountService) { }
+    public accountServices: AccountService) { 
+      this.islogeedIn = this.accountServices.isLoggedIn();
+    }
 
   ngOnInit() { }
 

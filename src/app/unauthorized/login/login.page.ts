@@ -23,49 +23,28 @@ export class LoginPage implements OnInit {
     public loginService:LoginService,
     public notificationService:NotificationService,
     public accountServices:AccountService,
-    public toast: ToastController,
-    public alertController: AlertController) { }
+    public toast: ToastController) { }
 
   addloginDetail = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', Validators.required],
   });
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   public async onSignin():Promise<void> {
 
     const loginDetail_data = new loginDetail();
     loginDetail_data.emailaddress = this.addloginDetail.value.username;
     loginDetail_data.pwd = this.addloginDetail.value.password;
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: loginDetail_data.emailaddress,
-      buttons: ['OK']
-    });
-
-    await alert.present();
-
     this.loginService.getUserDetails(loginDetail_data).then((result: ReturnResult<userDetail>)=>{
-      this.toast.create({
-        message: result.message,
-        position: 'top',
-        duration: 3000,
-        cssClass: result.success ? "success-class" : "error-class"
-      }).then((toastData) => {
-        toastData.present();
-      });
-      // if(result.success){
-      //   this.accountServices.setAccessToken(result.data)
-      //   this.router.navigate(['authorized/dashboard']);
-      // }
-      // else{
-      //   this.notificationService.showToast<userDetail>(result)
-      // }
+      if(result.success){
+        this.accountServices.setAccessToken(result.data)
+        this.router.navigate(['authorized/dashboard']);
+      }
+      else{
+        this.notificationService.showToast<userDetail>(result)
+      }
     })
   }
 

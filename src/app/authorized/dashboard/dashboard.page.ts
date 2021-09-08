@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ export class DashboardPage implements OnInit {
   
 public title:string = "Dashboard";
 public slideOpts:string = '';
-  constructor() { }
+  constructor(public accountServices:AccountService) { }
 
   ngOnInit() {
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { loginDetail } from 'src/app/models/login.model';
 import { ReturnResult } from 'src/app/models/return-result';
+import { AccountService } from 'src/app/services/account/account.service';
 import { HomeService } from 'src/app/services/home/home.service';
 
 
@@ -20,7 +21,8 @@ export class HomePage implements OnInit {
     autoplay:true
   }
   
-  constructor(public homeServices:HomeService) {}
+  constructor(public homeServices:HomeService,
+              public accountServices:AccountService) {}
 
   ngOnInit(): void {
     //this.getListItem()
@@ -29,5 +31,7 @@ export class HomePage implements OnInit {
   public getListItem() {
     this.homeServices.getListItem();
   }
+
+
 
 }
