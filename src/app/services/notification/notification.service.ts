@@ -10,6 +10,7 @@ export class NotificationService {
   constructor(public toast: ToastController) { }
 
   public showToast<T>(result: ReturnResult<T>): void {
+    console.log('result',result)
     this.toast.create({
       message: result.message,
       position: 'top',
