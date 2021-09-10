@@ -1,7 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalController, NavParams } from '@ionic/angular';
+import { ReturnResult } from 'src/app/models/return-result';
 import { VerifyOtpModel } from 'src/app/models/verify-otp.model';
+import { LoginService } from 'src/app/services/login/login.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 
 @Component({
   selector: 'app-verify-otp',
@@ -14,7 +18,9 @@ export class VerifyOtpPage implements OnInit {
 
   constructor(public fb: FormBuilder,
     public modalController: ModalController,
-    private navParams: NavParams) {
+    public navParams: NavParams,
+    public notificationService:NotificationService,
+    public loginServices:LoginService) {
 
   }
 
@@ -36,8 +42,15 @@ export class VerifyOtpPage implements OnInit {
     VerifyOtpData.emailaddress = this.emailID;
     VerifyOtpData.emailotp = this.verifyOtpDetail.value.optDetail;
     VerifyOtpData.operationtype='VERIFY';
-    VerifyOtpData.tokenval = ''
-    console.log('VerifyOtpData', VerifyOtpData);
+    VerifyOtpData.tokenval = '';
+    this.loginServices.verifyOtpDetail(VerifyOtpData).then((result:ReturnResult)=>{
+      if(result.success){
+        this.notificationService.showToast(result);
+        this.dismiss();
+      }
+    })
   }
+
+
 
 }
