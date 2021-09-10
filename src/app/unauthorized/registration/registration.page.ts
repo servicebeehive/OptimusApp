@@ -65,7 +65,6 @@ export class RegistrationPage implements OnInit {
   }
 
   public async onOtpVerify(emailID?:string):Promise<void>{
-    console.log('emailID',emailID)
     const model = await this.modalController.create({
       component: VerifyOtpPage,
       cssClass: 'my-custom-class',
