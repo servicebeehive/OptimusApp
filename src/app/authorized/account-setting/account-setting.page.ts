@@ -15,12 +15,8 @@ export class AccountSettingPage implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-  public logOut(){
-=======
   public onClickLogout(): void {
     this.accountService.removeToken();
->>>>>>> 184a5a34b2d641f1ce207512fe9fdf525b8e40d5
     this.router.navigate(['unauthorized/home']);
   }
 

@@ -1,38 +1,56 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-    </ion-buttons>
+  <ion-toolbar class="background-color">
+
+    <!-- <ion-buttons slot="start">
+      <ion-back-button text="" size="small" color="dark" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons> -->
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="verifyOtpDetail" >
+  <ion-grid class="background-color">
+    <ion-row class=" ion-justify-content-center ion-align-items-center">
+      <ion-col size="10">
+        <h5>VERIFY NUMBER</h5>
+        <ion-text><small>OTP send to 9039183116</small></ion-text>
 
-  <form [formGroup]="verifyOtpDetail" (ngSubmit)="onVerifyOtp()">
-    <ion-grid>
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="6">
+      </ion-col>
 
-          <ion-img src="assets/logo.png" alt="logo-image"></ion-img>
-        </ion-col>
-      </ion-row>
-      <h3 class="ion-text-center text-white">Verify OTP</h3>
-      <ion-grid>
-        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+      <ion-col size="2">
+        <ion-img src="assets/icon/message-on-phone.svg" alt="logo-image"></ion-img>
+      </ion-col>
 
-          <ion-col size="12">
-            <ion-input type="text" formControlName="optDetail" placeholder="Please put your OTP *"></ion-input>
-          </ion-col>
+    </ion-row>
 
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
-          <ion-col>
-            <ion-button type="submit" [disabled]="verifyOtpDetail.invalid" expand="block" color="tertiary">
-              Verify</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-grid>
-  </form>
+  </ion-grid>
+  <ion-grid>
+    <ion-row class="ion-text-center ion-padding-top">
+      <ion-col>
+        <ion-input type="text" formControlName="optDetail" placeholder="Please put your OTP *"></ion-input>
+        <!-- <ion-input required maxLength="1">
+        </ion-input>
+        <ion-input required maxLength="1">
+        </ion-input>
+        <ion-input required maxLength="1">
+        </ion-input>
+        <ion-input required maxLength="1">
+        </ion-input> -->
+      </ion-col>
+      <ion-col size="12">
+        <ion-button fill="clear" color="warning">Resend OTP</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</form>
+
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class=" ion-padding-start ion-padding-end ion-padding-bottom">
+    <ion-button expand="full" (click)="onVerifyOtp()" type="submit" [disabled]="verifyOtpDetail.invalid" color="primary">VERYFI</ion-button>
+  </ion-toolbar>
+</ion-footer>
