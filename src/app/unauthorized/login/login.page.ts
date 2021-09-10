@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { loginDetail } from 'src/app/models/login.model';
+import { ReturnResult } from 'src/app/models/return-result';
+import { userDetail } from 'src/app/models/userdetail.model';
+import { AccountService } from 'src/app/services/account/account.service';
+import { LoginService } from 'src/app/services/login/login.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import { RegistrationPage } from '../registration/registration.page';
 
 @Component({
@@ -10,28 +17,42 @@ import { RegistrationPage } from '../registration/registration.page';
 })
 export class LoginPage implements OnInit {
 
+  constructor(public modalController: ModalController,
+    public router: Router,
+    public fb: FormBuilder,
+    public loginService:LoginService,
+    public notificationService:NotificationService,
+    public accountServices:AccountService,
+    public toast: ToastController) { }
 
-  credentials = {username: '', password: '', remember: 'yes'}; // select remember by default
+  addloginDetail = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', Validators.required],
+  });
 
+  ngOnInit() {}
 
-  constructor(private modalController: ModalController,
-              public router:Router) {
+  public async onSignin():Promise<void> {
 
+    const loginDetail_data = new loginDetail();
+    loginDetail_data.emailaddress = this.addloginDetail.value.username;
+    loginDetail_data.pwd = this.addloginDetail.value.password;
+    this.loginService.getUserDetails(loginDetail_data).then((result: ReturnResult<userDetail>)=>{
+      if(result.success){
+        this.accountServices.setAccessToken(result.data)
+        this.router.navigate(['authorized/dashboard']);
+      }
+      else{
+        this.notificationService.showToast<userDetail>(result)
+      }
+    })
   }
 
-  ngOnInit(){
-   
-  }
-
-  public onSignin(){
-    this.router.navigate(['authorized/dashboard']);
-  }
-
-  public async onSignUp(){
+  public async onSignUp() {
     const model = await this.modalController.create({
-      component:RegistrationPage,
-      cssClass:'my-custom-class'
+      component: RegistrationPage,
+      cssClass: 'my-custom-class'
     });
-   await model.present();
+    await model.present();
   }
 }
