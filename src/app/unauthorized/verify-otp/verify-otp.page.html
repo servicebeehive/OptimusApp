@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>verify-otp</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <form [formGroup]="verifyOtpDetail" (ngSubmit)="onVerifyOtp()">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6">
+
+          <ion-img src="assets/logo.png" alt="logo-image"></ion-img>
+        </ion-col>
+      </ion-row>
+      <h3 class="ion-text-center text-white">Verify OTP</h3>
+      <ion-grid>
+        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+
+          <ion-col size="12">
+            <ion-input type="text" formControlName="optDetail" placeholder="Please put your OTP *"></ion-input>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+          <ion-col>
+            <ion-button type="submit" [disabled]="verifyOtpDetail.invalid" expand="block" color="tertiary">
+              Verify</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+  </form>
 </ion-content>

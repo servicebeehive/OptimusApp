@@ -55,21 +55,21 @@ export class RegistrationPage implements OnInit {
     this.loginService.postRegistrationDetail(registration_Detail).then((result:ReturnResult<OtpDetail>) =>{
       if(result.success){
         this.notificationService.showToast<OtpDetail>(result)
-        this.onOtpVerify().then(()=>{
-          this.dismiss();
-        })
+        this.dismiss();
+        this.onOtpVerify(registration_Detail.emailaddress);
       }
       else{
         this.notificationService.showToast<OtpDetail>(result)
       }
     })
-    console.log('registration_Detail', registration_Detail);
   }
 
-  public async onOtpVerify():Promise<void>{
+  public async onOtpVerify(emailID?:string):Promise<void>{
+    console.log('emailID',emailID)
     const model = await this.modalController.create({
       component: VerifyOtpPage,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
+      componentProps: { value: emailID }
     });
     await model.present();
   }

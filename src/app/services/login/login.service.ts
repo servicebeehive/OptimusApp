@@ -7,6 +7,7 @@ import { OtpDetail } from 'src/app/models/otp.model';
 import { RegistrationDetail } from 'src/app/models/registration.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { userDetail } from 'src/app/models/userdetail.model';
+import { VerifyOtpModel } from 'src/app/models/verify-otp.model';
 import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
 
@@ -27,6 +28,10 @@ export class LoginService extends BaseService {
 
   public async postRegistrationDetail(RegistrationDetailData: RegistrationDetail): Promise<ReturnResult<OtpDetail>> {
     return this.PostReturn<RegistrationDetail, ReturnResult<OtpDetail>>(this.controllers.signUpUser, RegistrationDetailData)
+  }
+
+  public async verifyOtpDetail(VerifyOtpDetailData: VerifyOtpModel): Promise<ReturnResult> {
+    return this.PostReturn<VerifyOtpModel, ReturnResult>(this.controllers.verifyuserotp, VerifyOtpDetailData)
   }
 
 
