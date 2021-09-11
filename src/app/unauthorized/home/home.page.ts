@@ -12,7 +12,7 @@ import { HomeService } from 'src/app/services/home/home.service';
 })
 export class HomePage implements OnInit {
 
-  public title : string ='Welcome to'
+  public title : string ='Cryptohashh'
   public headcolor : string ="primary"
 
   slideOpts = {
