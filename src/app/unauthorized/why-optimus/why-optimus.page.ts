@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./why-optimus.page.scss'],
 })
 export class WhyOptimusPage implements OnInit {
-
+  public title : string ='Why Optimus'
+  public headcolor: string ='primary'
   constructor() { }
 
   ngOnInit() {
