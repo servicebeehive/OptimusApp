@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./purchase-offer.page.scss'],
 })
 export class PurchaseOfferPage implements OnInit {
-
+  public title : string ='Plans & Offer'
+  public headcolor: string ='primary'
   constructor() { }
 
   ngOnInit() {

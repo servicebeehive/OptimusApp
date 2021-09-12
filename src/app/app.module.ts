@@ -11,11 +11,12 @@ import { ConfigInit } from './services/config/config.init';
 import { ConfigService } from './services/config/config.service';
 import { Controllers } from './models/controllers';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot(), BrowserAnimationsModule],
   providers: [
     { provide: RouteReuseStrategy, 
       useClass: IonicRouteStrategy 

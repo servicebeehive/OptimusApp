@@ -16,10 +16,15 @@ export class HeaderComponent implements OnInit {
       this.islogeedIn = this.accountServices.isLoggedIn();
     }
 
-  ngOnInit() { }
+  ngOnInit() {
+    // console.log(this.islogeedIn)
+   }
 
   public onClicklogin(): void {
     this.router.navigate(['login']);
   }
-
+  public onClickLogout(): void {
+    this.accountServices.removeToken();
+    this.router.navigate(['unauthorized/home']);
+  }
 }

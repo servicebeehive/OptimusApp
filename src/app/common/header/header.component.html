@@ -1,6 +1,8 @@
-<ion-toolbar color="headcolor">
+<ion-toolbar color="primary">
 	
-	<h3 class="ion-text-left header" color="tertiary"><img width="40" src="assets/logo.png" alt=""> {{pageTitle}}</h3>
+	<h3 class="ion-text-left header" color="tertiary"><img width="40" src="assets/logo.png" alt=""> 
+		<p> {{pageTitle}}<span class="span" *ngIf="pageTitle=='Cryptohashh'">Cryptocurrency Mining and trading power</span></p>
+	</h3>
 
 	<ion-button *ngIf="islogeedIn" slot="end" class=" ion-no-padding" color="tertiary" fill="clear">
 		<ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
@@ -8,7 +10,7 @@
 	<ion-button  *ngIf="!islogeedIn" slot="end" fill="clear" color="tertiary" (click)='onClicklogin()'>
 	<ion-icon  slot="icon-only"name="log-in-outline"></ion-icon>
 	</ion-button>
-	<ion-button  *ngIf="islogeedIn" slot="end" fill="clear" color="tertiary">
+	<ion-button  *ngIf="islogeedIn" (click)='onClickLogout()' slot="end" fill="clear" color="tertiary">
 			<ion-icon  slot="icon-only" name="log-out-outline"></ion-icon>
 		</ion-button>
 </ion-toolbar>
