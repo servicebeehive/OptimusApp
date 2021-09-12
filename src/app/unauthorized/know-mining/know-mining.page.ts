@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./know-mining.page.scss'],
 })
 export class KnowMiningPage implements OnInit {
-
+  public title : string ='Know Mining'
+  public headcolor: string ='primary'
   constructor() { }
 
   ngOnInit() {

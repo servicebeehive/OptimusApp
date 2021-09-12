@@ -1,9 +1,612 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>purchase-offer</ion-title>
-  </ion-toolbar>
+  <app-header [pageTitle]="title" [headcolor]="headcolor"></app-header>
 </ion-header>
 
-<ion-content>
+<ion-content class=" ion-padding" color="primary">
+  <section class="layout_padding bg-gray">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+             <div class="full">
+                <div class="heading_main ion-text-center">
+                   <h2><span>Our Pricing Plan</span></h2>
+                   <p>Choose an appropriate plan in respective Crypto Currency<br>*Download our Cryptohashh Mobile App to invest</p>
+                </div>
+             </div>
+          </div>
+       </div>
+       <h4 class=" ion-text-center">Ethereum Plan</h4>
+ <!-- <section style="width: 100px;margin:10px auto;">
+          <select class="select form-control bg-primary">
+             <option value="inr">INR</option>
+             <option value="usd">USD</option>
+          </select>
+       </section> -->
+                    
 
+
+       <section class="pt-5 pb-5 ">
+        
+          <div class="container">
+             <div class=" planbox">
+                <ul class="nav nav-tabs d-none  nav-pills nav-pills-primary" role="tablist">
+                   <li role="presentation" class="active"><a href="#Ethereum" aria-controls="Ethereum" role="tab" data-toggle="tab" aria-expanded="true"><img src="images/ethereum.png" alt=""> Ethereum</a></li>
+                   <li role="presentation" class=""><a href="#zcash" aria-controls="zcash" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/zcash.png" alt=""> Zcash</a></li>
+                   <li role="presentation" class=""><a href="#BitCoin" aria-controls="BitCoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/bitcoin.png" alt=""> BitCoin</a></li>
+                         <li role="presentation" class=""><a href="#Ravencoin" aria-controls="Ravencoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/revange.png" width="24" alt=""> Ravencoin</a></li>
+                   <li role="presentation" class=""><a href="#LiteCoin" aria-controls="LiteCoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/ligtcoin.png" width="24" alt=""> LiteCoin</a></li>
+              
+                  
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="Ethereum">
+                      <div class="row mt-5 d-flex align-items-top">
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Silver<br>
+                                  <small>Starter</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                     <li class="gmp-price"><i class="fa symboleicon fa-inr" aria-hidden="true"></i> <span itemprop="price" id="silver">₹ 15000</span>
+                                  <!-- <sup>00</sup> -->
+                                  </li>
+                                  <li class="ethp">67% <span>ETH Availability</span></li>
+                                  <li class="contract">2 Years Contract</li>
+                                  
+                                  <li class="gmp-megaw">5 MH</li>
+                                  
+                                  <li class="gmp-plan">24 Months Ethereum Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">
+                            
+                               Maintenance fee: 0.0<br>
+                               Payout: Daily<br>
+                               Discount: 10% <span class="arrow_box">limited time</span><br>
+                               Projected Payout: up to 196%<br>
+                               Projected Payout as per Eth History
+                      </p>
+
+
+                               <p class="stock-text">In Stock</p>
+
+
+                               <p class=" padding-bottom_2  padding-top_2">
+                                  <a href="#" class="purchasebtn ">PURCHASE PLAN</a>
+                               </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Gold<br>
+                                  <small>Best Buy</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                <li class="gmp-price"><i class="fa symboleicon fa-inr" aria-hidden="true"></i> <span itemprop="price" id="gold">₹ 105,000</span>
+                                  <!-- <sup>69</sup> -->
+                                  </li>
+                                  <!-- <sup>69</sup> -->
+                                  
+                                   <li class="ethp">67% <span>ETH Availability</span></li>
+                                  <li class="contract">2 Years Contract</li>
+                                  <li class="gmp-megaw">35 MH</li>
+                                  <li class="gmp-plan">24 Months Ethereum Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">
+                               
+                               Maintenance fee: 0.50%<br>
+                               Payout: Daily<br>
+                               Discount: 10% <span class="arrow_box">limited time</span><br>
+                               Projected Payout: up to 196%<br>
+                               Projected Payout as per Eth History
+                      </p>
+
+                               <p class="stock-text">In Stock</p>
+
+
+                               <p class=" padding-bottom_2  padding-top_2">
+                                  <a href="#" class="purchasebtn ">PURCHASE PLAN</a>
+                               </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Diamond<br>
+                                  <small>Max Profit</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                <li class="gmp-price"><i class="fa symboleicon fa-inr" id="symbole" aria-hidden="true"></i> <span itemprop="price" id="diamond"> ₹ 1,500,000</span>
+                                  <!-- <sup>61</sup> -->
+                                  </li>
+                                   <li class="ethp">67% <span>ETH Availability</span></li>
+                                  <li class="contract">2 Years Contract</li>
+                                  <li class="gmp-megaw">300-3500 MH</li>
+                                  <li class="gmp-plan">24 Months Ethereum Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">
+                                   
+                               Maintenance fee: 0.25%<br>
+                               Payout: Daily<br>
+                               Discount: 10% <span class="arrow_box">limited time</span><br>
+                               Projected Payout: up to 196%<br>
+                               Projected Payout as per Eth History
+                      </p>
+
+
+                               <p class="stock-text">In Stock</p>
+
+
+                               <p class=" padding-bottom_2  padding-top_2">
+                                  <a href="#" class="purchasebtn ">PURCHASE PLAN</a>
+                               </p>
+                            </div>
+                         </div>
+
+
+                      </div>
+                   </div>
+
+                   <div role="tabpanel" class="tab-pane d-none" id="zcash">
+                      <div class="row mt-5 d-flex align-items-top">
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Silver<br>
+                                  <small>Stater</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">28</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">12.50 MH</li>
+
+                                  <li class="gmp-plan">24 Months Zcash Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC
+
+                               </p>
+
+                                <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                               <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                  <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                               </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Gold<br>
+                                  <small>Best Buy</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">650</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">50 MH</li>
+                                  <li class="gmp-plan">24 Months Zcash Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                                  <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Diamond<br>
+                                  <small>Max Profit</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">2400</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">200 MH</li>
+                                  <li class="gmp-plan">24 Months Zcash Mining *
+                                     <div><span itemprop="name">Limited supply</span></div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                                   <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+
+
+                      </div>
+                   </div>
+                   <div role="tabpanel" class="tab-pane d-none" id="BitCoin">
+                      <div class="row mt-5 d-flex align-items-top">
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Silver<br>
+                                  <small>Stater</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">28</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">12.50 MH</li>
+                                  <li class="gmp-plan">24 Months BitCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                               <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                               <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                  <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                               </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Gold<br>
+                                  <small>Best Buy</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">650</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">50 MH</li>
+                                  <li class="gmp-plan">24 Months BitCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                                   <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Diamond<br>
+                                  <small>Max Profit</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">2400</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">200 MH</li>
+                                  <li class="gmp-plan">24 Months BitCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC </p>
+
+                                   <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+
+
+                      </div>
+                   </div>
+                   <div role="tabpanel" class="tab-pane d-none" id="Ravencoin">
+                      <div class="row mt-5 d-flex align-items-top">
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Silver<br>
+                                  <small>Stater</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">28</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">12.50 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC </p>
+
+                                  <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Gold<br>
+                                  <small>Best Buy</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">650</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">50 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                                 <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Diamond<br>
+                                  <small>Max Profit</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">2400</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">200 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC </p>
+
+                                  <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+
+
+                      </div>
+                   </div>
+                    <div role="tabpanel" class="tab-pane d-none" id="LiteCoin">
+                      <div class="row mt-5 d-flex align-items-top">
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Silver<br>
+                                  <small>Stater</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">28</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">12.50 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC </p>
+
+                                   <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Gold<br>
+                                  <small>Best Buy</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">650</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">50 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC</p>
+
+                                  <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
+                            <div class=" box-price">
+                               <h4 class="font-weight-light text-center">Diamond<br>
+                                  <small>Max Profit</small>
+                               </h4>
+                               <ul>
+                                  <meta itemprop="priceCurrency" content="USD">
+                                  <li class="gmp-price"><b>$</b><span itemprop="price">2400</span><sup>00</sup>
+                                  </li>
+                                  <li class="contract">1 year contract</li>
+                                  <li class="gmp-megaw">200 MH</li>
+                                  <li class="gmp-plan">24 Months LiteCoin Mining *
+                                     <div><span itemprop="name">Limited supply</span>
+
+                                     </div>
+                                  </li>
+                               </ul>
+                               <p class="gmp-plan">Minimum Hashrate: 10 sol/s<br>
+                                  Maintenance fee: 0.0004 $ / 10 sol/s / day <br>
+                                  Hardware: Antminer Z11 <br>
+                                  Automatic payout in ZEC </p>
+
+                                   <div class="stock-text out-stock-text">
+                                      <img src="images/out-of-stock.png" alt="out of stock">
+                                      <h4>We're Sorry</h4>
+                                      <p>This Plan is currently out of stock</p>
+                                  </div>
+
+
+                                  <p class=" padding-bottom_2  padding-top_2 disabledbtn">
+                                     <a class="purchasebtn disabledbtn">PURCHASE PLAN</a>
+                                  </p>
+                            </div>
+                         </div>
+
+
+                      </div>
+                   </div>
+                  
+                </div>
+             </div>
+
+
+
+
+             <!-- /.row -->
+          </div>
+       </section>
+
+
+    </div>
+ </section>
 </ion-content>
