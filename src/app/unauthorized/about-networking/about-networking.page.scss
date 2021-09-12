@@ -1,0 +1,38 @@
+.referralbox {
+    box-shadow: 2px 2px 4px #00000069;
+    padding: 9px;
+    min-height: 158px;
+    border-radius: 13px;
+    background: #050e17;
+    color: #fff !important;
+    text-align: center;
+    margin-bottom: 20px;
+    h3 {
+        color: #fff;
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        background: #e9d16f;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        margin: 0 auto;
+        color: #000;
+    }
+  
+}
+.ul-list{ padding: 0;
+    li { list-style: none;
+        background: #00000042;
+        -webkit-font-smoothing: subpixel-antialiased;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-left: 6px solid #b68b1d;
+        font-size: 16px;
+    }
+}
