@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-networking.page.scss'],
 })
 export class AboutNetworkingPage implements OnInit {
-  public title : string ='About Referal'
+  public title : string ='About Referral'
   public headcolor: string ='primary'
   constructor() { }
 
