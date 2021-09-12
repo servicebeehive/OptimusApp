@@ -31,6 +31,7 @@ export class AccountService {
     }
     else {
       this.storage.set('access-token', userDetail.usertoken);
+      this.storage.set('email', userDetail.emailid);
     }
   }
 
@@ -44,5 +45,6 @@ export class AccountService {
   public removeToken(): void {
     this.ACCESS_TOKEN = null;
     this.storage.remove('access-token');
+    this.storage.remove('email');
   }
 }

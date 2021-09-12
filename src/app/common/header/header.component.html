@@ -8,7 +8,7 @@
 	<ion-button  *ngIf="!islogeedIn" slot="end" fill="clear" color="tertiary" (click)='onClicklogin()'>
 	<ion-icon  slot="icon-only"name="log-in-outline"></ion-icon>
 	</ion-button>
-	<ion-button  *ngIf="islogeedIn" slot="end" fill="clear" color="tertiary">
+	<ion-button  *ngIf="islogeedIn" slot="end" fill="clear" color="tertiary"(click)='onClickLogout()'>
 			<ion-icon  slot="icon-only" name="log-out-outline"></ion-icon>
 		</ion-button>
 </ion-toolbar>
