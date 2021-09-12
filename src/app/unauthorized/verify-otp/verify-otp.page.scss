@@ -1,8 +1,13 @@
-
-ion-content{ --ion-background-color: #041e37;}
 ion-input{
-    border-radius:4px !important;
-    padding-right: 30px; background: #fff;
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    margin: 10px; line-height: 30px;     --padding-start: 0px;
    
-}
-.text-white{ color:white}
+    --background: #fafafa;
+    font-size: 26px;
+    text-align: center;
+    border: 1px solid #ececec;
+    }
+.background-color{--background: #ffffff;}
+.background-color{background: #ffffff;}

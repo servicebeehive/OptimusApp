@@ -1,13 +1,29 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-    </ion-buttons>
+  <ion-toolbar class="background-color">
+
+    <!-- <ion-buttons slot="start">
+      <ion-back-button text="" size="small" color="dark" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons> -->
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="verifyOtpDetail"  (ngSubmit)="onVerifyOtp()">
+  <ion-grid class="background-color">
+    <ion-row class=" ion-justify-content-center ion-align-items-center">
+      <ion-col size="10">
+        <h5>VERIFY NUMBER</h5>
+        <ion-text><small>OTP send to 9039183116</small></ion-text>
 
-  <form [formGroup]="verifyOtpDetail" (ngSubmit)="onVerifyOtp()">
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-img src="assets/icon/message-on-phone.svg" alt="logo-image"></ion-img>
+      </ion-col>
+
+  
     <ion-grid>
       <ion-row class="ion-justify-content-center">
         <ion-col size="6">
@@ -33,6 +49,8 @@
           </ion-col>
         </ion-row>
       </ion-grid>
+    </ion-grid>
+    </ion-row>
     </ion-grid>
   </form>
 </ion-content>
