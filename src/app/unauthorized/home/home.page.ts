@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   public title : string ='Cryptohashh'
   public headcolor : string ="primary"
-
+public bannerUrl="https://cryptohashh.com/images/home-banner.jpg"
   slideOpts = {
     initialSlide: 0,
     slidesPerView: 1,
