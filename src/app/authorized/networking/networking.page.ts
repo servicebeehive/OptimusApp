@@ -5,7 +5,8 @@ import { ReturnResult } from 'src/app/models/return-result';
 import { NetworkDetailModel } from 'src/app/models/network.model';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { TreeFlatNodeModel } from '../../models/tree-node.model';
-
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+import {NestedTreeControl} from '@angular/cdk/tree';
 @Component({
   selector: 'app-networking',
   templateUrl: './networking.page.html',
@@ -15,8 +16,15 @@ export class NetworkingPage implements OnInit {
 
   public title: string = "Networking";
   public TREE_DATA: NetworkDetailModel[] = [];
+  treeControl: NestedTreeControl<NetworkDetailModel>;
 
-  constructor(public networkService: NetworkService) { }
+
+  dataSource: MatTreeNestedDataSource<NetworkDetailModel>;
+  constructor(public networkService: NetworkService) { 
+    this.treeControl = new NestedTreeControl<NetworkDetailModel>(this.getChildren);
+    this.dataSource = new MatTreeNestedDataSource();
+    this.dataSource.data = this.TREE_DATA;
+  }
 
   ngOnInit() { }
 
@@ -32,32 +40,37 @@ export class NetworkingPage implements OnInit {
       }
     })
   }
+  getChildren = (node: NetworkDetailModel) => {
+    return node.children;
+  };
+  // private _transformer = (node: NetworkDetailModel, level: number) => {
+  //   return {
+  //     expandable: !!node.children && node.children.length > 0,
+  //     fname: node.fname,
+  //     lname: node.lname,
+  //     usercode: node.usercode,
+  //     parentcode: node.parentcode,
+  //     emailid: node.emailid,
+  //     isExpanded: node.isExpanded,
+  //     children: node.children,
+  //     level: level,
+  //   };
+  // }
+  
 
-  private _transformer = (node: NetworkDetailModel, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      fname: node.fname,
-      lname: node.lname,
-      usercode: node.usercode,
-      parentcode: node.parentcode,
-      emailid: node.emailid,
-      isExpanded: node.isExpanded,
-      children: node.children,
-      level: level,
-    };
-  }
+  // treeControl = new FlatTreeControl<TreeFlatNodeModel>(
+  //   node => node.level, node => node.expandable);
 
+  // treeFlattener = new MatTreeFlattener(
+  //   this._transformer, node => node.level, node => node.expandable, node => node.children);
 
-  treeControl = new FlatTreeControl<TreeFlatNodeModel>(
-    node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  //dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   hasChild = (_: number, node: NetworkDetailModel) => node.expandable;
-
+  hasChildren = (index: number, node:NetworkDetailModel) => {
+    return node.children.length > 0;
+  }
+  // hasChild = (_: number, node: NetworkDetailModel) => !!node.children && node.children.length > 0;
   getParentNode(node: NetworkDetailModel) {
     const nodeIndex = this.TREE_DATA.indexOf(node);
     for (let i = nodeIndex - 1; i >= 0; i--) {
