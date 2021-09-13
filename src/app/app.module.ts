@@ -6,11 +6,12 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ConfigInit } from './services/config/config.init';
 import { ConfigService } from './services/config/config.service';
 import { Controllers } from './models/controllers';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { HttpIntercertor } from './common/interceptor/http-intercertor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       ],
       multi: true
     },
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercertor, multi: true},
     Controllers
   ],
   bootstrap: [AppComponent],

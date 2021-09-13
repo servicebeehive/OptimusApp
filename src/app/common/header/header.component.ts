@@ -16,9 +16,7 @@ export class HeaderComponent implements OnInit {
       this.islogeedIn = this.accountServices.isLoggedIn();
     }
 
-  ngOnInit() {
-    // console.log(this.islogeedIn)
-   }
+  ngOnInit() {}
 
   public onClicklogin(): void {
     this.router.navigate(['login']);
