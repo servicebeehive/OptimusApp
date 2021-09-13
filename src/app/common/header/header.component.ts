@@ -14,12 +14,9 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router,
     public accountServices: AccountService) { 
       this.islogeedIn = this.accountServices.isLoggedIn();
-      console.log('this.islogeedIn',this.islogeedIn)
     }
 
-  ngOnInit() {
-    // console.log(this.islogeedIn)
-   }
+  ngOnInit() {}
 
   public onClicklogin(): void {
     this.router.navigate(['login']);

@@ -8,6 +8,7 @@ import { userDetail } from 'src/app/models/userdetail.model';
 export class AccountService {
 
   public ACCESS_TOKEN?: string;
+  public EMAIL_ID?: string;
 
   constructor(public storage: Storage) {
     this.storage.create();
@@ -31,20 +32,31 @@ export class AccountService {
     }
     else {
       this.storage.set('access-token', userDetail.usertoken);
-      this.storage.set('email', userDetail.emailid);
+      this.EMAIL_ID = userDetail.emailid
     }
   }
 
   public isLoggedIn(): boolean {
-  this.accessToken().then(response=>{
-    this.ACCESS_TOKEN = response;
+    this.accessToken().then(response => {
+      this.ACCESS_TOKEN = response;
     })
-     return this.ACCESS_TOKEN != null;
+    return this.ACCESS_TOKEN != null;
+  }
+
+  public getToken(): string {
+    this.accessToken().then(response => {
+      this.ACCESS_TOKEN = response;
+    })
+    return this.ACCESS_TOKEN ;
+  }
+
+  public getEmail():string{
+    return this.EMAIL_ID;
   }
 
   public removeToken(): void {
     this.ACCESS_TOKEN = null;
+    this.EMAIL_ID = null;
     this.storage.remove('access-token');
-    this.storage.remove('email');
   }
 }

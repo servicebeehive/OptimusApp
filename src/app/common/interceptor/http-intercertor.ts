@@ -3,13 +3,18 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders, Http
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account/account.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpIntercertor implements HttpInterceptor {
-  constructor(private router: Router,
-               ) { }
+
+  public emailID?:string;
+  public token?:string;
+
+  constructor(public accountSrvices:AccountService) {
+  }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let data = request.body
     if (request.url.includes('login') || request.url.includes('verifyuserotp') || request.url.includes('signupuser')) {
@@ -19,7 +24,6 @@ export class HttpIntercertor implements HttpInterceptor {
         }),
         body:data
       })
-      console.log('request',request)
     } 
     else {
       request = request.clone({
@@ -28,8 +32,8 @@ export class HttpIntercertor implements HttpInterceptor {
         }),
         body: {
            data,
-          "emailaddress": !localStorage.getItem('emailaddress') ? "" : localStorage.getItem('emailaddress'),
-          "x-access-token": !localStorage.getItem('token') ? "" : localStorage.getItem('token')
+          "emailaddress": !this.accountSrvices.getEmail() ? "" : this.accountSrvices.getEmail(),
+          "x-access-token": !this.accountSrvices.getToken() ? "" : this.accountSrvices.getToken()
         }
       })
     }
