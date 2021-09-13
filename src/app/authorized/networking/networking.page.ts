@@ -1,64 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ArrayDataSource } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { NetworkService } from 'src/app/services/network/network.service';
 import { ReturnResult } from 'src/app/models/return-result';
 import { NetworkDetailModel } from 'src/app/models/network.model';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-// const TREE_DATA: ExampleFlatNode[] = [
-//   {
-//     name: 'Fruit',
-//     expandable: true,
-//     level: 0,
-//   }, {
-//     name: 'Apple',
-//     expandable: false,
-//     level: 1,
-//   }, {
-//     name: 'Banana',
-//     expandable: false,
-//     level: 1,
-//   }, {
-//     name: 'Fruit loops',
-//     expandable: false,
-//     level: 1,
-//   }, {
-//     name: 'Vegetables',
-//     expandable: true,
-//     level: 0,
-//   }, {
-//     name: 'Green',
-//     expandable: true,
-//     level: 1,
-//   }, {
-//     name: 'Broccoli',
-//     expandable: false,
-//     level: 2,
-//   }, {
-//     name: 'Brussels sprouts',
-//     expandable: false,
-//     level: 2,
-//   }, {
-//     name: 'Orange',
-//     expandable: true,
-//     level: 1,
-//   }, {
-//     name: 'Pumpkins',
-//     expandable: false,
-//     level: 2,
-//   }, {
-//     name: 'Carrots',
-//     expandable: false,
-//     level: 2,
-//   }
-// ];
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-  isExpanded?: boolean;
-}
+import { TreeFlatNodeModel } from '../../models/tree-node.model';
 
 @Component({
   selector: 'app-networking',
@@ -90,7 +36,7 @@ export class NetworkingPage implements OnInit {
   private _transformer = (node: NetworkDetailModel, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
-      name: node.fname,
+      fname: node.fname,
       lname: node.lname,
       usercode: node.usercode,
       parentcode: node.parentcode,
@@ -102,7 +48,7 @@ export class NetworkingPage implements OnInit {
   }
 
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<TreeFlatNodeModel>(
     node => node.level, node => node.expandable);
 
   treeFlattener = new MatTreeFlattener(

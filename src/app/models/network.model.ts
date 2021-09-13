@@ -16,5 +16,7 @@ export class NetworkDetailModel{
         this.parentcode = '';
         this.emailid = '';
         this.children = [];
+        this.expandable = false;
+        this.level = 0;
     }
 }

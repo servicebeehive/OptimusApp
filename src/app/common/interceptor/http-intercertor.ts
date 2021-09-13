@@ -10,9 +10,6 @@ import { AccountService } from 'src/app/services/account/account.service';
 })
 export class HttpIntercertor implements HttpInterceptor {
 
-  public emailID?:string;
-  public token?:string;
-
   constructor(public accountSrvices:AccountService) {
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

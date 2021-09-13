@@ -10,7 +10,7 @@
                    class="example-tree-node">
 
       <button mat-icon-button disabled></button>
-      {{node.emailid}}
+      {{node.fname}} {{node.lname}} : {{node.emailid}} {{node.children.length}}
     </cdk-tree-node>
 
     <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild" cdkTreeNodePadding
@@ -24,7 +24,7 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      {{node.emailid}}
+      {{node.fname}} {{node.lname}} : {{node.emailid}} {{node.children.length}}
     </cdk-tree-node>
   </cdk-tree>
 </ion-content>
