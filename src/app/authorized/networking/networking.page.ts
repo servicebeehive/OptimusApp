@@ -22,7 +22,6 @@ export class NetworkingPage implements OnInit {
   constructor(public networkService: NetworkService) { 
     this.treeControl = new NestedTreeControl<NetworkDetailModel>(this.getChildren);
     this.dataSource = new MatTreeNestedDataSource();
-    this.dataSource.data = this.TREE_DATA;
   }
 
   ngOnInit() { }

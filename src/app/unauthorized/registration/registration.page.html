@@ -25,24 +25,42 @@
           <ion-col size="12">
             <ion-input type="text" formControlName="fName" placeholder="First Name *"></ion-input>
           </ion-col>
+          <p *ngIf="addRegistrationDetail.controls['fName'].touched && addRegistrationDetail.controls['fName'].hasError('required')">
+            First Name is required</p>
           <ion-col size="12">
             <ion-input type="text" formControlName="lName" placeholder="Last Name "></ion-input>
           </ion-col>
+          <p *ngIf="addRegistrationDetail.controls['lName'].touched && addRegistrationDetail.controls['lName'].hasError('required')">
+          Last Name is required</p>
           <ion-col size="12">
             <ion-input type="text" formControlName="email" placeholder="Email ID *"></ion-input>
           </ion-col>
+          <p
+          *ngIf="addRegistrationDetail.controls['email'].touched && addRegistrationDetail.controls['email'].hasError('required')">
+          Email is required</p>
+          <p *ngIf="addRegistrationDetail.controls['email'].hasError('pattern')">
+            Enter valid Email Id for example "example@abc.com"
+          </p>
           <ion-col size="12">
-            <ion-input type="text" maxlength="10" formControlName="phoneNumber" placeholder="Phone Number *"></ion-input>
+            <ion-input appIntegerInputDirective inputmode="numeric" type="text" maxlength='10'  formControlName="phoneNumber" placeholder="Phone Number">
+            </ion-input>
           </ion-col>
+          <p *ngIf="addRegistrationDetail.controls['phoneNumber'].touched && addRegistrationDetail.controls['phoneNumber'].hasError('minlength')">
+            Phone Number should be at least 10 characters.</p>
           <ion-col size="12">
             <ion-input type="Password" formControlName="password" placeholder="Password *"></ion-input>
           </ion-col>
+          <p *ngIf="addRegistrationDetail.controls['password'].touched && addRegistrationDetail.controls['password'].hasError('required')">
+          Password Name is required</p>
           <ion-col size="12">
             <ion-input type="Password" formControlName="confirmPassword" placeholder="Confirm Password *"></ion-input>
           </ion-col>
 
-          <!-- <div size="12" *ngIf="addRegistrationDetail.get('confirmPassword').errors.ConfirmPasswordValidator">Passsword and
-            Confirm Password didn't match. </div> -->
+          <p *ngIf="addRegistrationDetail.controls['confirmPassword'].touched && addRegistrationDetail.controls['confirmPassword'].hasError('required')">
+            Confirm Password Name is required</p>
+
+            <p *ngIf="addRegistrationDetail.controls['confirmPassword'].touched && addRegistrationDetail.controls['confirmPassword'].hasError('NoPassswordMatch')">
+              Password and Confirm Password Must Match</p>
 
           <ion-col size="12">
             <ion-input type="text" formControlName="referralCode" placeholder="Referral Code"></ion-input>
@@ -59,7 +77,8 @@
       <ion-grid>
         <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
           <ion-col>
-            <ion-button type="submit" [disabled]="addRegistrationDetail.invalid" expand="block" color="tertiary">Register</ion-button>
+            <ion-button type="submit" [disabled]="addRegistrationDetail.invalid" expand="block" color="tertiary">
+              Register</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
