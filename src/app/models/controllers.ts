@@ -7,4 +7,5 @@ export class Controllers {
     public readonly signUpUser = `/api/v1/signupuser`;
     public readonly verifyuserotp = `/api/v1/verifyuserotp`;
     public readonly getnetworkdata = `/api/v1/getnetworkdata`;
+    public readonly homeApiCoinsURl = `/api/v1/getCoinsDetails`;
 }

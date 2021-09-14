@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { CoinsDetailModel } from 'src/app/models/coins-details.model';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { loginDetail } from 'src/app/models/login.model';
@@ -19,8 +20,8 @@ export class HomeService extends BaseService {
                 super(httpClient,config.getSettingsObject().APIUrl);
                }
 
-  public getListItem(): Promise<ReturnResult<loginDetail[]>> {
-    return this.Get<ReturnResult<loginDetail[]>>(this.controllers.login)
+  public getCoinsList(): Promise<any> {
+    return this.Get<any>(this.controllers.homeApiCoinsURl)
   }
 
 }
