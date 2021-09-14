@@ -74,5 +74,17 @@ ion-chip{ background: no-repeat;
   span{    line-height: 24px;
     font-size: 12px;}
   }
-  .positionset{ position: absolute;}
+  .positionset{ position: absolute;
+    right: 5px;
+    border-radius: 100%;
+    text-align: center;
+    font-style: normal;
+    width: 20px;
+    height: 20px;
+    background: #041e37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 16px;
+    color: #fff;}
  
