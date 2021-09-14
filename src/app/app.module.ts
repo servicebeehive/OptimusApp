@@ -14,6 +14,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpIntercertor } from './common/interceptor/http-intercertor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

@@ -7,7 +7,7 @@ import { ReturnResult } from 'src/app/models/return-result';
 import { LoginService } from 'src/app/services/login/login.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { VerifyOtpPage } from '../verify-otp/verify-otp.page';
-import { ConfirmPasswordValidator } from './confirm-password.validator';
+import { CustomValidators } from './confirm-password.validator';
 
 @Component({
   selector: 'app-registration',
@@ -15,6 +15,8 @@ import { ConfirmPasswordValidator } from './confirm-password.validator';
   styleUrls: ['./registration.page.scss'],
 })
 export class RegistrationPage implements OnInit { 
+
+  public emailpattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$";
 
   constructor(public modalController: ModalController,
               public fb: FormBuilder,
@@ -27,16 +29,17 @@ export class RegistrationPage implements OnInit {
 
   addRegistrationDetail = this.fb.group({
     fName: ['', [Validators.required]],
-    lName: [''],
-    email: ['', Validators.required],
-    phoneNumber: ['', Validators.required],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
+    lName: ['',Validators.required],
+    email: ['', [Validators.required,Validators.pattern(this.emailpattern)]],
+    phoneNumber: ['',Validators.minLength(10)],
     referralCode: [''],
     checkTermsCondition: [false, Validators.requiredTrue],
-  }, {
-    validator: ConfirmPasswordValidator("password", "confirmPassword")
-  });
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+  },         {
+    validators:CustomValidators.passwordMatchValidator
+  }
+  );
 
   public dismiss():void {
     this.modalController.dismiss({
@@ -71,6 +74,10 @@ export class RegistrationPage implements OnInit {
       componentProps: { value: emailID }
     });
     await model.present();
+  }
+
+  get f(){
+    return this.addRegistrationDetail.controls;
   }
 
 }
