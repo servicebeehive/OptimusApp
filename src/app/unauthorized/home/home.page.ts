@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
 
   ionViewDidEnter(){
     this.getListItem();
-    this.timerSubscription = timer(0, 5000).pipe(
+    this.timerSubscription = timer(0, 50000000).pipe(
       map(() => {
         this.getListItem();
       })

@@ -25,20 +25,37 @@
 #container a {
   text-decoration: none;
 }
-.text-large{ font-size: 28px;color: #e9d16f}
+.text-large {
+  font-size: 28px;
+  color: #e9d16f;
+}
 .sc-ion-label-ios-s h2 {
   font-size: 12px;
-
 }
 .sc-ion-label-ios-s p {
   font-size: 12px;
-
 }
 h4 {
   font-size: 12px;
 }
-ion-item{
-ion-img{ width: 22px;}
+ion-item {
+  ion-img {
+    width: 22px;
   }
-.white-text{color:#e9d16f}
-.tree{ background: #000;}
+}
+.white-text {
+  color: #e9d16f;
+}
+.tree {
+  background: #000;
+}
+.text-normal {
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 0;
+  text-align: right;
+}
+.height-28 {
+  float: left;
+  height: 31px;
+}

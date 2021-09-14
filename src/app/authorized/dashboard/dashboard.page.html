@@ -9,7 +9,7 @@
       <ion-item color="none" class=" ion-no-padding" lines="none">
         <ion-label>
           <ion-text>Total MH</ion-text>
-          <h2 class="title-large">$20</h2>
+          <h2 class="title-large">20</h2>
           <p>Total Payout</p>
           <h2 class="title-middile">0.000</h2>
         </ion-label>
@@ -35,7 +35,7 @@
     </ion-row>
   </ion-grid>
 
-  <h6 class=" ion-padding-start">Referral</h6>
+  <h3 class=" ion-padding-start">Referral</h3>
   <ion-card>
     <ion-card-content class="">
       <ion-item lines="full" class=" ion-no-padding">
@@ -44,12 +44,7 @@
         </ion-label>
         <ion-text slot="end">#0</ion-text>
        </ion-item>
-       <ion-item lines="full" class=" ion-no-padding">
-        <ion-label>
-          Total Referral MH
-        </ion-label>
-        <ion-text slot="end">0.25</ion-text>
-       </ion-item>
+    
        <ion-item lines="full" class=" ion-no-padding">
         <ion-label>
           Total incentive ( in MH)
@@ -65,97 +60,68 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- <ion-slides pager="false" [options]="slideOpts"   >
-  <ion-slide> 
-    <ion-card class=" width-100">
-      <ion-card-content class="">
-        <ion-item lines="none" class=" ion-no-padding">
-         
-          <ion-label>
-            LTH/BIDR cd
-            <h2 class="title-middile">$55,500</h2>
-          </ion-label>
-          <ion-badge slot="end" color="none">
-            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 11%
-          </ion-badge>
-        </ion-item>
-    
-      </ion-card-content>
-    </ion-card>
-    
-  </ion-slide>
-  <ion-slide> 
-    <ion-card class=" width-100">
-      <ion-card-content class="">
-        <ion-item lines="none" class=" ion-no-padding">
-          <ion-img style="width:40px;" src="assets/icon/bitcoin.svg" slot="start"></ion-img>
-          <ion-label>
-            BTI/BIDR 
-            <h2 class="title-middile">$25,500</h2>
-          </ion-label>
-          <ion-badge slot="end" color="none">
-            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 5%
-          </ion-badge>
-        </ion-item>
-    
-      </ion-card-content>
-    </ion-card>
-    
-  </ion-slide>
-  <ion-slide> 
-    <ion-card class=" width-100">
-      <ion-card-content class="">
-        <ion-item lines="none" class=" ion-no-padding">
-          <ion-img style="width:40px;" src="assets/icon/litecoin.svg" slot="start"></ion-img>
-          <ion-label>
-          
-            LTC/LTDR 
-            <h2 class="title-middile">$45,500</h2>
-          </ion-label>
-          <ion-badge slot="end" color="none">
-            <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 9%
-          </ion-badge>
-        </ion-item>
-    
-      </ion-card-content>
-    </ion-card>
-    
-  </ion-slide>
-</ion-slides> -->
+ 
 
 
-  <h6 class=" ion-padding-start">Ranking List</h6>
-  <ion-item color="secondary" lines="full">
-    <ion-img style="width:40px;" src="assets/icon/litecoin.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>LIT</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$12,12</h4>
-      <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 9%
-    </ion-badge>
-  </ion-item>
-  <ion-item color="secondary" lines="full">
-    <ion-img style="width:40px;" src="assets/icon/bitcoin.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>BIT</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$15,12</h4>
-      <ion-icon name="caret-down-outline" color="danger"></ion-icon>- 6%
-    </ion-badge>
-  </ion-item>
-  <ion-item color="secondary" lines="full">
-    <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>ETH</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$40,12</h4>
-      <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 2%
-    </ion-badge>
-  </ion-item>
+ 
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Payout">
+      <ion-item color="secondary" lines="full">
+        <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
+        <ion-label>
+          <h4  class="no-margin">Payout</h4>
+          <p class="no-margin font-small">12/12/2020</p>
+        </ion-label>
+        <ion-badge slot="end"  color="clear">
+          <ion-text color="tertiary">+ 0.06355 ETH</ion-text> 
+        </ion-badge>
+      </ion-item>
+      <ion-item color="secondary" lines="full">
+        <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
+        <ion-label>
+          <h4  class="no-margin">Payout</h4>
+          <p class="no-margin font-small">12/12/2020</p>
+        </ion-label>
+        <ion-badge slot="end"  color="clear">
+          <ion-text color="tertiary">+ 0.00566 ETH</ion-text> 
+        </ion-badge>
+      </ion-item>
+      <ion-item color="secondary" lines="full">
+        <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
+        <ion-label>
+          <h4  class="no-margin">Payout</h4>
+          <p class="no-margin font-small">12/12/2020</p>
+        </ion-label>
+        <ion-badge slot="end"  color="clear">
+          <ion-text color="tertiary">+ 0.00566 ETH</ion-text> 
+        </ion-badge>
+      </ion-item>
+      <ion-item color="secondary" lines="full">
+        <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
+        <ion-label>
+          <h4  class="no-margin">Payout</h4>
+          <p class="no-margin font-small">8/12/2020</p>
+        </ion-label>
+        <ion-badge slot="end"  color="clear">
+          <ion-text color="tertiary">+ 0.00856 ETH</ion-text> 
+        </ion-badge>
+      </ion-item>
+      <ion-item color="secondary" lines="full">
+        <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
+        <ion-label>
+          <h4  class="no-margin">Payout</h4>
+          <p class="no-margin font-small">05/12/2020</p>
+        </ion-label>
+        <ion-badge slot="end"  color="clear">
+          <ion-text color="tertiary">+ 0.00896 ETH</ion-text> 
+        </ion-badge>
+      </ion-item>
+
+    </mat-tab>
+    <mat-tab label="Withdrawal">No Recond</mat-tab>
+    <mat-tab label="Purchase">No Recond</mat-tab>
+    <mat-tab label="Referral">No Recond</mat-tab>
+  </mat-tab-group>
+ 
 </ion-content>
