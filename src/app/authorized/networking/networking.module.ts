@@ -11,6 +11,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {MatButtonModule} from '@angular/material/button';
 import { HeaderModule } from 'src/app/common/header/header.module';
 import {MatTreeModule} from '@angular/material/tree';
+import {A11yModule} from '@angular/cdk/a11y';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatIconModule,
     MatButtonModule,
     HeaderModule,
-    MatTreeModule
+    MatTreeModule,
+    A11yModule
   ],
   declarations: [NetworkingPage]
 })
