@@ -1,21 +1,28 @@
-import { AbstractControl, FormGroup } from "@angular/forms";
-export function ConfirmPasswordValidator(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-        let control = formGroup.controls[controlName];
-        let matchingControl = formGroup.controls[matchingControlName]
-        if (matchingControl !== undefined) {
-            if (
-                matchingControl.errors &&
-                !matchingControl.errors.confirmPasswordValidator
-            ) {
-                return;
-            }
-            if (control.value !== matchingControl.value) {
-                matchingControl.setErrors({ confirmPasswordValidator: true });
-            } else {
-                matchingControl.setErrors(null);
-            }
+import { AbstractControl } from '@angular/forms';
+
+export class CustomValidators {
+  static passwordMatchValidator(control: AbstractControl) {
+    const password: string = control.get('password').value;
+    const passControl=control.root.get('confirmPassword')
+    if(passControl){
+      const passValue=passControl.value
+      if(passValue!=password || passValue==''||passValue==null||passValue==undefined || password==''||password==null||password==undefined || password!=passValue){
+        control.get('confirmPassword').setErrors({ NoPassswordMatch: true });
+        return{
+          isError:true
         }
-    };
+      }
+    }
+    else{
+      return null
+    }
+   
+  }
+
+  
+
 }
+
+
+
 

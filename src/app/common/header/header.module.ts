@@ -6,7 +6,6 @@ import { HeaderComponent } from './header.component';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
