@@ -4,57 +4,26 @@
 
 <ion-content>
   <ion-searchbar showCancelButton="always"></ion-searchbar>
-  <!-- <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
-
-    <cdk-tree-node *cdkTreeNodeDef="let node" cdkTreeNodePadding
-                   [style.display]="shouldRender(node) ? 'flex' : 'none'"
-                   class="example-tree-node">
-
-      <button mat-icon-button disabled></button>
-      {{node.fname}} {{node.lname}} : {{node.emailid}} {{node.children.length}}
-    </cdk-tree-node>
-
-    <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild" cdkTreeNodePadding
-                   [style.display]="shouldRender(node) ? 'flex' : 'none'"
-                   class="example-tree-node">
-      <button mat-icon-button cdkTreeNodeToggle
-              [attr.aria-label]="'Toggle ' + node.emailid"
-              (click)="node.isExpanded = !node.isExpanded"
-              [style.visibility]="node.expandable ? 'visible' : 'hidden'">
-        <mat-icon class="mat-icon-rtl-mirror">
-          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-        </mat-icon>
-      </button>
-      {{node.fname}} {{node.lname}} : {{node.emailid}} {{node.children.length}}
-    </cdk-tree-node>
-  </cdk-tree> -->
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-    <!-- This is the tree node template for leaf nodes -->
-    <mat-nested-tree-node *matTreeNodeDef="let node" >
-     
-      <!-- use a disabled button to provide padding for tree leaf -->
-      <!-- <button mat-icon-button disabled></button> -->
-      <li><div class="mat-tree-node">
-        <ion-chip color="primary">
-          <ion-avatar>
-            <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
-          </ion-avatar>
-          <ion-label>{{node.fname}} {{node.lname}}    {{node.children.length}}<br>
-            <span class="text">{{node.emailid}} </span>
-          </ion-label>
-        </ion-chip>
-         </div></li>
-     
-      <!-- : {{node.emailid}} {{node.children.length}} -->
-     
-    </mat-nested-tree-node>
-    <!-- This is the tree node template for expandable nodes -->
-    <mat-nested-tree-node *matTreeNodeDef="let node;when: hasChildren" >
-     <li class="example-tree-container">
+    <mat-nested-tree-node *matTreeNodeDef="let node">
+      <li>
         <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle
-                  [matTreeNodeToggleRecursive]="recursive"
-                [attr.aria-label]="'toggle ' + node.fname">
+          <ion-chip color="primary">
+            <ion-avatar>
+              <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+            </ion-avatar>
+            <ion-label>{{node.fname}} {{node.lname}} {{node.children.length}}<br>
+              <span class="text">{{node.emailid}} </span>
+            </ion-label>
+          </ion-chip>
+        </div>
+      </li>
+    </mat-nested-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node;when: hasChildren">
+      <li class="example-tree-container">
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle [matTreeNodeToggleRecursive]="false"
+            [attr.aria-label]="'toggle ' + node.fname">
             <mat-icon>
               {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
             </mat-icon>
@@ -63,26 +32,17 @@
             <ion-avatar>
               <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
             </ion-avatar>
-            <ion-label>{{node.fname}} {{node.lname}}    {{node.children.length}}<br>
+            <ion-label>{{node.fname}} {{node.lname}} {{node.children.length}}<br>
               <span class="text">{{node.emailid}} </span>
             </ion-label>
           </ion-chip>
-         
-         
-      </div>
-      <ul class="example-tree-nested-node">
-        <div  *ngIf="treeControl.isExpanded(node)">
-        <ng-container matTreeNodeOutlet></ng-container>
         </div>
-      </ul>
-    </li>
-      <!-- <button mat-icon-button matTreeNodeToggle
-              [attr.aria-label]="'Toggle ' + node.name">
-        <mat-icon class="mat-icon-rtl-mirror">
-          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-        </mat-icon>
-      </button> -->
-     
+        <ul class="example-tree-nested-node">
+          <div *ngIf="treeControl.isExpanded(node)">
+            <ng-container matTreeNodeOutlet></ng-container>
+          </div>
+        </ul>
+      </li>
     </mat-nested-tree-node>
   </mat-tree>
 </ion-content>

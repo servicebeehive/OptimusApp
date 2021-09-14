@@ -5,85 +5,40 @@
 <ion-content color="primary" [fullscreen]="true">
   <!-- <p class=" ion-padding-start"><span class=" text-large"></p> -->
   <img src="{{bannerUrl}}" alt="">
-<div class=" ion-padding">
-  <h2 class=" ion-text-center">What we are?</h2>
-  <p class=" ion-text-center">We are the world’s leading crypto mining organization and most successful in India. As the future is digital and it’s growing rapidly, we as an organization, Cryptohashh started our journey in 2019 and our investors are growing exponentially across the globe.</p>
-<p class=" ion-text-center">Cryptocurrency Mining is the most popular method of earning now-a-days. So, you invest in mining and get the extreme ROI out of it.</p>
-</div>  
-<h6 class=" ion-padding-start">Ranking List Test</h6>
+  <div class=" ion-padding">
+    <h2 class=" ion-text-center">What we are?</h2>
+    <p class=" ion-text-center">We are the world’s leading crypto mining organization and most successful in India. As
+      the future is digital and it’s growing rapidly, we as an organization, Cryptohashh started our journey in 2019 and
+      our investors are growing exponentially across the globe.</p>
+    <p class=" ion-text-center">Cryptocurrency Mining is the most popular method of earning now-a-days. So, you invest
+      in mining and get the extreme ROI out of it.</p>
+  </div>
+  <h6 class=" ion-padding-start">Ranking List</h6>
 
-  <ion-item color="secondary" lines="full">
-    <ion-img  src="assets/icon/litecoin.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>LIT</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$12,12</h4>
-      <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 9%
-    </ion-badge>
-  </ion-item>
+    <ion-item color="secondary" lines="full" *ngFor="let item of fetchedcoinDetail">
+      <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img>
+      <ion-label>
+        <h2>{{item.symbol}}</h2>
+        <p>Today</p>
+      </ion-label>
+      <ion-badge slot="end" color="none">
+        <h4>${{item.lastPrice}}</h4>
+        <ion-icon name="caret-up-outline" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}}
+      </ion-badge>
+    </ion-item>
 
-  <ion-item color="secondary" lines="full">
-    <ion-img  src="assets/icon/bitcoin.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>BIT</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$15,12</h4>
-      <ion-icon name="caret-down-outline" color="danger"></ion-icon>- 6%
-    </ion-badge>
-  </ion-item>
+  <h2 class=" ion-text-center">Contact Us</h2>
+  <div class=" ion-padding">
+    <h6>Office</h6>
+    <p>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)<br>
+      Near Sanskrit College, Archana Dham Road, Digma Ambikapur (C.G.) </p>
 
-  <ion-item color="secondary" lines="full">
-    <ion-img  src="assets/icon/ethereum.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>ETH</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$40,12</h4>
-      <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 2%
-    </ion-badge>
-  </ion-item>
+    <p>Phone Number: 7647862468</p>
+    <p>Email: <a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
 
-  <ion-item color="secondary" lines="full">
-    <ion-img  src="assets/icon/bitcoin.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>BIT</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$15,12</h4>
-      <ion-icon name="caret-down-outline" color="danger"></ion-icon>- 6%
-    </ion-badge>
-  </ion-item>
-
-  <ion-item color="secondary" lines="full">
-    <ion-img  src="assets/icon/ethereum.svg" slot="start"></ion-img>
-    <ion-label>
-      <h2>ETH</h2>
-      <p>Today</p>
-    </ion-label>
-    <ion-badge slot="end" color="none">
-      <h4>$40,12</h4>
-      <ion-icon name="caret-up-outline" color="success"></ion-icon>+ 2%
-    </ion-badge>
-  </ion-item>
-
-<h2 class=" ion-text-center">Contact Us</h2>
-<div class=" ion-padding">
-<h6>Office</h6>
-<p>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)<br>
-  Near Sanskrit College, Archana Dham Road, Digma Ambikapur (C.G.) </p>
- 
-  <p>Phone Number: 7647862468</p>
-  <p>Email:  <a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
-  
     <p>Website: https://cryptohashh.com</p>
-  
-  
-</div>
+
+
+  </div>
 
 </ion-content>
