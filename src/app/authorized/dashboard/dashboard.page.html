@@ -14,9 +14,6 @@
           <h2 class="title-middile">0.000</h2>
         </ion-label>
         <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="end"></ion-img>
-
-
-        <!-- <ion-badge   color="none"><ion-icon name="caret-up-outline" color="success"></ion-icon> 11%</ion-badge> -->
       </ion-item>
     </ion-card-content>
 
@@ -26,10 +23,10 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6">
-        <ion-button size="block">Purchase</ion-button>
+        <ion-button [disabled]='isDisabled' size="block">Purchase</ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button size="block" color="tertiary">Withdrawal</ion-button>
+        <ion-button size="block" [disabled]='isDisabled' color="tertiary">Withdrawal</ion-button>
       </ion-col>
 
     </ion-row>
@@ -59,11 +56,6 @@
        </ion-item>
     </ion-card-content>
   </ion-card>
-
- 
-
-
- 
 
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Payout">
@@ -119,9 +111,9 @@
       </ion-item>
 
     </mat-tab>
-    <mat-tab label="Withdrawal">No Recond</mat-tab>
-    <mat-tab label="Purchase">No Recond</mat-tab>
-    <mat-tab label="Referral">No Recond</mat-tab>
+    <mat-tab [disabled]='isDisabled' label="Withdrawal">No Recond</mat-tab>
+    <mat-tab [disabled]='isDisabled' label="Purchase">No Recond</mat-tab>
+    <mat-tab [disabled]='isDisabled' label="Referral">No Recond</mat-tab>
   </mat-tab-group>
  
 </ion-content>

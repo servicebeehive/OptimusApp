@@ -7,10 +7,12 @@ import { AccountService } from 'src/app/services/account/account.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+
+  public title: string = "Dashboard";
+  public slideOpts: string = '';
+  public isDisabled: boolean = true;
   
-public title:string = "Dashboard";
-public slideOpts:string = '';
-  constructor(public accountServices:AccountService) { }
+  constructor(public accountServices: AccountService) { }
 
   ngOnInit() {
   }
