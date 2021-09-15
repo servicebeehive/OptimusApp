@@ -15,7 +15,7 @@ export class HomePage implements OnInit {
 
   public title: string = 'Cryptohashh';
   public headcolor: string = "primary";
-  public bannerUrl = "https://cryptohashh.com/images/home-banner.jpg";
+  public bannerUrl = "https://cryptohashh.com/images/tree-img.png";
   public slideOpts = {
     initialSlide: 0,
     slidesPerView: 1,
@@ -23,13 +23,7 @@ export class HomePage implements OnInit {
   };
   public timerSubscription: Subscription;
   public fetchedcoinDetail : CoinsDetailModel[]=[]
-  public coindetails:CoinsDetailModel[]=[{
-    imageUrl:'assets/icon/litecoin.svg',
     
-  }
-    
-  ]
-
 
   constructor(public homeServices: HomeService,
               public accountServices: AccountService) { }
@@ -38,7 +32,7 @@ export class HomePage implements OnInit {
 
   ionViewDidEnter(){
     this.getListItem();
-    this.timerSubscription = timer(0, 50000000).pipe(
+    this.timerSubscription = timer(0, 222333).pipe(
       map(() => {
         this.getListItem();
       })
