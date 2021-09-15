@@ -66,10 +66,25 @@
   }
 
 .mat-tree{ margin-top: 40px;}
-ion-chip{    background: #f5f5f5;
+ion-chip{ background: no-repeat;
   border: 1px solid #ccc;
-  /* line-height: 48px; */
   min-height: 50px;
+  border-radius: 4px;
+  width: 100%;
   span{    line-height: 24px;
-    font-size: 12px;}}
+    font-size: 12px;}
+  }
+  .positionset{ position: absolute;
+    right: 5px;
+    border-radius: 100%;
+    text-align: center;
+    font-style: normal;
+    width: 20px;
+    height: 20px;
+    background: #041e37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 16px;
+    color: #fff;}
  

@@ -3,3 +3,7 @@
 .title-middile{ font-size: 20px;}
 .width-100{ width: 100%;}
 ion-card{ border-radius: 16px;}
+.no-margin{ margin: 0 !important;}
+.font-small{ font-size: 12px;}
+::ng-deep .mat-tab-label {
+    padding: 0 9px !important}

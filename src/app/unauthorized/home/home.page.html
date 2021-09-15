@@ -13,30 +13,28 @@
     <p class=" ion-text-center">Cryptocurrency Mining is the most popular method of earning now-a-days. So, you invest
       in mining and get the extreme ROI out of it.</p>
   </div>
-  <h6 class=" ion-padding-start">Ranking List</h6>
+  <h2 class=" ion-padding-start">Ranking List</h2>
 
     <ion-item color="secondary" lines="full" *ngFor="let item of fetchedcoinDetail">
-      <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img>
+      <!-- <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img> -->
       <ion-label>
-        <h2>{{item.symbol}}</h2>
-        <p>Today</p>
+        <h3 class=" ion-no-margin">{{item.symbol}}</h3>
+       
       </ion-label>
-      <ion-badge slot="end" color="none">
-        <h4>${{item.lastPrice}}</h4>
+      <ion-badge slot="end" color="none" class="text-normal">
+        <p class="text-normal">{{item.lastPrice}}</p>
         <ion-icon name="caret-up-outline" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}}
       </ion-badge>
     </ion-item>
 
-  <h2 class=" ion-text-center">Contact Us</h2>
+  <h2 class=" ion-text-center ion-padding-top">Contact Us</h2>
   <div class=" ion-padding">
-    <h6>Office</h6>
-    <p>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)<br>
-      Near Sanskrit College, Archana Dham Road, Digma Ambikapur (C.G.) </p>
+    <h3><ion-icon class=" ion-margin-end"  name="home-outline"></ion-icon>Office</h3>
+    <p><ion-icon name="location-outline" class=" ion-margin-end height-28"></ion-icon>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)
+    <p><ion-icon name="call-outline" class=" ion-margin-end"></ion-icon>  7647862468</p>
+    <p><ion-icon name="mail-outline" class=" ion-margin-end"></ion-icon><a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
 
-    <p>Phone Number: 7647862468</p>
-    <p>Email: <a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
-
-    <p>Website: https://cryptohashh.com</p>
+    <p><ion-icon name="link-outline" class=" ion-margin-end"></ion-icon>https://cryptohashh.com</p>
 
 
   </div>
