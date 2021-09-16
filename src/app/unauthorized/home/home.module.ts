@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderModule } from 'src/app/common/header/header.module';
-
+import { NgMarqueeModule } from 'ng-marquee';
 
 @NgModule({
   imports: [
@@ -14,7 +14,9 @@ import { HeaderModule } from 'src/app/common/header/header.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    NgMarqueeModule
+    
   ],
   declarations: [HomePage],
   providers:[]

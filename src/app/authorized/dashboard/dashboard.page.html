@@ -9,9 +9,9 @@
       <ion-item color="none" class=" ion-no-padding" lines="none">
         <ion-label>
           <ion-text>Total MH</ion-text>
-          <h2 class="title-large">20</h2>
-          <p>Total Payout</p>
-          <h2 class="title-middile">0.000</h2>
+          <h2 class="title-large">0.00</h2>
+          <p class=" ion-no-margin">Total Payout</p>
+          <h2 class="title-middile ion-no-margin">ETH 0.00</h2>
         </ion-label>
         <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="end"></ion-img>
       </ion-item>
@@ -37,29 +37,30 @@
     <ion-card-content class="">
       <ion-item lines="full" class=" ion-no-padding">
         <ion-label>
-          Total Referral
+          Total Referral(#)
         </ion-label>
-        <ion-text slot="end">#0</ion-text>
+        <ion-text slot="end">0</ion-text>
        </ion-item>
     
        <ion-item lines="full" class=" ion-no-padding">
         <ion-label>
-          Total incentive ( in MH)
+          Total incentive (in MH)
         </ion-label>
-        <ion-text slot="end">0.25</ion-text>
+        <ion-text slot="end">0.00</ion-text>
        </ion-item>
        <ion-item lines="none" class=" ion-no-padding">
         <ion-label>
           Total incentive (in Cash)
         </ion-label>
-        <ion-text slot="end">0.25</ion-text>
+        <ion-text slot="end">0.00</ion-text>
        </ion-item>
     </ion-card-content>
   </ion-card>
 
   <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Payout">
-      <ion-item color="secondary" lines="full">
+    <mat-tab label="Payout" class=" ion-text-center">
+      No Record Found
+      <!-- <ion-item color="secondary" lines="full">
         <ion-icon name="arrow-up-outline" color="tertiary"></ion-icon>
         <ion-label>
           <h4  class="no-margin">Payout</h4>
@@ -108,12 +109,12 @@
         <ion-badge slot="end"  color="clear">
           <ion-text color="tertiary">+ 0.00896 ETH</ion-text> 
         </ion-badge>
-      </ion-item>
+      </ion-item> -->
 
     </mat-tab>
-    <mat-tab [disabled]='isDisabled' label="Withdrawal">No Recond</mat-tab>
-    <mat-tab [disabled]='isDisabled' label="Purchase">No Recond</mat-tab>
-    <mat-tab [disabled]='isDisabled' label="Referral">No Recond</mat-tab>
+    <mat-tab  label="Withdrawal">No Recond</mat-tab>
+    <mat-tab  label="Purchase">No Recond</mat-tab>
+    <mat-tab  label="Referral">No Recond</mat-tab>
   </mat-tab-group>
  
 </ion-content>

@@ -399,3 +399,25 @@ span.limittime {
 }
 }
 .d-none{ display: none !important;}
+.arrow_box {
+   position: relative;
+   background: #0b0247;
+   color: #fff;
+   border-radius: 0 5px 5px 0;
+   margin-left: 10px;
+   padding: 0 5px;
+}
+.arrow_box:after {
+   right: 100%;
+   top: 41%;
+   border: solid transparent;
+   content: "";
+   height: 0;
+   width: 0;
+   position: absolute;
+   pointer-events: none;
+   border-color: rgba(11, 2, 71, 0);
+   border-right-color: #0b0247;
+   border-width: 10px;
+   margin-top: -8px;
+}

@@ -59,3 +59,18 @@ ion-item {
   float: left;
   height: 31px;
 }
+
+ul{ display: flex;
+  background: #00000052;
+  margin: 0;
+  padding: 0;
+  padding-top: 5px;
+  padding-bottom: 5px; 
+  li{
+    display: flex;
+    padding-left: 12px;
+      padding-right: 10px;
+      border-right: 1px dashed #fdfdfdad; justify-content: space-between; align-items: baseline;
+      h3{ margin-bottom: 0; font-size: 14px; margin-right: 15px;color: #e9d16f;}
+  }
+}
