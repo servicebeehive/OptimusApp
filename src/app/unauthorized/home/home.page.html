@@ -9,8 +9,7 @@
       <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " $")}}
 
       </h3>
-      <p class="text-normal">{{item.lastPrice}}
-        <ion-icon name="caret-up-outline" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}} %
+      <p class="text-normal">{{item.lastPrice}}<ion-icon name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}} %
       </p>
       <!-- <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img> -->
       
@@ -24,7 +23,6 @@
   <br>Start mining today and get the most ROI out of it.</p>
 </div>
   <img src="{{bannerUrl}}" alt="">
-  <p class=" ion-text-center"><a href="https://cryptohashh.com/PrivacyPolicy.php" class="white-text">Privacy Policy</a> | <a href="https://cryptohashh.com/termsandconditions.php" class="white-text">Terms and Conditions</a></p>
  
 
   <!-- <h2 class=" ion-padding-start">Ranking List</h2> -->
