@@ -3,40 +3,45 @@
 </ion-header>
 
 <ion-content color="primary" [fullscreen]="true">
-  <!-- <p class=" ion-padding-start"><span class=" text-large"></p> -->
-  <img src="{{bannerUrl}}" alt="">
-  <div class=" ion-padding">
-    <h2 class=" ion-text-center">What we are?</h2>
-    <p class=" ion-text-center">We are the world’s leading crypto mining organization and most successful in India. As
-      the future is digital and it’s growing rapidly, we as an organization, Cryptohashh started our journey in 2019 and
-      our investors are growing exponentially across the globe.</p>
-    <p class=" ion-text-center">Cryptocurrency Mining is the most popular method of earning now-a-days. So, you invest
-      in mining and get the extreme ROI out of it. CD</p>
-  </div>
-  <h2 class=" ion-padding-start">Ranking List</h2>
+  <ng-marquee direction="left" speed="normal"  duration="90s">
+    <ul class="d-flex">
+    <li color="secondary" lines="full"  class="d-flex"  *ngFor="let item of fetchedcoinDetail">
+      <h3 class=" ion-no-margin">{{item.symbol}}
 
-    <ion-item color="secondary" lines="full" *ngFor="let item of fetchedcoinDetail">
-      <!-- <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img> -->
-      <ion-label>
-        <h3 class=" ion-no-margin">{{item.symbol}}</h3>
-       
-      </ion-label>
-      <ion-badge slot="end" color="none" class="text-normal">
-        <p class="text-normal">{{item.lastPrice}}</p>
+      </h3>
+      <p class="text-normal">{{item.lastPrice}}
         <ion-icon name="caret-up-outline" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}}
-      </ion-badge>
-    </ion-item>
+      </p>
+      <!-- <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img> -->
+      
+    </li>
+  </ul>
+</ng-marquee>
+  <!-- <p class=" ion-padding-start"><span class=" text-large"></p> -->
+    <div class=" ion-padding ion-text-center">
+<h1 class=" ion-no-margin">Crypto Currency Mining</h1>
+<p>Cryptocurrency Mining is the most profitable method of earning now-a-days. 
+  <br>Start mining today and get the most ROI out of it.</p>
+</div>
+  <img src="{{bannerUrl}}" alt="">
+  <p class=" ion-text-center"><a href="https://cryptohashh.com/PrivacyPolicy.php" class="white-text">Privacy Policy</a> | <a href="https://cryptohashh.com/termsandconditions.php" class="white-text">Terms and Conditions</a></p>
+ 
 
-  <h2 class=" ion-text-center ion-padding-top">Contact Us</h2>
-  <div class=" ion-padding">
+  <!-- <h2 class=" ion-padding-start">Ranking List</h2> -->
+
+
+  <!-- <h2 class=" ion-text-center ion-padding-top">Contact Us</h2> -->
+  <!-- <div class=" ion-padding">
     <h3><ion-icon class=" ion-margin-end"  name="home-outline"></ion-icon>Office</h3>
     <p><ion-icon name="location-outline" class=" ion-margin-end height-28"></ion-icon>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)
     <p><ion-icon name="call-outline" class=" ion-margin-end"></ion-icon>  7647862468</p>
     <p><ion-icon name="mail-outline" class=" ion-margin-end"></ion-icon><a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
 
     <p><ion-icon name="link-outline" class=" ion-margin-end"></ion-icon>https://cryptohashh.com</p>
+    
 
 
-  </div>
+
+  </div> -->
 
 </ion-content>
