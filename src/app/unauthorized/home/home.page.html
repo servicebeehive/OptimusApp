@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content color="primary" [fullscreen]="true">
-  <ng-marquee direction="left" speed="normal" duration="90s">
+  <ng-marquee scrolldirection="left" speed="normal" duration="90s">
     <ul class="d-flex">
       <li color="secondary" lines="full" class="d-flex" *ngFor="let item of fetchedcoinDetail">
         <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " $")}}
