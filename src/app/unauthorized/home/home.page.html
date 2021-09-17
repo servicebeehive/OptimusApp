@@ -3,43 +3,23 @@
 </ion-header>
 
 <ion-content color="primary" [fullscreen]="true">
-  <ng-marquee direction="left" speed="normal"  duration="90s">
+  <ng-marquee direction="left" speed="normal" duration="90s">
     <ul class="d-flex">
-    <li color="secondary" lines="full"  class="d-flex"  *ngFor="let item of fetchedcoinDetail">
-      <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " $")}}
-
-      </h3>
-      <p class="text-normal">{{item.lastPrice}}<ion-icon name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}" [color]="item.priceChangePercent > 0 ? 'success' : 'danger'" ></ion-icon>{{item.priceChangePercent}} %
-      </p>
-      <!-- <ion-img src="assets/icon/litecoin.svg" slot="start"></ion-img> -->
-      
-    </li>
-  </ul>
-</ng-marquee>
-  <!-- <p class=" ion-padding-start"><span class=" text-large"></p> -->
-    <div class=" ion-padding ion-text-center">
-<h1 class=" ion-no-margin">Crypto Currency Mining</h1>
-<p>Cryptocurrency Mining is the most profitable method of earning now-a-days. 
-  <br>Start mining today and get the most ROI out of it.</p>
-</div>
+      <li color="secondary" lines="full" class="d-flex" *ngFor="let item of fetchedcoinDetail">
+        <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " $")}}
+        </h3>
+        <p class="text-normal">{{item.lastPrice}}<ion-icon
+            name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}"
+            [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"></ion-icon>{{item.priceChangePercent}} %
+        </p>
+      </li>
+    </ul>
+  </ng-marquee>
+  <div class=" ion-padding ion-text-center">
+    <h1 class=" ion-no-margin">Crypto Currency Mining</h1>
+    <p>Cryptocurrency Mining is the most profitable method of earning now-a-days.
+      <br>Start mining today and get the most ROI out of it.
+    </p>
+  </div>
   <img src="{{bannerUrl}}" alt="">
- 
-
-  <!-- <h2 class=" ion-padding-start">Ranking List</h2> -->
-
-
-  <!-- <h2 class=" ion-text-center ion-padding-top">Contact Us</h2> -->
-  <!-- <div class=" ion-padding">
-    <h3><ion-icon class=" ion-margin-end"  name="home-outline"></ion-icon>Office</h3>
-    <p><ion-icon name="location-outline" class=" ion-margin-end height-28"></ion-icon>Gauri Ward no. 29 Behind Police line, Ambikapur (c.g)
-    <p><ion-icon name="call-outline" class=" ion-margin-end"></ion-icon>  7647862468</p>
-    <p><ion-icon name="mail-outline" class=" ion-margin-end"></ion-icon><a href="mailto:support@cryptohashh.com" class="white-text">support@cryptohashh.com</a></p>
-
-    <p><ion-icon name="link-outline" class=" ion-margin-end"></ion-icon>https://cryptohashh.com</p>
-    
-
-
-
-  </div> -->
-
 </ion-content>
