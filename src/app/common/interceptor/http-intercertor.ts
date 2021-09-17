@@ -32,11 +32,6 @@ export class HttpIntercertor implements HttpInterceptor {
           "emailaddress": !this.accountSrvices.getEmail() ? "" : this.accountSrvices.getEmail(),
           "x-access-token": !this.accountSrvices.getToken() ? "" : this.accountSrvices.getToken()
         }
-      //   body: {
-      //     data,
-      //    "emailaddress": "surajkumar.4892@gmail.com",
-      //    "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbGFkZHJlc3MiOiJzdXJhamt1bWFyLjQ4OTJAZ21haWwuY29tIiwiaWF0IjoxNjMxNDU2NzUwLCJleHAiOjE2MzkyMzI3NTB9._Bnb_ohIS0cQE-8zoR7xZKkq6qSk8osvENB6KWpOmn4"
-      //  }
       })
     }
 
