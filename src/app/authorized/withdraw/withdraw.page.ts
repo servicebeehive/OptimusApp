@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./withdraw.page.scss'],
 })
 export class WithdrawPage implements OnInit {
+  public title = 'Withdraw';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

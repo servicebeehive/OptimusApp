@@ -2,179 +2,180 @@
   <app-header [pageTitle]="title" [headcolor]="headcolor"></app-header>
 </ion-header>
 
-<ion-content class=" ion-padding" color="primary">
+<ion-content class="ion-padding" color="primary">
   <section class="layout_padding bg-gray">
     <div class="container">
-       <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-             <div class="full">
-                <div class="heading_main ion-text-center">
-                   <h2><span>Our Pricing Plan</span></h2>
-                   <p>Choose an appropriate plan in respective Crypto Currency to get the best discount.</p>
-                </div>
-             </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="full">
+            <div class="heading_main ion-text-center">
+              <h2><span>Our Pricing Plan</span></h2>
+              <p>
+                Choose an appropriate plan in respective Crypto Currency to get
+                the best discount.
+              </p>
+            </div>
           </div>
-       </div>
-       <h4 class=" ion-text-center">Ethereum Plan</h4>
- <!-- <section style="width: 100px;margin:10px auto;">
-          <select class="select form-control bg-primary">
-             <option value="inr">INR</option>
-             <option value="usd">USD</option>
-          </select>
-       </section> -->
-                    
+        </div>
+      </div>
+      <h4 class="ion-text-center">Ethereum Plan</h4>
 
+      <section class="pt-5 pb-5">
+        <div class="container">
+          <div class="planbox">
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="Ethereum">
+                <div class="row mt-5 d-flex align-items-top">
+                  <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4">
+                    <div class="box-price">
+                      <h4 class="font-weight-light text-center">
+                        Silver<br />
+                        <small>Starter</small>
+                      </h4>
+                      <ul>
+                        <meta itemprop="priceCurrency" content="USD" />
+                        <li class="gmp-price">
+                          <i
+                            class="fa symboleicon fa-inr"
+                            aria-hidden="true"
+                          ></i>
+                          <span itemprop="price" id="silver">₹ 15000</span>
+                          <!-- <sup>00</sup> -->
+                        </li>
+                        <li class="ethp">67% <span>ETH Availability</span></li>
+                        <li class="contract">2 Years Contract</li>
 
-       <section class="pt-5 pb-5 ">
-        
-          <div class="container">
-             <div class=" planbox">
-                <!-- <ul class="nav nav-tabs d-none  nav-pills nav-pills-primary" role="tablist">
-                   <li role="presentation" class="active"><a href="#Ethereum" aria-controls="Ethereum" role="tab" data-toggle="tab" aria-expanded="true"><img src="images/ethereum.png" alt=""> Ethereum</a></li>
-                   <li role="presentation" class=""><a href="#zcash" aria-controls="zcash" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/zcash.png" alt=""> Zcash</a></li>
-                   <li role="presentation" class=""><a href="#BitCoin" aria-controls="BitCoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/bitcoin.png" alt=""> BitCoin</a></li>
-                         <li role="presentation" class=""><a href="#Ravencoin" aria-controls="Ravencoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/revange.png" width="24" alt=""> Ravencoin</a></li>
-                   <li role="presentation" class=""><a href="#LiteCoin" aria-controls="LiteCoin" role="tab" data-toggle="tab" aria-expanded="false"><img src="images/ligtcoin.png" width="24" alt=""> LiteCoin</a></li>
-              
-                  
-                </ul> -->
+                        <li class="gmp-megaw">5 MH</li>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="Ethereum">
-                      <div class="row mt-5 d-flex align-items-top">
-                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
-                            <div class=" box-price">
-                               <h4 class="font-weight-light text-center">Silver<br>
-                                  <small>Starter</small>
-                               </h4>
-                               <ul>
-                                  <meta itemprop="priceCurrency" content="USD">
-                                     <li class="gmp-price"><i class="fa symboleicon fa-inr" aria-hidden="true"></i> <span itemprop="price" id="silver">₹ 15000</span>
-                                  <!-- <sup>00</sup> -->
-                                  </li>
-                                  <li class="ethp">67% <span>ETH Availability</span></li>
-                                  <li class="contract">2 Years Contract</li>
-                                  
-                                  <li class="gmp-megaw">5 MH</li>
-                                  
-                                  <li class="gmp-plan">24 Months Ethereum Mining *
-                                     <div><span itemprop="name">Limited supply</span>
-
-                                     </div>
-                                  </li>
-                               </ul>
-                               <p class="gmp-plan">
-                            
-                               Maintenance fee: 0.0<br>
-                               Payout: Daily<br>
-                               Discount: 10% <span class="arrow_box">limited time</span><br>
-                               Projected Payout: up to 200%<br>Projected Payout as per ETH History
-                               more than 700%. To know more, Click Here
+                        <li class="gmp-plan">
+                          24 Months Ethereum Mining *
+                          <div><span itemprop="name">Limited supply</span></div>
+                        </li>
+                      </ul>
+                      <p class="gmp-plan">
+                        Maintenance fee: 0.0<br />
+                        Payout: Daily<br />
+                        Discount: 10% <span class="arrow_box">limited time</span
+                        ><br />
+                        Projected Payout: up to 200%<br />Projected Payout as
+                        per ETH History more than 700%. To know more, Click Here
                       </p>
 
+                      <p class="stock-text">In Stock</p>
 
-                               <p class="stock-text">In Stock</p>
+                      <p class="padding-bottom_2 padding-top_2">
+                        <a
+                          routerLink="/login"
+                          class="purchasebtn"
+                          (click)="onClickPurchasePlan(10,2,'Sliver')"
+                          >PURCHASE PLAN</a
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4">
+                    <div class="box-price">
+                      <h4 class="font-weight-light text-center">
+                        Gold<br />
+                        <small>Best Buy</small>
+                      </h4>
+                      <ul>
+                        <meta itemprop="priceCurrency" content="USD" />
+                        <li class="gmp-price">
+                          <i
+                            class="fa symboleicon fa-inr"
+                            aria-hidden="true"
+                          ></i>
+                          <span itemprop="price" id="gold">₹ 105,000</span>
+                          <!-- <sup>69</sup> -->
+                        </li>
+                        <!-- <sup>69</sup> -->
 
-
-                               <p class=" padding-bottom_2  padding-top_2">
-                                  <a routerLink="/login" class="purchasebtn ">PURCHASE PLAN</a>
-                               </p>
-                            </div>
-                         </div>
-                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
-                            <div class=" box-price">
-                               <h4 class="font-weight-light text-center">Gold<br>
-                                  <small>Best Buy</small>
-                               </h4>
-                               <ul>
-                                  <meta itemprop="priceCurrency" content="USD">
-                                <li class="gmp-price"><i class="fa symboleicon fa-inr" aria-hidden="true"></i> <span itemprop="price" id="gold">₹ 105,000</span>
-                                  <!-- <sup>69</sup> -->
-                                  </li>
-                                  <!-- <sup>69</sup> -->
-                                  
-                                   <li class="ethp">67% <span>ETH Availability</span></li>
-                                  <li class="contract">2 Years Contract</li>
-                                  <li class="gmp-megaw">35 MH</li>
-                                  <li class="gmp-plan">24 Months Ethereum Mining *
-                                     <div><span itemprop="name">Limited supply</span>
-
-                                     </div>
-                                  </li>
-                               </ul>
-                               <p class="gmp-plan">
-                               
-                               Maintenance fee: 0.50%<br>
-                               Payout: Daily<br>
-                               Discount: 5% <span class="arrow_box">limited time</span><br>
-                               Projected Payout: up to 200%<br>Projected Payout as per ETH History
-                               more than 700%.
+                        <li class="ethp">67% <span>ETH Availability</span></li>
+                        <li class="contract">2 Years Contract</li>
+                        <li class="gmp-megaw">35 MH</li>
+                        <li class="gmp-plan">
+                          24 Months Ethereum Mining *
+                          <div><span itemprop="name">Limited supply</span></div>
+                        </li>
+                      </ul>
+                      <p class="gmp-plan">
+                        Maintenance fee: 0.50%<br />
+                        Payout: Daily<br />
+                        Discount: 5% <span class="arrow_box">limited time</span
+                        ><br />
+                        Projected Payout: up to 200%<br />Projected Payout as
+                        per ETH History more than 700%.
                       </p>
 
-                               <p class="stock-text">In Stock</p>
+                      <p class="stock-text">In Stock</p>
 
-
-                               <p class=" padding-bottom_2  padding-top_2">
-                                 <a routerLink="/login" class="purchasebtn ">PURCHASE PLAN</a>
-                               </p>
-                            </div>
-                         </div>
-                         <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4  ">
-                            <div class=" box-price">
-                               <h4 class="font-weight-light text-center">Diamond<br>
-                                  <small>Max Profit</small>
-                               </h4>
-                               <ul>
-                                  <meta itemprop="priceCurrency" content="USD">
-                                <li class="gmp-price"><i class="fa symboleicon fa-inr" id="symbole" aria-hidden="true"></i> <span itemprop="price" id="diamond"> ₹ 1,500,000</span>
-                                  <!-- <sup>61</sup> -->
-                                  </li>
-                                   <li class="ethp">67% <span>ETH Availability</span></li>
-                                  <li class="contract">2 Years Contract</li>
-                                  <li class="gmp-megaw">300-3500 MH</li>
-                                  <li class="gmp-plan">24 Months Ethereum Mining *
-                                     <div><span itemprop="name">Limited supply</span>
-
-                                     </div>
-                                  </li>
-                               </ul>
-                               <p class="gmp-plan">
-                                   
-                               Maintenance fee: 0.25%<br>
-                               Payout: Daily<br>
-                               Discount: 5% <span class="arrow_box">limited time</span><br>
-                               Projected Payout: up to 200%<br>Projected Payout as per ETH History
-                               more than 700%.
+                      <p class="padding-bottom_2 padding-top_2">
+                        <a
+                          routerLink="/login"
+                          class="purchasebtn"
+                          (click)="onClickPurchasePlan(5,2,'Gold')"
+                          >PURCHASE PLAN</a
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-10 col-md-8 m-auto col-lg-4">
+                    <div class="box-price">
+                      <h4 class="font-weight-light text-center">
+                        Diamond<br />
+                        <small>Max Profit</small>
+                      </h4>
+                      <ul>
+                        <meta itemprop="priceCurrency" content="USD" />
+                        <li class="gmp-price">
+                          <i
+                            class="fa symboleicon fa-inr"
+                            id="symbole"
+                            aria-hidden="true"
+                          ></i>
+                          <span itemprop="price" id="diamond">
+                            ₹ 1,500,000</span
+                          >
+                          <!-- <sup>61</sup> -->
+                        </li>
+                        <li class="ethp">67% <span>ETH Availability</span></li>
+                        <li class="contract">2 Years Contract</li>
+                        <li class="gmp-megaw">300-3500 MH</li>
+                        <li class="gmp-plan">
+                          24 Months Ethereum Mining *
+                          <div><span itemprop="name">Limited supply</span></div>
+                        </li>
+                      </ul>
+                      <p class="gmp-plan">
+                        Maintenance fee: 0.25%<br />
+                        Payout: Daily<br />
+                        Discount: 5% <span class="arrow_box">limited time</span
+                        ><br />
+                        Projected Payout: up to 200%<br />Projected Payout as
+                        per ETH History more than 700%.
                       </p>
 
+                      <p class="stock-text">In Stock</p>
 
-                               <p class="stock-text">In Stock</p>
-
-
-                               <p class=" padding-bottom_2  padding-top_2">
-                                 <a routerLink="/login" class="purchasebtn ">PURCHASE PLAN</a>
-                               </p>
-                            </div>
-                         </div>
-
-
-                      </div>
-                   </div>
-
-                
-                  
+                      <p class="padding-bottom_2 padding-top_2">
+                        <a
+                          routerLink="/login"
+                          class="purchasebtn"
+                          (click)="onClickPurchasePlan(5,2,'Diamond')"
+                          >PURCHASE PLAN</a
+                        >
+                      </p>
+                    </div>
+                  </div>
                 </div>
-             </div>
-
-
-
-
-             <!-- /.row -->
+              </div>
+            </div>
           </div>
-       </section>
 
-
+          <!-- /.row -->
+        </div>
+      </section>
     </div>
- </section>
+  </section>
 </ion-content>

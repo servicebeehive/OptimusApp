@@ -8,7 +8,7 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { HeaderModule } from 'src/app/common/header/header.module';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -17,10 +17,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     IonicModule,
     DashboardPageRoutingModule,
     HeaderModule,
-    MatTabsModule
-    
+    MatTabsModule,
   ],
-  declarations: [DashboardPage]
-
+  declarations: [DashboardPage],
 })
 export class DashboardPageModule {}

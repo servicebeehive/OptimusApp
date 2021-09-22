@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PurchaseFlowPageRoutingModule } from './purchase-flow-routing.module';
 
 import { PurchaseFlowPage } from './purchase-flow.page';
+import { HeaderModule } from 'src/app/common/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PurchaseFlowPageRoutingModule
+    PurchaseFlowPageRoutingModule,
+    HeaderModule,
   ],
-  declarations: [PurchaseFlowPage]
+  declarations: [PurchaseFlowPage],
 })
 export class PurchaseFlowPageModule {}
