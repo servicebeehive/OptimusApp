@@ -8,16 +8,9 @@ import { AccountService } from 'src/app/services/account/account.service';
   styleUrls: ['./account-setting.page.scss'],
 })
 export class AccountSettingPage implements OnInit {
+  public title = 'Account Setting';
 
-  constructor(public router: Router,
-    public accountService: AccountService) { }
+  constructor(public router: Router, public accountService: AccountService) {}
 
-  ngOnInit() {
-  }
-
-  public onClickLogout(): void {
-    this.accountService.removeToken();
-    this.router.navigate(['unauthorized/home']);
-  }
-
+  ngOnInit() {}
 }

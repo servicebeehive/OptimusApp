@@ -1,9 +1,34 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>purchase-flow</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border" [translucent]="true">
+  <app-header [pageTitle]="title"></app-header>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="sharedService.checkLoginType">
+    <p>Plan Type: {{purchasePlanDetails?.type}}</p>
+    <p>Discount: {{purchasePlanDetails?.discount}} %</p>
+    <p>Contract Period: {{purchasePlanDetails?.contract}}</p>
 
+    <p>Buy MH : <ion-input type="text" placeholder="Buy MH"></ion-input></p>
+
+    <p>
+      <ion-item>
+        <ion-label>Select Payment Method</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option *ngFor="let option of paymentOptions">
+            <h2>{{ option.title }}</h2>
+            -
+            <h4>{{ option.charge }}</h4>
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </p>
+
+    <ion-button
+      expand="block"
+      color="tertiary"
+      fill="outline"
+      (click)="onClickPaymentSummary()"
+      >Proceed For Payment</ion-button
+    >
+  </div>
 </ion-content>
