@@ -1,6 +1,9 @@
 <ion-header class="ion-no-border" [translucent]="true">
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
+<p>
+  <app-share-app></app-share-app>
+</p>
 
 <ion-content>
   <ion-searchbar showCancelButton="always"></ion-searchbar>
@@ -10,9 +13,13 @@
         <div class="mat-tree-node">
           <ion-chip color="primary">
             <ion-avatar>
-              <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+              <img
+                src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg"
+              />
             </ion-avatar>
-            <ion-label>{{node.fname}} {{node.lname}} <i class="positionset">{{node.children.length}}</i><br>
+            <ion-label
+              >{{node.fname}} {{node.lname}}
+              <i class="positionset">{{node.children.length}}</i><br />
               <span class="text">{{node.emailid}} </span>
             </ion-label>
           </ion-chip>
@@ -22,17 +29,25 @@
     <mat-nested-tree-node *matTreeNodeDef="let node;when: hasChildren">
       <li class="example-tree-container">
         <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle [matTreeNodeToggleRecursive]="false"
-            [attr.aria-label]="'toggle ' + node.fname">
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [matTreeNodeToggleRecursive]="false"
+            [attr.aria-label]="'toggle ' + node.fname"
+          >
             <mat-icon>
               {{treeControl.isExpanded(node) ? 'remove' : 'add'}}
             </mat-icon>
           </button>
           <ion-chip color="primary">
             <ion-avatar>
-              <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+              <img
+                src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg"
+              />
             </ion-avatar>
-            <ion-label>{{node.fname}} {{node.lname}} <i class="positionset">{{node.children.length}}</i><br>
+            <ion-label
+              >{{node.fname}} {{node.lname}}
+              <i class="positionset">{{node.children.length}}</i><br />
               <span class="text">{{node.emailid}} </span>
             </ion-label>
           </ion-chip>

@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { NetworkingPageRoutingModule } from './networking-routing.module';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { NetworkingPage } from './networking.page';
-import {CdkTreeModule} from '@angular/cdk/tree';
-import {MatButtonModule} from '@angular/material/button';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { MatButtonModule } from '@angular/material/button';
 import { HeaderModule } from 'src/app/common/header/header.module';
-import {MatTreeModule} from '@angular/material/tree';
-import {A11yModule} from '@angular/cdk/a11y';
+import { MatTreeModule } from '@angular/material/tree';
+import { A11yModule } from '@angular/cdk/a11y';
+import { ShareAppModule } from 'src/app/common/share-app/share-app.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,8 +24,9 @@ import {A11yModule} from '@angular/cdk/a11y';
     MatButtonModule,
     HeaderModule,
     MatTreeModule,
-    A11yModule
+    A11yModule,
+    ShareAppModule,
   ],
-  declarations: [NetworkingPage]
+  declarations: [NetworkingPage],
 })
 export class NetworkingPageModule {}

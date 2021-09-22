@@ -61,7 +61,11 @@ const routes: Routes = [
     path:'authorized/dashboard',
     redirectTo:'dashboard',
     pathMatch:'full'
+  },  {
+    path: 'payment-summary',
+    loadChildren: () => import('./payment-summary/payment-summary.module').then( m => m.PaymentSummaryPageModule)
   }
+
 ];
 
 @NgModule({
