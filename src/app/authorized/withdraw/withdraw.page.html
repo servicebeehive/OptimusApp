@@ -2,4 +2,20 @@
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content> 
+
+  <div>
+    <p>Currency: Currency Table Drop down or ETH HardCoded/p>
+    <p>Threshold Limit: Coming from Table admin setting</p>
+    <p>Withdrawal Unit : <ion-input type="text" placeholder="Withdrawal Unit"></ion-input></p>
+    <p>Exchange Address : <ion-input type="text" placeholder="Exchange Address"></ion-input></p>
+    <ion-col>
+      <ion-button size="block" [disabled]='isDisabled' color="tertiary">Send OTP</ion-button>
+    </ion-col>
+    <p>OTP : {{purchasePlanDetails?.type}}</p>
+    <ion-col>
+      <ion-button size="block" [disabled]='isDisabled' color="tertiary">Submit</ion-button>
+    </ion-col>
+  </div>
+
+</ion-content>
