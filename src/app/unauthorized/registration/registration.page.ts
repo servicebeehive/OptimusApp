@@ -14,70 +14,73 @@ import { CustomValidators } from './confirm-password.validator';
   templateUrl: './registration.page.html',
   styleUrls: ['./registration.page.scss'],
 })
-export class RegistrationPage implements OnInit { 
+export class RegistrationPage implements OnInit {
+  public emailpattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
 
-  public emailpattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$";
-
-  constructor(public modalController: ModalController,
-              public fb: FormBuilder,
-              public loginService:LoginService,
-              public notificationService:NotificationService) { }
-
-  ngOnInit() {
-
-  }
-
-  addRegistrationDetail = this.fb.group({
-    fName: ['', [Validators.required]],
-    lName: ['',Validators.required],
-    email: ['', [Validators.required,Validators.pattern(this.emailpattern)]],
-    phoneNumber: ['',Validators.minLength(10)],
-    referralCode: [''],
-    checkTermsCondition: [false, Validators.requiredTrue],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
-  },         {
-    validators:CustomValidators.passwordMatchValidator
-  }
+  addRegistrationDetail = this.fb.group(
+    {
+      fName: ['', [Validators.required]],
+      lName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(this.emailpattern)]],
+      phoneNumber: ['', Validators.minLength(10)],
+      referralCode: [''],
+      checkTermsCondition: [false, Validators.requiredTrue],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+    },
+    {
+      validators: CustomValidators.passwordMatchValidator,
+    }
   );
 
-  public dismiss():void {
+  constructor(
+    public modalController: ModalController,
+    public fb: FormBuilder,
+    public loginService: LoginService,
+    public notificationService: NotificationService
+  ) {}
+
+  ngOnInit() {}
+
+  public dismiss(): void {
     this.modalController.dismiss({
-      dismissed: true
+      dismissed: true,
     });
   }
 
-  public onSignup():void {
+  public onSignup(): void {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     const registration_Detail = new RegistrationDetail();
     registration_Detail.firstname = this.addRegistrationDetail.value.fName;
     registration_Detail.lastname = this.addRegistrationDetail.value.lName;
     registration_Detail.emailaddress = this.addRegistrationDetail.value.email;
-    registration_Detail.mobilenumber = this.addRegistrationDetail.value.phoneNumber;
+    registration_Detail.mobilenumber =
+      this.addRegistrationDetail.value.phoneNumber;
     registration_Detail.pwd = this.addRegistrationDetail.value.confirmPassword;
     registration_Detail.refcode = this.addRegistrationDetail.value.referralCode;
-    this.loginService.postRegistrationDetail(registration_Detail).then((result:ReturnResult<OtpDetail>) =>{
-      if(result.success){
-        this.notificationService.showToast<OtpDetail>(result)
-        this.dismiss();
-        this.onOtpVerify(registration_Detail.emailaddress);
-      }
-      else{
-        this.notificationService.showToast<OtpDetail>(result)
-      }
-    })
+    this.loginService
+      .postRegistrationDetail(registration_Detail)
+      .then((result: ReturnResult<OtpDetail>) => {
+        if (result.success) {
+          this.notificationService.showToast<OtpDetail>(result);
+          this.dismiss();
+          this.onOtpVerify(registration_Detail.emailaddress);
+        } else {
+          this.notificationService.showToast<OtpDetail>(result);
+        }
+      });
   }
 
-  public async onOtpVerify(emailID?:string):Promise<void>{
+  public async onOtpVerify(emailID?: string): Promise<void> {
     const model = await this.modalController.create({
       component: VerifyOtpPage,
       cssClass: 'my-custom-class',
-      componentProps: { value: emailID }
+      componentProps: { value: emailID },
     });
     await model.present();
   }
 
-  get f(){
+  get f() {
     return this.addRegistrationDetail.controls;
   }
-
 }
