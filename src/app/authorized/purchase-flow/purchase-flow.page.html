@@ -2,33 +2,69 @@
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
   <div *ngIf="sharedService.checkLoginType">
-    <p>Plan Type: {{purchasePlanDetails?.type}}</p>
-    <p>Discount: {{purchasePlanDetails?.discount}} %</p>
-    <p>Contract Period: {{purchasePlanDetails?.contract}}</p>
+  <!-- <div class=" ion-padding">
+    <div class=" box-price">
+      <h4 class="font-weight-light text-center">Silver<br>
+         <small>Starter</small>
+      </h4>
+      <ul>
+         <meta itemprop="priceCurrency" content="USD">
+            <li class="gmp-price"><i class="fa symboleicon fa-inr" aria-hidden="true"></i> <span itemprop="price" id="silver">₹ 15000</span>
+      
+         </li>
+         <li class="ethp">67% <span>ETH Availability</span></li>
+         <li class="contract">2 Years Contract</li>
+         
+         <li class="gmp-megaw">5 MH</li>
+         
+         <li class="gmp-plan">24 Months Ethereum Mining *
+            <div><span itemprop="name">Limited supply</span>
+  
+            </div>
+         </li>
+      </ul>
+      
+  </div>
+  
+   </div> -->
 
-    <p>Buy MH : <ion-input type="text" placeholder="Buy MH"></ion-input></p>
-
-    <p>
-      <ion-item>
-        <ion-label>Select Payment Method</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option *ngFor="let option of paymentOptions">
-            <h2>{{ option.title }}</h2>
+   <ion-list color="primary">
+    <ion-item  color="primary" lines="full">
+      <ion-label>Plan Type</ion-label>
+      <ion-text  slot="end">{{purchasePlanDetails?.type}}</ion-text>
+    </ion-item>
+    <ion-item  color="primary" lines="full">
+      <ion-label>Discount</ion-label>
+      <ion-text slot="end" color="success">{{purchasePlanDetails?.discount}}%</ion-text>
+    </ion-item>
+    <ion-item color="primary" lines="full">
+      <ion-label>Contract Period</ion-label>
+      <ion-text slot="end">{{purchasePlanDetails?.contract}}</ion-text>
+    </ion-item>
+    <ion-item  color="tertiary" lines="full">
+      <ion-label>Buy MH</ion-label>
+      <ion-input class="bg-input" type="text" placeholder="Buy MH" slot="end"></ion-input>
+    
+    </ion-item>
+    </ion-list>
+  
+    <ion-item>
+      <ion-label>Payment </ion-label>
+      <ion-select interface="popover">
+        <ion-select-option *ngFor="let option of paymentOptions">
+          <h2>{{ option.title }}</h2>
             -
             <h4>{{ option.charge }}</h4>
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
-    </p>
+        </ion-select-option>
+       
+      </ion-select>
+    </ion-item>
 
-    <ion-button
-      expand="block"
-      color="tertiary"
-      fill="outline"
-      (click)="onClickPaymentSummary()"
-      >Proceed For Payment</ion-button
-    >
-  </div>
+    <ion-button expand="block" class=" ion-margin" color="tertiary" (click)="onClickPaymentSummary()"
+    >Check Out</ion-button>
+
+</div>
+
 </ion-content>

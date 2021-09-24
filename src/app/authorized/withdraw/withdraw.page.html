@@ -2,4 +2,38 @@
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content color="primary"> 
+
+  <ion-list color="primary">
+    <ion-item   lines="full">
+      <ion-label>Withdrow Details</ion-label>
+      <a routerLink="/authorized/withdrawdetail">View Details</a>
+      
+    </ion-item>
+    <ion-item  color="primary" lines="full">
+      <ion-label>Currency</ion-label>
+      <ion-text  slot="end">ETH</ion-text>
+      <ion-text  slot="end">1</ion-text>
+    </ion-item>
+    <ion-item  color="primary" lines="full">
+      <ion-label>Threshold Limit</ion-label>
+      <ion-text slot="end" color="success">2</ion-text>
+    </ion-item>
+
+    <ion-item  color="tertiary" lines="full">
+      <ion-label>WithDraw Unit</ion-label>
+      <ion-input class="bg-input" type="text" placeholder="Enter Unit" slot="end"></ion-input>
+    </ion-item>
+    <ion-item  color="tertiary" lines="full">
+      <ion-label>Exchange Address</ion-label>
+      <ion-input class="bg-input" type="text" placeholder="Enter Address" slot="end"></ion-input>
+    </ion-item>
+    </ion-list>
+    <ion-button size="block" [disabled]='isDisabled' class="ion-margin" color="tertiary">Send OTP</ion-button>
+    <p class=" ion-padding">OTP : {{purchasePlanDetails?.type}}</p>
+
+
+      <ion-button size="block" class="ion-margin" [disabled]='isDisabled' color="tertiary">Submit</ion-button>
+  
+
+</ion-content>
