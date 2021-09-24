@@ -12,27 +12,41 @@ import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService extends BaseService {
-
-  constructor(public httpClient: HttpClient,
+  constructor(
+    public httpClient: HttpClient,
     public controllers: Controllers,
-    public config: ConfigService<IConfig>) {
+    public config: ConfigService<IConfig>
+  ) {
     super(httpClient, config.getSettingsObject().APIUrl);
   }
 
-  public async getUserDetails(loginDetailData: loginDetail): Promise<ReturnResult<userDetail>> {
-    return this.PostReturn<loginDetail, ReturnResult<userDetail>>(this.controllers.login, loginDetailData)
+  public async getUserDetails(
+    loginDetailData: loginDetail
+  ): Promise<ReturnResult<userDetail>> {
+    return this.PostReturn<loginDetail, ReturnResult<userDetail>>(
+      this.controllers.login,
+      loginDetailData
+    );
   }
 
-  public async postRegistrationDetail(RegistrationDetailData: RegistrationDetail): Promise<ReturnResult<OtpDetail>> {
-    return this.PostReturn<RegistrationDetail, ReturnResult<OtpDetail>>(this.controllers.signUpUser, RegistrationDetailData)
+  public async postRegistrationDetail(
+    registrationDetailData: RegistrationDetail
+  ): Promise<ReturnResult<OtpDetail>> {
+    return this.PostReturn<RegistrationDetail, ReturnResult<OtpDetail>>(
+      this.controllers.signUpUser,
+      registrationDetailData
+    );
   }
 
-  public async verifyOtpDetail(VerifyOtpDetailData: VerifyOtpModel): Promise<ReturnResult> {
-    return this.PostReturn<VerifyOtpModel, ReturnResult>(this.controllers.verifyuserotp, VerifyOtpDetailData)
+  public async verifyOtpDetail(
+    verifyOtpDetailData: VerifyOtpModel
+  ): Promise<ReturnResult> {
+    return this.PostReturn<VerifyOtpModel, ReturnResult>(
+      this.controllers.verifyuserotp,
+      verifyOtpDetailData
+    );
   }
-
-
 }

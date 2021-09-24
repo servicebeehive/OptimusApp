@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
+import { ReturnResult } from 'src/app/models/return-result';
+import { PlanService } from 'src/app/services/plan/plan.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
@@ -10,9 +12,15 @@ import { SharedService } from 'src/app/services/shared/shared-service.service';
 export class PurchaseOfferPage implements OnInit {
   public title = 'Plans & Offer';
   public headcolor = 'primary';
-  constructor(public sharedService: SharedService) {}
+  public planDetailsData: PlanDetailsModel[] = [];
+  constructor(
+    public sharedService: SharedService,
+    public planServices: PlanService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPlanDetails();
+  }
 
   public onClickPurchasePlan(
     discount: number,
@@ -20,10 +28,19 @@ export class PurchaseOfferPage implements OnInit {
     type: string
   ): void {
     const planDetails = new PlanDetailsModel();
-    planDetails.contract = contract;
-    planDetails.discount = discount;
-    planDetails.type = type;
+    // planDetails.contract = contract;
+    // planDetails.discount = discount;
+    // planDetails.type = type;
     this.sharedService.setPlanDetails(planDetails);
     this.sharedService.setCheckLoginType(true);
+  }
+
+  public async getPlanDetails() {
+    const result: ReturnResult<PlanDetailsModel[]> =
+      await this.planServices.getPlanDetails();
+    if (result.success) {
+      this.planDetailsData = result.data;
+    }
+    console.log('this.planDetailsData', this.planDetailsData);
   }
 }
