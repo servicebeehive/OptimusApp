@@ -64,6 +64,18 @@ const routes: Routes = [
   },  {
     path: 'payment-summary',
     loadChildren: () => import('./payment-summary/payment-summary.module').then( m => m.PaymentSummaryPageModule)
+  },
+  {
+    path: 'paymentsuccess',
+    loadChildren: () => import('./paymentsuccess/paymentsuccess.module').then( m => m.PaymentsuccessPageModule)
+  },
+  {
+    path: 'withdrawdetail',
+    loadChildren: () => import('./withdrawdetail/withdrawdetail.module').then( m => m.WithdrawdetailPageModule)
+  },
+  {
+    path: 'calculator',
+    loadChildren: () => import('./calculator/calculator.module').then( m => m.CalculatorPageModule)
   }
 
 ];
