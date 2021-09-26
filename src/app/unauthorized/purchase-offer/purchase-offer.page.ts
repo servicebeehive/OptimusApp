@@ -22,16 +22,9 @@ export class PurchaseOfferPage implements OnInit {
     this.getPlanDetails();
   }
 
-  public onClickPurchasePlan(
-    discount: number,
-    contract: number,
-    type: string
-  ): void {
+  public onClickPurchasePlan(selectedPalnDetails: PlanDetailsModel): void {
     const planDetails = new PlanDetailsModel();
-    // planDetails.contract = contract;
-    // planDetails.discount = discount;
-    // planDetails.type = type;
-    this.sharedService.setPlanDetails(planDetails);
+    this.sharedService.setPlanDetails(selectedPalnDetails);
     this.sharedService.setCheckLoginType(true);
   }
 
@@ -41,6 +34,5 @@ export class PurchaseOfferPage implements OnInit {
     if (result.success) {
       this.planDetailsData = result.data;
     }
-    console.log('this.planDetailsData', this.planDetailsData);
   }
 }

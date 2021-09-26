@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { PaymentDetails } from 'src/app/models/payment-details.mode';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
+import { ReturnResult } from 'src/app/models/return-result';
+import { PlanService } from 'src/app/services/plan/plan.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 import { PaymentSummaryPage } from '../payment-summary/payment-summary.page';
 
@@ -13,39 +16,19 @@ export class PurchaseFlowPage implements OnInit {
   public title = 'Purchase Flow';
   public purchasePlanDetails: PlanDetailsModel;
 
-  paymentOptions = [
-    {
-      title: 'UPI',
-      charge: '0 %',
-    },
-    {
-      title: 'Credit Card',
-      charge: '1.68 %',
-    },
-    {
-      title: 'Debit Card',
-      charge: '1.68 %',
-    },
-    {
-      title: 'NetBanking',
-      charge: '1.68%',
-    },
-    {
-      title: 'Wallet',
-      charge: '2.00 %',
-    },
-  ];
+  public paymentOptions: PaymentDetails[] = [];
 
   constructor(
     public sharedService: SharedService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public planService: PlanService
   ) {}
 
   ngOnInit() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
-      console.log('planDetails', this.sharedService.planDetails);
     }
+    this.getPaymentMethods();
   }
 
   public async onClickPaymentSummary() {
@@ -54,5 +37,13 @@ export class PurchaseFlowPage implements OnInit {
       cssClass: 'my-custom-class',
     });
     await model.present();
+  }
+
+  public async getPaymentMethods() {
+    const result: ReturnResult<PaymentDetails[]> =
+      await this.planService.getPayMethodDetails();
+    if (result.success) {
+      this.paymentOptions = result.data;
+    }
   }
 }
