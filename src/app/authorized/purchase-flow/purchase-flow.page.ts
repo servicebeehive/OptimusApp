@@ -27,7 +27,6 @@ export class PurchaseFlowPage implements OnInit {
   ngOnInit() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
-      console.log('planDetails', this.purchasePlanDetails);
     }
     this.getPaymentMethods();
   }
