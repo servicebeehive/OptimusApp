@@ -46,4 +46,14 @@ export class NetworkingPage implements OnInit {
 
   hasChildren = (index: number, node: NetworkDetailModel): boolean =>
     node.children.length > 0;
+  filterChanged(filterText: any) {
+    console.log(this.dataSource.data)
+    this.dataSource.data.filter(filterText);
+      if(filterText)
+      {
+        this.treeControl.expandAll();
+      } else {
+        this.treeControl.collapseAll();
+      }
+    }
 }
