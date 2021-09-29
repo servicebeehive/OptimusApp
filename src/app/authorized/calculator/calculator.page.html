@@ -2,18 +2,35 @@
 <ion-header class="ion-no-border" [translucent]="true">
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
+<ion-card >
+  <ion-card-content class="">
+    <ion-item color="none" class=" ion-no-padding" lines="none">
+      <ion-label>
+        <ion-text>ETH </ion-text>
+       <p class=" ion-no-margin">Mining Calculator</p>
+      
+      </ion-label>
+      <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="end"></ion-img>
+    </ion-item>
+  </ion-card-content>
+
+</ion-card>
 
 <ion-content color="primary">
+  
   <ion-grid>
     <ion-row>
 <ion-col size="5">
-  <ion-input class="bg-input" type="text" placeholder=""></ion-input>
+  <ion-input class="bg-input" type="text" placeholder="0"></ion-input>
+  <span class="right-text">₹</span>
 </ion-col>
 <ion-col size="2" class=" ion-justify-content-center ion-text-center">
 =
 </ion-col>
 <ion-col size="5">
-  <ion-input class="bg-input" type="text" placeholder=""></ion-input>
+  <ion-input class="bg-input" type="text" placeholder="0"></ion-input>
+  <span class="right-text">MH</span>
+ 
 </ion-col>
     </ion-row>
     <ion-row>
