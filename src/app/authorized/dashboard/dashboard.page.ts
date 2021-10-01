@@ -8,9 +8,14 @@ import { AccountService } from 'src/app/services/account/account.service';
 })
 export class DashboardPage implements OnInit {
   public title = 'Dashboard';
-  public slideOpts = '';
-  public isDisabled = true;
 
+  public isDisabled = true;
+  slideOpts = {
+    initialSlide: 1,
+    slidesPerView: 2,
+    speed: 400,
+    spaceBetween:10,
+  };
   constructor(public accountServices: AccountService) {}
 
   ngOnInit() {}
