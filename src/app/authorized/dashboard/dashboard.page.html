@@ -52,42 +52,41 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card class=" ion-text-center first-card card-box ion-no-margin">
-          <img align="center" src="assets/icon/gift-card.png" alt="">
-          <h4>
-            Plans and offer
-          </h4>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card class=" ion-text-center first-card card-box ion-no-margin">
-          <img align="center" src="assets/icon/idea.png" alt="">
-          <h4>
-            Know Mining
-          </h4>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card class=" ion-text-center first-card card-box ion-no-margin">
-          <img align="center" src="assets/icon/problem.png" alt="">
-          <h4>
-            Why Us?
-          </h4>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card class=" ion-text-center first-card card-box ion-no-margin">
-          <img align="center" src="assets/icon/customer.png" alt="">
-          <h4>
-            About Referral
-          </h4>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-slides pager="false" class=" ion-padding" [options]="slideOpts">
+    <ion-slide>
+      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+        <img align="center" src="assets/icon/gift-card.png" alt="">
+        <h4>
+          Plans and offer
+        </h4>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+        <img align="center" src="assets/icon/idea.png" alt="">
+        <h4>
+          Know Mining
+        </h4>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+        <img align="center" src="assets/icon/problem.png" alt="">
+        <h4>
+          Why Us?
+        </h4>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+        <img align="center" src="assets/icon/customer.png" alt="">
+        <h4>
+          About Referral
+        </h4>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Payout" class=" ion-text-center">
       No Record Found
