@@ -9,6 +9,9 @@ export class NetworkDetailModel {
   public isExpanded?: boolean;
   public children: NetworkDetailModel[];
 
+  parent?                     : NetworkDetailModel;
+  ok?                         : boolean;
+
   constructor() {
     this.fname = '';
     this.lname = '';
