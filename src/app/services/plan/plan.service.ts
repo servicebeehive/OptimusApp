@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { PaymentDetails } from 'src/app/models/payment-details.mode';
+import { PaymentSummary } from 'src/app/models/payment-summary';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { BaseService } from '../base/base.service';
@@ -29,6 +30,13 @@ export class PlanService extends BaseService {
   public async getPayMethodDetails(): Promise<ReturnResult<PaymentDetails[]>> {
     return this.Post<ReturnResult<PaymentDetails[]>>(
       this.controllers.getpaymethods
+    );
+  }
+
+  public async postPayment(info: PaymentSummary): Promise<any> {
+    return this.PostPayment<PaymentSummary, any>(
+      this.controllers.payment,
+      info
     );
   }
 }
