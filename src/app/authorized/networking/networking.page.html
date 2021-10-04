@@ -1,69 +1,70 @@
 <ion-header class="ion-no-border" [translucent]="true">
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
-<p>
+<!-- <p>
   <app-share-app></app-share-app>
-</p>
+</p> -->
 
-<ion-content>
-  <ion-searchbar autocomplete="off" [ngModel]="search" (ngModelChange)="search=$event;setChildOk($event,dataSourcee.data)"  placeholder="Search..." id='inp' showCancelButton="always"></ion-searchbar>
+<ion-content color="light">
+  <ion-searchbar showCancelButton="always" [ngModel]="search" (ngModelChange)="search=$event;setChildOk($event,dataSourcee.data)"  placeholder="Search..." id='inp'></ion-searchbar>
 
-
-  <mat-tree [dataSource]="dataSourcee" [treeControl]="treeControl">
-    <mat-tree-node *matTreeNodeDef="let node" [style.display]="!search || node.ok?'block':'none'">
-      <li>
-        <div class="mat-tree-node">
-          <ion-chip color="primary">
-            <ion-avatar>
-              <img
-                src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg"
-              />
-            </ion-avatar>
-            <ion-label
-              >{{node.fname}} {{node.lname}}
-              <i class="positionset">{{node.children.length}}</i><br />
-              <span class="text">{{node.emailid}} </span>
-            </ion-label>
-          </ion-chip>
+<div class="p-5">
+<mat-tree [dataSource]="dataSourcee" [treeControl]="treeControl" class="example-tree jk">
+    <!-- Without Children -->
+    <mat-tree-node *matTreeNodeDef="let node" [style.display]="!search || node.ok?'block':'none'" >
+      <li class="mat-tree-node borderMain" >
+        <div class="setBorder"></div>
+        <div class="treeItemContainer">
+          <div class="top-m">
+            <img
+              src="assets/icon/profile.png"
+            />
+          </div>
+          <div class="userow"> <span class="titlename">{{node.fname}} {{node.lname}}</span>
+            <i class="positionset">{{node.children.length}}</i>
+            <!-- <h5 class="text-email">{{node.emailid}} </h5> -->
+          </div>
         </div>
       </li>
     </mat-tree-node>
-    <mat-nested-tree-node *matTreeNodeDef="let node;when: hasChildren" [style.display]="!search || node.ok?'block':'none'" >
-      <li class="example-tree-container">
-        <div class="mat-tree-node">
-          <button
-            mat-icon-button
-            matTreeNodeToggle
-            [matTreeNodeToggleRecursive]="false"
-            [attr.aria-label]="'toggle ' + node.fname"
-          >
-            <mat-icon>
-              {{treeControl.isExpanded(node) ? 'remove' : 'add'}}
-            </mat-icon>
-          </button>
-          <ion-chip color="primary">
-            <ion-avatar>
+    <!-- With Children -->
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChildren"
+      [style.display]="!search || node.ok?'block':'none'">
+      <li class="example-tree-container borderMain">
+        <div class="mat-tree-node" >
+          <!-- [appScrollIntoView]="node.lastActiveNode"  this will scroll to parent when we delete any child-->
+          <div class="setBorder"></div>
+
+          <div class="treeItemContainer" >
+            <button color="primary" mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.fname">
+              <mat-icon class="mat-icon-rtl-mirror"  >
+                {{treeControl.isExpanded(node)? "remove_circle": "add_circle"}}
+              </mat-icon>
+            </button>
+         
+            <div class="top-m">
               <img
-                src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg"
+                src="assets/icon/profile.png"
               />
-            </ion-avatar>
-            <ion-label
-              >{{node.fname}} {{node.lname}}
-              <i class="positionset">{{node.children.length}}</i><br />
-              <span class="text">{{node.emailid}} </span>
-            </ion-label>
-          </ion-chip>
-        </div>
-        <ul class="example-tree-nested-node">
-          <div *ngIf="treeControl.isExpanded(node)">
-            <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+              <div class="userow"> <span class="titlename">{{node.fname}} {{node.lname}}</span>
+                <i class="positionset">{{node.children.length}}</i>
+                <!-- <h5 class="text-email">{{node.emailid}} </h5> -->
+              </div>
+               
+              
+            
           </div>
+        </div>
+        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+          
         </ul>
       </li>
     </mat-nested-tree-node>
   </mat-tree>
 
-
+</div>
 
   
 </ion-content>
