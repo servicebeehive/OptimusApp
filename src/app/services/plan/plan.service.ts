@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { PaymentDetails } from 'src/app/models/payment-details.mode';
@@ -33,10 +34,7 @@ export class PlanService extends BaseService {
     );
   }
 
-  public async postPayment(info: PaymentSummary): Promise<any> {
-    return this.PostPayment<PaymentSummary, any>(
-      this.controllers.payment,
-      info
-    );
+  public postPayment(info: PaymentSummary): Promise<string> {
+    return this.PostPayment<PaymentSummary>(this.controllers.payment, info);
   }
 }

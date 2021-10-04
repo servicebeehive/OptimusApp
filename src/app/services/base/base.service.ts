@@ -1,6 +1,7 @@
+/* eslint-disable quote-props */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Observable, throwError } from 'rxjs';
 export abstract class BaseService {
   protected constructor(
     public httpClient: HttpClient,
@@ -24,16 +25,11 @@ export abstract class BaseService {
       .toPromise();
   }
 
-  public async PostPayment<T, U>(controllerInfo: string, info: T): Promise<U> {
+  public PostPayment<T>(controllerInfo: string, info: T): Promise<string> {
     const requestInfo = JSON.stringify(info);
-    return await this.httpClient
-      .post<U>(this.BaseUrl + controllerInfo, requestInfo, {
-        headers: new HttpHeaders({
-          // eslint-disable-next-line quote-props
-          Accept: 'text/html',
-          'Content-Type': 'application/json',
-          responseType: 'text',
-        }),
+    return this.httpClient
+      .post(this.BaseUrl + controllerInfo, requestInfo, {
+        responseType: 'text',
       })
       .toPromise();
   }
