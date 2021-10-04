@@ -8,50 +8,57 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary"> 
-<div class=" ion-padding">
-  <h2>Silver</h2>
-  <p>Payment Summary</p>
-</div>
+<ion-content color="primary">
+  <div class="ion-padding">
+    <h2>Silver</h2>
+    <p>Payment Summary</p>
+  </div>
 
-      <ion-list color="primary">
-        <ion-item  color="primary" lines="full">
-          <ion-label>1 MH</ion-label>
-          <ion-text  slot="end">3000</ion-text>
-        </ion-item>
-        <ion-item  color="tertiary" lines="full">
-          <ion-label>Buy MH</ion-label>
-          <ion-text  slot="end">10</ion-text>
-        
-        </ion-item>
-        <ion-item  color="primary" lines="full">
-          <ion-label slot="start">Discount</ion-label>
-          <ion-text slot="start" color="success">5%</ion-text>
-          <ion-text slot="end" >1500</ion-text>
-        </ion-item>
-        <ion-item  color="primary" lines="full">
-          <ion-label slot="start">Maintence Charges</ion-label>
-          <ion-text slot="start">0.5%</ion-text>
-          <ion-text slot="end" >150</ion-text>
-        </ion-item>
-        <ion-item  color="primary" lines="full">
-          <ion-label slot="start">Gateway Chanrges</ion-label>
-          <ion-text slot="start">1.68%</ion-text>
-          <ion-text slot="end" >504</ion-text>
-        </ion-item>
-       
-    
-        </ion-list>
-      
-        <ion-item>
-          <ion-label>Payment </ion-label>
-          <ion-select interface="popover">
-            <ion-select-option value="brown">Brown</ion-select-option>
-            <ion-select-option value="blonde">Blonde</ion-select-option>
-            <ion-select-option value="black">Black</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-button expand="block" class=" ion-margin" color="tertiary" 
-        >Proceed For Payment</ion-button>
+  <ion-list color="primary">
+    <ion-item color="primary" lines="full">
+      <ion-label>1 MH</ion-label>
+      <ion-text slot="end">3000</ion-text>
+    </ion-item>
+    <ion-item color="tertiary" lines="full">
+      <ion-label>Buy MH</ion-label>
+      <ion-text slot="end">10</ion-text>
+    </ion-item>
+    <ion-item color="primary" lines="full">
+      <ion-label slot="start">Discount</ion-label>
+      <ion-text slot="start" color="success">5%</ion-text>
+      <ion-text slot="end">1500</ion-text>
+    </ion-item>
+    <ion-item color="primary" lines="full">
+      <ion-label slot="start">Maintence Charges</ion-label>
+      <ion-text slot="start">0.5%</ion-text>
+      <ion-text slot="end">150</ion-text>
+    </ion-item>
+    <ion-item color="primary" lines="full">
+      <ion-label slot="start">Gateway Chanrges</ion-label>
+      <ion-text slot="start">1.68%</ion-text>
+      <ion-text slot="end">504</ion-text>
+    </ion-item>
+    <ion-item color="tertiary" lines="full">
+      <ion-label>Phone Number</ion-label>
+      <ion-text slot="end">10</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-button
+    expand="block"
+    class="ion-margin"
+    color="tertiary"
+    (click)="onPurchase()"
+    >Proceed For Payment</ion-button
+  >
 </ion-content>
+
+<!-- <div [innerHTML]="htmlResponse"></div> -->
+
+<iframe
+  name="nameFrame"
+  [innerHTML]="htmlResponse"
+  width="600"
+  height="550"
+  scrolling="no"
+></iframe>
