@@ -82,8 +82,8 @@ export class NetworkingPage implements OnInit {
     this.treeControl.expandAll();
     text=text.toLowerCase();
     node.forEach(x => {
-      x.emailid=x.emailid.toLowerCase();
-      x.ok = x.emailid.indexOf(text) >= 0;
+      x.fname=x.fname.toLowerCase();
+      x.ok = x.fname.indexOf(text) >= 0;
       // console.log('emailid-',x.emailid,'-', x.ok);
       if (x.parent) {
         // console.log('parent');
@@ -97,7 +97,7 @@ export class NetworkingPage implements OnInit {
   }
   setParentOk(text:string, node: NetworkDetailModel, ok:boolean) {
     // console.log('node.ok'+'-'+node.ok)
-    node.ok = node.ok || ok || (node.emailid.indexOf(text)>=0);
+    node.ok = node.ok || ok || (node.fname.indexOf(text)>=0);
     if (node.parent){
       this.setParentOk(text, node.parent,node.ok);
     }
