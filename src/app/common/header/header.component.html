@@ -8,14 +8,10 @@
       >
     </p>
   </h3>
-
-  <ion-button
-    *ngIf="islogeedIn"
-    slot="end"
-    class="ion-no-padding"
-    color="tertiary"
-    fill="clear"
-  >
+  <ion-button slot="end" fill="clear"  color="tertiary" class="ion-no-padding"  (click)="oncalculator()">
+    <ion-icon slot="icon-only" name="calculator-outline"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="islogeedIn" slot="end"  class="ion-no-padding" color="tertiary" fill="clear">
     <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
   </ion-button>
   <ion-button
@@ -27,7 +23,7 @@
   >
     <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
   </ion-button>
-  <ion-button
+<ion-button
     *ngIf="islogeedIn"
     (click)="onClickLogout()"
     slot="end"
