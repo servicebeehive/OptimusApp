@@ -8,10 +8,23 @@
       >
     </p>
   </h3>
-  <ion-button slot="end" fill="clear"  color="tertiary" class="ion-no-padding"  (click)="oncalculator()">
+  <ion-button
+    slot="end"
+    fill="clear"
+    color="tertiary"
+    class="ion-no-padding"
+    *ngIf="!isShowCloseButton"
+    (click)="oncalculator()"
+  >
     <ion-icon slot="icon-only" name="calculator-outline"></ion-icon>
   </ion-button>
-  <ion-button *ngIf="islogeedIn" slot="end"  class="ion-no-padding" color="tertiary" fill="clear">
+  <ion-button
+    *ngIf="islogeedIn && !isShowCloseButton"
+    slot="end"
+    class="ion-no-padding"
+    color="tertiary"
+    fill="clear"
+  >
     <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
   </ion-button>
   <ion-button
@@ -23,8 +36,8 @@
   >
     <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
   </ion-button>
-<ion-button
-    *ngIf="islogeedIn"
+  <ion-button
+    *ngIf="islogeedIn && !isShowCloseButton"
     (click)="onClickLogout()"
     slot="end"
     fill="clear"
@@ -32,5 +45,14 @@
   >
     <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
     Logout
+  </ion-button>
+
+  <ion-button
+    *ngIf="islogeedIn && isShowCloseButton"
+    color="clear"
+    slot="end"
+    (click)="dismiss()"
+  >
+    <ion-icon color="tertiary" name="close-outline"></ion-icon>
   </ion-button>
 </ion-toolbar>
