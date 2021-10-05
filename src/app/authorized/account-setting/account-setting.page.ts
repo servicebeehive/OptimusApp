@@ -8,7 +8,7 @@ import { AccountService } from 'src/app/services/account/account.service';
   styleUrls: ['./account-setting.page.scss'],
 })
 export class AccountSettingPage implements OnInit {
-  public title = 'Account Setting';
+  public title = 'Bank Details';
 
   constructor(public router: Router, public accountService: AccountService) {}
 
