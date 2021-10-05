@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   @Input() pageTitle = '';
   @Input() headcolor = '';
   public islogeedIn?: boolean = false;
+  public isShowCloseButton?: boolean = false;
   constructor(
     public router: Router,
     public accountServices: AccountService,
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
     public modalController: ModalController
   ) {
     this.islogeedIn = this.accountServices.isLoggedIn();
+    this.isShowCloseButton = this.sharedService.showCloseButton;
   }
 
   ngOnInit() {}
@@ -41,6 +43,13 @@ export class HeaderComponent implements OnInit {
       cssClass: 'my-custom-class',
     });
     await model.present();
-    //this.router.navigate(['calculator']);
+  }
+
+  public dismiss(): void {
+    this.sharedService.showCloseButton = false;
+    this.isShowCloseButton = this.sharedService.showCloseButton;
+    this.modalController.dismiss({
+      dismissed: true,
+    });
   }
 }

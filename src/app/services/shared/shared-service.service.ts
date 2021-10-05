@@ -8,6 +8,7 @@ import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 export class SharedService {
   public planDetails: PlanDetailsModel = new PlanDetailsModel();
   public checkLoginType = false;
+  public showCloseButton = false;
 
   constructor() {}
 
