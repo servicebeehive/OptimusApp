@@ -21,26 +21,27 @@
     </ion-item>
     <ion-item color="tertiary" lines="full">
       <ion-label>Buy MH</ion-label>
-      <ion-text slot="end">10</ion-text>
+      <ion-text slot="end">{{buyMH}}</ion-text>
+    </ion-item>
+    <ion-item color="tertiary" lines="full">
+      <ion-label>Price</ion-label>
+      <ion-text slot="end">{{buyMH * 3000}}</ion-text>
     </ion-item>
     <ion-item color="primary" lines="full">
       <ion-label slot="start">Discount</ion-label>
-      <ion-text slot="start" color="success">5%</ion-text>
-      <ion-text slot="end">1500</ion-text>
+      <ion-text slot="start" color="success"
+        >{{purchasePlanDetails?.discount}}%</ion-text
+      >
+      <ion-text slot="end"
+        >{{(buyMH * 3000 * purchasePlanDetails?.discount)/100}}</ion-text
+      >
     </ion-item>
     <ion-item color="primary" lines="full">
       <ion-label slot="start">Maintence Charges</ion-label>
-      <ion-text slot="start">0.5%</ion-text>
-      <ion-text slot="end">150</ion-text>
-    </ion-item>
-    <ion-item color="primary" lines="full">
-      <ion-label slot="start">Gateway Chanrges</ion-label>
-      <ion-text slot="start">1.68%</ion-text>
-      <ion-text slot="end">504</ion-text>
-    </ion-item>
-    <ion-item color="tertiary" lines="full">
-      <ion-label>Phone Number</ion-label>
-      <ion-text slot="end">10</ion-text>
+      <ion-text slot="start">{{purchasePlanDetails?.maintenanceper}}%</ion-text>
+      <ion-text slot="end"
+        >{{(buyMH * 3000 * purchasePlanDetails?.maintenanceper)/100}}</ion-text
+      >
     </ion-item>
   </ion-list>
 
@@ -51,18 +52,4 @@
     (click)="onPurchase()"
     >Proceed For Payment</ion-button
   >
-</ion-content>
-
-<!-- <div [innerHTML]="htmlResponse"></div> -->
-
-<!-- <iframe
-  name="nameFrame"
-  [innerHTML]="htmlResponse"
-  width="600"
-  height="550"
-  scrolling="no"
-></iframe> -->
-
-<ion-content>
-  <iframe src="htmlResponse" class="iframe" scrolling="yes"></iframe>
 </ion-content>

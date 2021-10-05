@@ -13,27 +13,25 @@ import { NotificationService } from 'src/app/services/notification/notification.
   styleUrls: ['./verify-otp.page.scss'],
 })
 export class VerifyOtpPage implements OnInit {
-
   public emailID = this.navParams.get('value');
 
-  constructor(public fb: FormBuilder,
+  constructor(
+    public fb: FormBuilder,
     public modalController: ModalController,
     public navParams: NavParams,
-    public notificationService:NotificationService,
-    public loginServices:LoginService) {
-
-  }
+    public notificationService: NotificationService,
+    public loginServices: LoginService
+  ) {}
 
   verifyOtpDetail = this.fb.group({
-    optDetail: ['', Validators.required]
-  })
+    optDetail: ['', Validators.required],
+  });
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public dismiss(): void {
     this.modalController.dismiss({
-      dismissed: true
+      dismissed: true,
     });
   }
 
@@ -41,16 +39,15 @@ export class VerifyOtpPage implements OnInit {
     const VerifyOtpData = new VerifyOtpModel();
     VerifyOtpData.emailaddress = this.emailID;
     VerifyOtpData.emailotp = this.verifyOtpDetail.value.optDetail;
-    VerifyOtpData.operationtype='VERIFY';
+    VerifyOtpData.operationtype = 'VERIFY';
     VerifyOtpData.tokenval = '';
-    this.loginServices.verifyOtpDetail(VerifyOtpData).then((result:ReturnResult)=>{
-      if(result.success){
-        this.notificationService.showToast(result);
-        this.dismiss();
-      }
-    })
+    this.loginServices
+      .verifyOtpDetail(VerifyOtpData)
+      .then((result: ReturnResult) => {
+        if (result.success) {
+          this.notificationService.showToast(result);
+          this.dismiss();
+        }
+      });
   }
-
-
-
 }
