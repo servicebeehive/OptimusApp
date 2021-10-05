@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithdrawPage implements OnInit {
   public title = 'Withdraw';
+  public isDisabled = false;
 
   constructor() {}
 

@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
 import { CalculatorPageRoutingModule } from './calculator-routing.module';
-
 import { CalculatorPage } from './calculator.page';
-import { HeaderModule } from 'src/app/common/header/header.module';
+import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input-directive.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
-    HeaderModule,
-    CalculatorPageRoutingModule
+    CalculatorPageRoutingModule,
+    IntegerInputDirectiveModule,
   ],
-  declarations: [CalculatorPage]
+  declarations: [CalculatorPage],
 })
 export class CalculatorPageModule {}

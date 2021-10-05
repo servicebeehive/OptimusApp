@@ -42,12 +42,12 @@ export abstract class BaseService {
       .toPromise();
   }
 
-  public async GetWithRowId<U>(
+  public async GetWithValue<U>(
     controllerInfo: string,
-    RowId: number
+    Value: number
   ): Promise<U> {
     return await this.httpClient
-      .get<U>(this.BaseUrl + controllerInfo + `/${RowId}`, {
+      .get<U>(this.BaseUrl + controllerInfo + `/${Value}`, {
         headers: new HttpHeaders().set('content-type', 'application/json'),
       })
       .toPromise();

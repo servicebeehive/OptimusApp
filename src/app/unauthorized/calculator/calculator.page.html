@@ -1,83 +1,111 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons slot="end">
+      <ion-button color="clear" (click)="dismiss()">
+        <ion-icon color="tertiary" name="close-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-card >
+<ion-card>
   <ion-card-content class="">
-    <ion-item color="none" class=" ion-no-padding" lines="none">
+    <ion-item color="none" class="ion-no-padding" lines="none">
       <ion-label>
         <ion-text>ETH </ion-text>
-       <p class=" ion-no-margin">Mining Calculator</p>
-      
+        <p class="ion-no-margin">Mining Calculator</p>
       </ion-label>
-      <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="end"></ion-img>
+      <ion-img
+        style="width: 40px"
+        src="assets/icon/ethereum.svg"
+        slot="end"
+      ></ion-img>
     </ion-item>
   </ion-card-content>
-
 </ion-card>
 
 <ion-content color="primary">
-  
-  <ion-grid>
-    <ion-row>
-<ion-col size="5">
-  <ion-input class="bg-input" type="text" placeholder="0"></ion-input>
-  <span class="right-text">₹</span>
-</ion-col>
-<ion-col size="2" class=" ion-justify-content-center ion-text-center">
-=
-</ion-col>
-<ion-col size="5">
-  <ion-input class="bg-input" type="text" placeholder="0"></ion-input>
-  <span class="right-text">MH</span>
- 
-</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button color="tertiary" expand="block" >Calculate</ion-button>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row>
-      <ion-col size="6">
-       <ion-card class=" ion-padding-top">
-         <ion-text color="primary">Day</ion-text>
-         <h2 class=" ion-no-margin">0.5 <sub>USD</sub></h2>
-         <h5>0.000005 ETH</h5>
-       </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card class=" ion-padding-top">
-          <ion-text color="primary">Month</ion-text>
-          <h2 class=" ion-no-margin">0.5 <sub>USD</sub></h2>
-          <h5>0.000005 ETH</h5>
-        </ion-card>
-       </ion-col>
+  <form [formGroup]="calculateEthDetail">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="5">
+          <ion-input
+            class="bg-input"
+            formControlName="amount"
+            type="text"
+            placeholder="0"
+            (ionChange)="amountForMH($event,false)"
+          ></ion-input>
+          <span class="right-text">₹</span>
+        </ion-col>
+        <ion-col size="2" class="ion-justify-content-center ion-text-center">
+          =
+        </ion-col>
+        <ion-col size="5">
+          <ion-input
+            class="bg-input"
+            formControlName="megaHash"
+            type="text"
+            placeholder="0"
+            (ionChange)="amountForMH($event,true)"
+          ></ion-input>
+          <span class="right-text">MH</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="tertiary" expand="block" (click)="onCalculate()"
+            >Calculate</ion-button
+          >
+        </ion-col>
+      </ion-row>
 
-    </ion-row>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card class=" ion-padding-top">
-          <ion-text color="primary">Year</ion-text>
-          <h2 class=" ion-no-margin">0.5 <sub>USD</sub></h2>
-          <h5>0.000005 ETH</h5>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card class=" ion-padding-top">
-          <ion-text color="primary">2 Year</ion-text>
-          <h2 class=" ion-no-margin">0.5 <sub>USD</sub></h2>
-          <h5>0.000005 ETH</h5>
-        </ion-card>
-       </ion-col>
-
-    </ion-row>
-
-  </ion-grid>
-
-
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="ion-padding-top">
+            <ion-text color="primary">Day</ion-text>
+            <h2 class="ion-no-margin">
+              {{this.mHDetail?.day?.dollars | number : '1.3'}} <sub>USD</sub>
+            </h2>
+            <h5>{{this.mHDetail?.day?.coins | number : '1.6' }} ETH</h5>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="ion-padding-top">
+            <ion-text color="primary">Month</ion-text>
+            <h2 class="ion-no-margin">
+              {{this.mHDetail?.month?.dollars | number : '1.3' }}
+              <sub>USD</sub>
+            </h2>
+            <h5>{{this.mHDetail?.month?.coins | number : '1.6' }} ETH</h5>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="ion-padding-top">
+            <ion-text color="primary">Year</ion-text>
+            <h2 class="ion-no-margin">
+              {{this.mHDetail?.month?.dollars * 12 | number : '1.3'}}
+              <sub>USD</sub>
+            </h2>
+            <h5>
+              {{this.mHDetail?.month?.dollars * 12 | number : '1.6' }} ETH
+            </h5>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="ion-padding-top">
+            <ion-text color="primary">2 Year</ion-text>
+            <h2 class="ion-no-margin">
+              {{this.mHDetail?.month?.dollars * 12 * 2 | number : '1.3'}}
+              <sub>USD</sub>
+            </h2>
+            <h5>
+              {{this.mHDetail?.month?.dollars * 12 * 2 | number : '1.6' }} ETH
+            </h5>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

@@ -10,4 +10,5 @@ export class Controllers {
   public readonly getplandetails = `/api/v1/getplandetails`;
   public readonly getpaymethods = `/api/v1/getpaymethod`;
   public readonly payment = `/api/v1/payment`;
+  public readonly getcalulcatedcoindetails = `/api/v1/getcalulcatedcoindetails`;
 }
