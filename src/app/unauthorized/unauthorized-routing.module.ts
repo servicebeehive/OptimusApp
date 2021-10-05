@@ -79,6 +79,10 @@ const routes: Routes = [
     path: 'verify-otp',
     loadChildren: () => import('./verify-otp/verify-otp.module').then( m => m.VerifyOtpPageModule)
   },
+  {
+    path: 'calculator',
+    loadChildren: () => import('./calculator/calculator.module').then( m => m.CalculatorPageModule)
+  },
 
 
 

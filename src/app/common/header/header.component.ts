@@ -31,4 +31,7 @@ export class HeaderComponent implements OnInit {
     this.accountServices.removeToken();
     this.router.navigate(['unauthorized/home']);
   }
+  oncalculator(){
+    this.router.navigate(['calculator']);
+  }
 }

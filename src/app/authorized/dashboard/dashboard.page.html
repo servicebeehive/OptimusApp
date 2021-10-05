@@ -54,7 +54,7 @@
   </ion-card>
   <ion-slides pager="false" class=" ion-padding" [options]="slideOpts">
     <ion-slide>
-      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+      <ion-card  (click)="onslide('purchase-offer')"  class=" ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/gift-card.png" alt="">
         <h4>
           Plans and offer
@@ -62,7 +62,7 @@
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+      <ion-card (click)="onslide('know-mining')"  class=" ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/idea.png" alt="">
         <h4>
           Know Mining
@@ -70,7 +70,7 @@
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+      <ion-card (click)="onslide('why-optimus')"  class=" ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/problem.png" alt="">
         <h4>
           Why Us?
@@ -78,10 +78,18 @@
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+      <ion-card (click)="onslide('about-networking')" class=" ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/customer.png" alt="">
         <h4>
           About Referral
+        </h4>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class=" ion-text-center first-card card-box ion-no-margin">
+        <img align="center" src="assets/icon/technical-support.png" alt="">
+        <h4>
+          Support
         </h4>
       </ion-card>
     </ion-slide>
