@@ -34,6 +34,5 @@ export class PaymentSummaryPage implements OnInit {
     paymentSummary.phone = '534343434';
     const data = await this.planService.postPayment(paymentSummary);
     this.htmlResponse = this.domSantizer.bypassSecurityTrustHtml(data);
-    console.log('data', data);
   }
 }
