@@ -8,6 +8,7 @@ import { AboutNetworkingPage } from 'src/app/unauthorized/about-networking/about
 import { KnowMiningPage } from 'src/app/unauthorized/know-mining/know-mining.page';
 import { PurchaseOfferPage } from 'src/app/unauthorized/purchase-offer/purchase-offer.page';
 import { WhyOptimusPage } from 'src/app/unauthorized/why-optimus/why-optimus.page';
+import { SupportPage } from '../support/support.page';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,6 +43,11 @@ export class DashboardPage implements OnInit {
     } else if (item === 'about-networking') {
       this.openDailog<AboutNetworkingPage>(AboutNetworkingPage);
     }
+      else if (item === 'support') {
+        this.openDailog<SupportPage>(SupportPage);
+    }
+    
+    
   }
 
   public async openDailog<C>(componentC: ComponentType<C>) {
