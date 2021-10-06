@@ -9,6 +9,11 @@ import {
 } from '@angular/material/tree';
 import { FlatTreeControl, NestedTreeControl } from '@angular/cdk/tree';
 import { of as observableOf } from 'rxjs';
+import { ComponentType } from '@angular/cdk/portal';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { SharedService } from 'src/app/services/shared/shared-service.service';
+import { ShareAppComponent } from 'src/app/common/share-app/share-app.component';
 
 @Component({
   selector: 'app-networking',
@@ -23,7 +28,9 @@ export class NetworkingPage implements OnInit {
   treeControl: NestedTreeControl<NetworkDetailModel>;
   dataSourcee: MatTreeNestedDataSource<NetworkDetailModel>;
 
-  constructor(public networkService: NetworkService) {
+  constructor(public networkService: NetworkService,  public router: Router,
+    public modalController: ModalController,
+    public sharedService: SharedService) {
     this.treeControl = new NestedTreeControl<NetworkDetailModel>(
       this.getChildren
     );
@@ -109,4 +116,16 @@ export class NetworkingPage implements OnInit {
   //   });
   //   return result;
   // }
+  public async openDailog<C>(componentC: ComponentType<C>) {
+    this.sharedService.showCloseButton = true;
+    const model = await this.modalController.create({
+      component: componentC,
+      cssClass: 'my-custom-class',
+    });
+    await model.present();
+  }
+  async onslide() {
+   
+      this.openDailog<ShareAppComponent>(ShareAppComponent);
+    }
 }

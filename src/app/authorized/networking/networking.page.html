@@ -6,6 +6,7 @@
 </p> -->
 
 <ion-content color="light">
+  <ion-button color="tertiary"  (click)="onslide()" class="ion-m-8" expand="block">Share Your Referral link</ion-button>
   <ion-searchbar showCancelButton="always" [ngModel]="search" (ngModelChange)="search=$event;setChildOk($event,dataSourcee.data)"  placeholder="Search..." id='inp'></ion-searchbar>
 
 <div class="p-5">

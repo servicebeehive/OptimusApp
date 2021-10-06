@@ -1,0 +1,13 @@
+.facebook{ --background: #4267B2;}
+.inst{--background: #8a3ab9;}
+.whatsup{--background: #25D366;}
+.twitter{--background: #00acee;}
+.sharedlinkinput{
+  display: flex; margin-top: 15px;
+    ion-input{  border: 2px solid #ccc;
+        border-radius: 4px;
+        height: 37px;
+        top: 4px;
+        margin-right: -4px;
+        border-right: none;}
+}
