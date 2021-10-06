@@ -16,9 +16,9 @@
             >{{purchasePlanDetails?.contract}} Months</ion-text
           >
         </ion-item>
-        <ion-item  lines="full">
+        <ion-item lines="full">
           <ion-label>1 MH</ion-label>
-          <ion-text slot="end">3000</ion-text>
+          <ion-text slot="end">3000 ₹</ion-text>
         </ion-item>
         <ion-item color="tertiary" lines="full">
           <ion-label>Buy MH</ion-label>
@@ -31,10 +31,10 @@
             (ionChange)="calculateTotalAmount($event)"
           ></ion-input>
         </ion-item>
-        <ion-item  lines="full">
+        <ion-item lines="full">
           <ion-label>Price</ion-label>
           <ion-text slot="end"
-            >{{this.addPurchaseDetail.value.buyMH * 3000}}</ion-text
+            >{{this.addPurchaseDetail.value.buyMH * 3000}} ₹</ion-text
           >
         </ion-item>
         <ion-item lines="full">
@@ -44,7 +44,7 @@
           >
           <ion-text slot="end"
             >{{(this.addPurchaseDetail.value.buyMH * 3000 *
-            purchasePlanDetails?.discount)/100}}</ion-text
+            purchasePlanDetails?.discount)/100}} ₹</ion-text
           >
         </ion-item>
         <ion-item lines="full">
@@ -54,25 +54,26 @@
           >
           <ion-text slot="end"
             >{{(this.addPurchaseDetail.value.buyMH * 3000 *
-            purchasePlanDetails?.maintenanceper)/100}}</ion-text
+            purchasePlanDetails?.maintenanceper)/100}} ₹</ion-text
           >
         </ion-item>
         <ion-item color="primary" lines="full">
           <ion-label slot="start">Total Amount</ion-label>
-          <ion-text slot="end">{{totalAmount}}</ion-text>
+          <ion-text slot="end">{{totalAmount}} ₹</ion-text>
         </ion-item>
       </ion-list>
-<div class="ion-padding">
-  <ion-button
-        expand="block"
-        
-        color="tertiary"
-        (click)="onClickPayment()"
-        [disabled]="addPurchaseDetail.invalid"
-        >Proceed For Payment</ion-button
-      >
-</div>
-      
+      <div class="ion-padding">
+        <ion-button
+          expand="block"
+          color="tertiary"
+          (click)="onClickPayment()"
+          [disabled]="addPurchaseDetail.invalid"
+          >Proceed For Payment</ion-button
+        >
+      </div>
+    </div>
+    <div *ngIf="!sharedService.checkLoginType">
+      Please select any plan to Buy.
     </div>
   </form>
 </ion-content>

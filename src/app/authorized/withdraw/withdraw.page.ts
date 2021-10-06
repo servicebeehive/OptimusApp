@@ -56,6 +56,8 @@ export class WithdrawPage implements OnInit {
       .then((res: ReturnResult) => {
         if (res.success) {
           this.notificationService.showToast<WithDrawSubmitOtpModel>(res);
+          this.isShowOtpPanel = false;
+          this.addWithdraw.reset();
           this.router.navigate(['authorized/dashboard']);
         }
       });
