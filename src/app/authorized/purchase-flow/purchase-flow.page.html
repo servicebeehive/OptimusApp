@@ -11,16 +11,14 @@
           <ion-text slot="end">{{purchasePlanDetails?.planname}}</ion-text>
         </ion-item>
         <ion-item lines="full">
-          <ion-label>Discount</ion-label>
-          <ion-text slot="end" color="success"
-            >{{purchasePlanDetails?.discount}}%</ion-text
-          >
-        </ion-item>
-        <ion-item lines="full">
           <ion-label>Contract Period</ion-label>
           <ion-text slot="end"
             >{{purchasePlanDetails?.contract}} Months</ion-text
           >
+        </ion-item>
+        <ion-item color="primary" lines="full">
+          <ion-label>1 MH</ion-label>
+          <ion-text slot="end">3000</ion-text>
         </ion-item>
         <ion-item color="tertiary" lines="full">
           <ion-label>Buy MH</ion-label>
@@ -30,7 +28,38 @@
             placeholder="Buy MH"
             slot="end"
             formControlName="buyMH"
+            (ionChange)="calculateTotalAmount($event)"
           ></ion-input>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-label>Price</ion-label>
+          <ion-text slot="end"
+            >{{this.addPurchaseDetail.value.buyMH * 3000}}</ion-text
+          >
+        </ion-item>
+        <ion-item color="primary" lines="full">
+          <ion-label slot="start">Discount</ion-label>
+          <ion-text slot="start" color="success"
+            >{{purchasePlanDetails?.discount}}%</ion-text
+          >
+          <ion-text slot="end"
+            >{{(this.addPurchaseDetail.value.buyMH * 3000 *
+            purchasePlanDetails?.discount)/100}}</ion-text
+          >
+        </ion-item>
+        <ion-item color="primary" lines="full">
+          <ion-label slot="start">Maintence Charges</ion-label>
+          <ion-text slot="start"
+            >{{purchasePlanDetails?.maintenanceper}}%</ion-text
+          >
+          <ion-text slot="end"
+            >{{(this.addPurchaseDetail.value.buyMH * 3000 *
+            purchasePlanDetails?.maintenanceper)/100}}</ion-text
+          >
+        </ion-item>
+        <ion-item color="primary" lines="full">
+          <ion-label slot="start">Total Amount</ion-label>
+          <ion-text slot="end">{{totalAmount}}</ion-text>
         </ion-item>
       </ion-list>
 
@@ -38,9 +67,9 @@
         expand="block"
         class="ion-margin"
         color="tertiary"
-        (click)="onClickPaymentSummary()"
+        (click)="onClickPayment()"
         [disabled]="addPurchaseDetail.invalid"
-        >Check Out</ion-button
+        >Proceed For Payment</ion-button
       >
     </div>
   </form>

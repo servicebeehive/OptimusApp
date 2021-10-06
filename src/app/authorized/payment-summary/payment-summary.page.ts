@@ -13,10 +13,7 @@ import { PlanService } from 'src/app/services/plan/plan.service';
 })
 export class PaymentSummaryPage implements OnInit {
   public htmlResponse: SafeHtml;
-  public buyMH = this.navParams.get('value');
-  public purchasePlanDetails: PlanDetailsModel = this.navParams.get(
-    'purchasePlanDetails'
-  );
+  public transactionID = this.navParams.get('value');
 
   constructor(
     public modalController: ModalController,
@@ -40,7 +37,7 @@ export class PaymentSummaryPage implements OnInit {
     // paymentSummary.phone = '534343434';
     // const data = await this.planService.postPayment(paymentSummary);
     // this.htmlResponse = this.domSantizer.bypassSecurityTrustHtml(data);
-    console.log('buyMH', this.buyMH);
-    console.log('purchasePlanDetails', this.purchasePlanDetails);
+    // console.log('buyMH', this.buyMH);
+    // console.log('purchasePlanDetails', this.purchasePlanDetails);
   }
 }

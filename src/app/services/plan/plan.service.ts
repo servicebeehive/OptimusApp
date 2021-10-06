@@ -6,6 +6,8 @@ import { IConfig } from 'src/app/models/iconfig';
 import { PaymentDetails } from 'src/app/models/payment-details.mode';
 import { PaymentSummary } from 'src/app/models/payment-summary';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
+import { PurchaseFlowDetails } from 'src/app/models/purchase-flow.model';
+import { PurchasePlanID } from 'src/app/models/purchase-plan.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
@@ -34,7 +36,12 @@ export class PlanService extends BaseService {
     );
   }
 
-  public postPayment(info: PaymentSummary): Promise<string> {
-    return this.PostPayment<PaymentSummary>(this.controllers.payment, info);
+  public async postPayment(
+    purchaseFlowDetails: PurchaseFlowDetails
+  ): Promise<ReturnResult<PurchasePlanID[]>> {
+    return this.PostReturn<PurchaseFlowDetails, ReturnResult<PurchasePlanID[]>>(
+      this.controllers.purchaseOperation,
+      purchaseFlowDetails
+    );
   }
 }
