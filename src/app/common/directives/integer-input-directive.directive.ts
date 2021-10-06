@@ -1,16 +1,17 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appIntegerInputDirective]'
+  selector: '[appIntegerInputDirective]',
 })
 export class IntegerInputDirective {
-
-  constructor() { }
+  constructor() {}
 
   @HostListener('keypress', ['$event'])
   onInput(event: any) {
     const pattern = /[0-9]/; // without ., for integer only
-    let inputChar = String.fromCharCode(event.which ? event.which : event.keyCode);
+    const inputChar = String.fromCharCode(
+      event.which ? event.which : event.keyCode
+    );
 
     if (!pattern.test(inputChar)) {
       // invalid character, prevent input
@@ -19,5 +20,4 @@ export class IntegerInputDirective {
     }
     return true;
   }
-
 }
