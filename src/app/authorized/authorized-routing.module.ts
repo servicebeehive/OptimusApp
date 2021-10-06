@@ -78,7 +78,11 @@ const routes: Routes = [
   {
     path: 'payoutdetail',
     loadChildren: () => import('./payoutdetail/payoutdetail.module').then( m => m.PayoutdetailPageModule)
+  },  {
+    path: 'support',
+    loadChildren: () => import('./support/support.module').then( m => m.SupportPageModule)
   }
+
 
 ];
 
