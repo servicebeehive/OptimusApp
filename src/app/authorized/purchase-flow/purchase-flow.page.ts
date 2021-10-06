@@ -77,7 +77,6 @@ export class PurchaseFlowPage implements OnInit {
       .then((res: ReturnResult<PurchasePlanID[]>) => {
         if (res.success) {
           this.onClickPaymentSummary(res.data[0].inserted);
-          console.log('data', res.data[0].inserted);
         }
       });
   }

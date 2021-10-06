@@ -2,38 +2,75 @@
   <app-header [pageTitle]="title"></app-header>
 </ion-header>
 
-<ion-content color="primary"> 
+<ion-content color="primary">
+  <form [formGroup]="addWithdraw">
+    <div *ngIf="!isShowOtpPanel">
+      <ion-list>
+        <ion-item lines="full">
+          <ion-label>Withdrow Details</ion-label>
+          <a routerLink="/authorized/withdrawdetail">View Details</a>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label>Currency</ion-label>
+          <ion-text slot="end">ETH</ion-text>
+          <ion-text slot="end">1</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label>Threshold Limit</ion-label>
+          <ion-text slot="end" color="success">2</ion-text>
+        </ion-item>
 
-  <ion-list>
-    <ion-item   lines="full">
-      <ion-label>Withdrow Details</ion-label>
-      <a routerLink="/authorized/withdrawdetail">View Details</a>
-      
-    </ion-item>
-    <ion-item   lines="full">
-      <ion-label>Currency</ion-label>
-      <ion-text  slot="end">ETH</ion-text>
-      <ion-text  slot="end">1</ion-text>
-    </ion-item>
-    <ion-item   lines="full">
-      <ion-label>Threshold Limit</ion-label>
-      <ion-text slot="end" color="success">2</ion-text>
-    </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-label>WithDraw Unit</ion-label>
+          <ion-input
+            class="bg-input"
+            type="number"
+            formControlName="withdrawUnit"
+            placeholder="Enter Unit"
+            slot="end"
+          ></ion-input>
+        </ion-item>
+        <ion-item color="tertiary" lines="full">
+          <ion-label>Exchange Address</ion-label>
+          <ion-input
+            class="bg-input"
+            type="text"
+            formControlName="exchangeAddress"
+            placeholder="Enter Address"
+            slot="end"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button
+        size="block"
+        type="button"
+        [disabled]="addWithdraw.invalid"
+        class="ion-margin"
+        color="tertiary"
+        (click)="withdrawSendOtp()"
+        >Send OTP</ion-button
+      >
+    </div>
+    <div *ngIf="isShowOtpPanel">
+      <ion-item color="tertiary" lines="full">
+        <ion-label>OTP :</ion-label>
+        <ion-input
+          class="bg-input"
+          type="text"
+          formControlName="otp"
+          placeholder="Enter OTP"
+          slot="end"
+        ></ion-input>
+      </ion-item>
 
-    <ion-item  color="tertiary" lines="full">
-      <ion-label>WithDraw Unit</ion-label>
-      <ion-input class="bg-input" type="text" placeholder="Enter Unit" slot="end"></ion-input>
-    </ion-item>
-    <ion-item  color="tertiary" lines="full">
-      <ion-label>Exchange Address</ion-label>
-      <ion-input class="bg-input" type="text" placeholder="Enter Address" slot="end"></ion-input>
-    </ion-item>
-    </ion-list>
-    <ion-button size="block" [disabled]='isDisabled' class="ion-margin" color="tertiary">Send OTP</ion-button>
-    <p class=" ion-padding">OTP : {{purchasePlanDetails?.type}}</p>
-
-
-      <ion-button size="block" class="ion-margin" [disabled]='isDisabled' color="tertiary">Submit</ion-button>
-  
-
+      <ion-button
+        size="block"
+        type="button"
+        (click)="onSubmitOtp()"
+        class="ion-margin"
+        color="tertiary"
+        >Submit</ion-button
+      >
+    </div>
+  </form>
 </ion-content>

@@ -1,6 +1,7 @@
 /* eslint-disable quote-props */
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ModalController, NavParams } from '@ionic/angular';
 import { PaymentSummary } from 'src/app/models/payment-summary';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
@@ -19,7 +20,8 @@ export class PaymentSummaryPage implements OnInit {
     public modalController: ModalController,
     public planService: PlanService,
     public domSantizer: DomSanitizer,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public router: Router
   ) {}
 
   ngOnInit() {}
@@ -28,6 +30,7 @@ export class PaymentSummaryPage implements OnInit {
     this.modalController.dismiss({
       dismissed: true,
     });
+    this.router.navigate(['authorized/dashboard']);
   }
 
   public async onPurchase() {

@@ -74,7 +74,10 @@
 
                         <p class="stock-text">In Stock</p>
 
-                        <p class="padding-bottom_2 padding-top_2">
+                        <p
+                          class="padding-bottom_2 padding-top_2"
+                          *ngIf="!sharedService.showCloseButton"
+                        >
                           <a
                             routerLink="/login"
                             class="purchasebtn"
