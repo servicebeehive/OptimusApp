@@ -16,7 +16,7 @@
             >{{purchasePlanDetails?.contract}} Months</ion-text
           >
         </ion-item>
-        <ion-item color="primary" lines="full">
+        <ion-item  lines="full">
           <ion-label>1 MH</ion-label>
           <ion-text slot="end">3000</ion-text>
         </ion-item>
@@ -31,13 +31,13 @@
             (ionChange)="calculateTotalAmount($event)"
           ></ion-input>
         </ion-item>
-        <ion-item color="tertiary" lines="full">
+        <ion-item  lines="full">
           <ion-label>Price</ion-label>
           <ion-text slot="end"
             >{{this.addPurchaseDetail.value.buyMH * 3000}}</ion-text
           >
         </ion-item>
-        <ion-item color="primary" lines="full">
+        <ion-item lines="full">
           <ion-label slot="start">Discount</ion-label>
           <ion-text slot="start" color="success"
             >{{purchasePlanDetails?.discount}}%</ion-text
@@ -47,7 +47,7 @@
             purchasePlanDetails?.discount)/100}}</ion-text
           >
         </ion-item>
-        <ion-item color="primary" lines="full">
+        <ion-item lines="full">
           <ion-label slot="start">Maintence Charges</ion-label>
           <ion-text slot="start"
             >{{purchasePlanDetails?.maintenanceper}}%</ion-text
@@ -62,15 +62,17 @@
           <ion-text slot="end">{{totalAmount}}</ion-text>
         </ion-item>
       </ion-list>
-
-      <ion-button
+<div class="ion-padding">
+  <ion-button
         expand="block"
-        class="ion-margin"
+        
         color="tertiary"
         (click)="onClickPayment()"
         [disabled]="addPurchaseDetail.invalid"
         >Proceed For Payment</ion-button
       >
+</div>
+      
     </div>
   </form>
 </ion-content>
