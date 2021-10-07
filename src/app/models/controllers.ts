@@ -14,4 +14,5 @@ export class Controllers {
   public readonly purchaseOperation = `/api/v1/purchaseoperation`;
   public readonly getwithdraw = `/api/v1/getwithdraw`;
   public readonly withdrawverify = `/api/v1/withdrawverify`;
+  public readonly getdashboarddata = `/api/v1/getdashboarddata`;
 }

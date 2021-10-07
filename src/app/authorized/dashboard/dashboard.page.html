@@ -5,110 +5,196 @@
 <ion-content [fullscreen]="true">
   <ion-card color="primary">
     <ion-card-content class="">
-      <ion-item color="none" class=" ion-no-padding" lines="none">
+      <ion-item color="none" class="ion-no-padding" lines="none">
         <ion-label>
           <ion-text>Total MH</ion-text>
-          <h2 class="title-large">0.00</h2>
-          <p class=" ion-no-margin">Total Payout</p>
-          <h2 class="title-middile ion-no-margin">ETH 0.00</h2>
+          <h2 class="title-large">
+            {{dashboardMegaHashDetails[0]?.totalmh}} MH
+          </h2>
+          <p class="ion-no-margin">Total Payout</p>
+          <h2 class="title-middile ion-no-margin">
+            ETH {{dashboardMegaHashDetails[0]?.ethtotalmined | number : '1.16'}}
+          </h2>
         </ion-label>
-        <ion-img style="width:40px;" src="assets/icon/ethereum.svg" slot="end"></ion-img>
+        <ion-img
+          style="width: 40px"
+          src="assets/icon/ethereum.svg"
+          slot="end"
+        ></ion-img>
       </ion-item>
     </ion-card-content>
-
   </ion-card>
   <ion-grid>
     <ion-row>
       <ion-col size="6">
-        <ion-button [disabled]='isDisabled' size="block">Purchase</ion-button>
+        <ion-button [disabled]="isDisabled" size="block">Purchase</ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button size="block" [disabled]='isDisabled' color="tertiary">Withdrawal</ion-button>
+        <ion-button size="block" [disabled]="isDisabled" color="tertiary"
+          >Withdrawal</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
- 
-  <h3 class=" ion-padding-start">Referral</h3>
+
+  <h3 class="ion-padding-start">Referral</h3>
   <ion-card>
     <ion-card-content class="">
-      <ion-item lines="full" class=" ion-no-padding">
-        <ion-label>
-          Total Referral(#)
-        </ion-label>
-        <ion-text slot="end">0</ion-text>
+      <ion-item lines="full" class="ion-no-padding">
+        <ion-label> Total Referral(#) </ion-label>
+        <ion-text slot="end"
+          >{{dashboardMegaHashDetails[0]?.totalchild}}</ion-text
+        >
       </ion-item>
 
-      <ion-item lines="full" class=" ion-no-padding">
-        <ion-label>
-          Total incentive (in MH)
-        </ion-label>
-        <ion-text slot="end">0.00</ion-text>
+      <ion-item lines="full" class="ion-no-padding">
+        <ion-label> Total incentive (in MH) </ion-label>
+        <ion-text slot="end"
+          >{{dashboardMegaHashDetails[0]?.totalincunit}}</ion-text
+        >
       </ion-item>
-      <ion-item lines="none" class=" ion-no-padding">
-        <ion-label>
-          Total incentive (in Cash)
-        </ion-label>
-        <ion-text slot="end">0.00</ion-text>
+      <ion-item lines="none" class="ion-no-padding">
+        <ion-label> Total incentive (in Cash) </ion-label>
+        <ion-text slot="end"
+          >{{dashboardMegaHashDetails[0]?.totalincamount }}</ion-text
+        >
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-slides pager="false" class=" ion-padding" [options]="slideOpts">
+  <ion-slides pager="false" class="ion-padding" [options]="slideOpts">
     <ion-slide>
-      <ion-card  (click)="onslide('purchase-offer')"  class=" ion-text-center first-card card-box ion-no-margin">
-        <img align="center" src="assets/icon/gift-card.png" alt="">
-        <h4>
-          Plans and offer
-        </h4>
+      <ion-card
+        (click)="onslide('purchase-offer')"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/gift-card.png" alt="" />
+        <h4>Plans and offer</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card (click)="onslide('know-mining')"  class=" ion-text-center first-card card-box ion-no-margin">
-        <img align="center" src="assets/icon/idea.png" alt="">
-        <h4>
-          Know Mining
-        </h4>
+      <ion-card
+        (click)="onslide('know-mining')"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/idea.png" alt="" />
+        <h4>Know Mining</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card (click)="onslide('why-optimus')"  class=" ion-text-center first-card card-box ion-no-margin">
-        <img align="center" src="assets/icon/problem.png" alt="">
-        <h4>
-          Why Us?
-        </h4>
+      <ion-card
+        (click)="onslide('why-optimus')"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/problem.png" alt="" />
+        <h4>Why Us?</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card (click)="onslide('about-networking')" class=" ion-text-center first-card card-box ion-no-margin">
-        <img align="center" src="assets/icon/customer.png" alt="">
-        <h4>
-          About Referral
-        </h4>
+      <ion-card
+        (click)="onslide('about-networking')"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/customer.png" alt="" />
+        <h4>About Referral</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card (click)="onslide('support')" class=" ion-text-center first-card card-box ion-no-margin">
-        <img align="center" src="assets/icon/technical-support.png" alt="">
-        <h4>
-          Support
-        </h4>
+      <ion-card
+        (click)="onslide('support')"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/technical-support.png" alt="" />
+        <h4>Support</h4>
       </ion-card>
     </ion-slide>
   </ion-slides>
 
   <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Payout" class=" ion-text-center">
-      No Record Found
+    <mat-tab label="Payout">
+      <div *ngIf="logCoinsDetails.length > 0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Currency Code</th>
+              <th>Coin Value</th>
+              <th>Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of logCoinsDetails">
+              <td>{{ val.currencycode }}</td>
+              <td>{{ val.coinvalue }}</td>
+              <td>{{ val.to_char }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="logCoinsDetails.length === 0">No Recond</div>
     </mat-tab>
-    <mat-tab label="Withdrawal">No Recond</mat-tab>
-    <mat-tab label="Purchase">No Recond</mat-tab>
-    <mat-tab label="Referral">No Recond</mat-tab>
+    <mat-tab label="Withdrawal">
+      <div *ngIf="logWithdrawDetails.length > 0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Unit</th>
+              <th>Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of logWithdrawDetails">
+              <td>{{ val.currency }}</td>
+              <td>{{ val.unit }}</td>
+              <td>{{ val.transactiondate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="logWithdrawDetails.length === 0">No Recond</div></mat-tab
+    >
+    <mat-tab label="Purchase">
+      <div *ngIf="logPurchaseDetails.length > 0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Unit</th>
+              <th>Amount</th>
+              <th>Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of logPurchaseDetails">
+              <td>{{ val.currency }}</td>
+              <td>{{ val.unit }}</td>
+              <td>{{ val.amount }}</td>
+              <td>{{ val.transactiondate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="logPurchaseDetails.length === 0">No Recond</div></mat-tab
+    >
+    <mat-tab label="Referral" class="ion-text-center">
+      <div *ngIf="logNetworkDetails.length > 0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Name</th>
+              <th>Transaction Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of logNetworkDetails">
+              <td>{{ val.currency }}</td>
+              <td>{{ val.name }}</td>
+              <td>{{ val.transactiondate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="logNetworkDetails.length === 0">No Recond</div>
+    </mat-tab>
   </mat-tab-group>
-
-    
-  
-
-
-
-
-  
 </ion-content>
