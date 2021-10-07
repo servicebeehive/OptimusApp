@@ -1,10 +1,10 @@
+import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CoinsDetailModel } from 'src/app/models/coins-details.model';
 import { AccountService } from 'src/app/services/account/account.service';
 import { HomeService } from 'src/app/services/home/home.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
