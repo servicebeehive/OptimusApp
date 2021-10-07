@@ -3,15 +3,16 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <h2>Silver</h2>
-    <p>Payment Summary</p>
+  <div class=" ion-text-center">
+    <h2>Silver Payment Summary</h2>
+    <ion-text slot="end">OPFCO{{transactionID}}</ion-text>
   </div>
+ 
 
-  <ion-list >
-    <ion-item  lines="full">
-      <ion-text slot="end">OPFCO{{transactionID}}</ion-text>
-    </ion-item>
+    <h2></h2>
+
+
+  
     <!-- <ion-item color="tertiary" lines="full">
       <ion-label>Buy MH</ion-label>
       <ion-text slot="end">{{buyMH}}</ion-text>
@@ -42,7 +43,7 @@
         >{{(buyMH * 3000 * purchasePlanDetails?.maintenanceper)/100}}</ion-text
       >
     </ion-item> -->
-  </ion-list>
+
    
   <h2 class=" ion-text-center">Payment Steps:</h2> 
   <ion-card>
@@ -61,9 +62,6 @@
     </ion-card-content>
   </ion-card>
   <img align="center" src="assets/86efdf89-6fb3-4831-8f20-2a8ec33b1bbc.jfif" alt="">
-  
-  
-  
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Step: 2</ion-card-subtitle>
