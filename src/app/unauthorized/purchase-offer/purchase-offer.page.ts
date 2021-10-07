@@ -39,7 +39,7 @@ export class PurchaseOfferPage implements OnInit {
     }
   }
   public async openDailog<C>(componentC: ComponentType<C>) {
-    this.sharedService.showCloseButton = true;
+  
     const model = await this.modalController.create({
       component: componentC,
       cssClass: 'my-custom-class',
