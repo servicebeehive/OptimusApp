@@ -34,6 +34,13 @@ export class WithdrawPage implements OnInit {
   ngOnInit() {}
 
   public withdrawSendOtp(): void {
+    if (Number(this.addWithdraw.value.withdrawUnit) > 2) {
+      this.notificationService.normalShowToast(
+        'Exceeding Threshold Limit of 2MH',
+        false
+      );
+      return;
+    }
     this.isShowOtpPanel = false;
     const withDrawGetOtp = new WithDrawGetOtpModel();
     withDrawGetOtp.exchangeaddress = this.addWithdraw.value.exchangeAddress;
@@ -61,5 +68,9 @@ export class WithdrawPage implements OnInit {
           this.router.navigate(['authorized/dashboard']);
         }
       });
+  }
+
+  onClickCancel() {
+    this.isShowOtpPanel = false;
   }
 }
