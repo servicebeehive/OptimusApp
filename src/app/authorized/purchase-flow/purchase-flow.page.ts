@@ -5,6 +5,7 @@ import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 import { PurchaseFlowDetails } from 'src/app/models/purchase-flow.model';
 import { PurchasePlanID } from 'src/app/models/purchase-plan.model';
 import { ReturnResult } from 'src/app/models/return-result';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import { PlanService } from 'src/app/services/plan/plan.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 import { PaymentSummaryPage } from '../payment-summary/payment-summary.page';
@@ -27,12 +28,14 @@ export class PurchaseFlowPage implements OnInit {
     public sharedService: SharedService,
     public modalController: ModalController,
     public planService: PlanService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public notificationService: NotificationService
   ) {}
 
   ngOnInit() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
+      console.log('purchasePlanDetails', this.purchasePlanDetails);
     }
   }
 
@@ -62,6 +65,37 @@ export class PurchaseFlowPage implements OnInit {
   public async onClickPayment() {
     if (this.totalAmount === 0) {
       return;
+    }
+    if (this.purchasePlanDetails.planname === 'Silver') {
+      if (
+        Number(this.addPurchaseDetail.value.buyMH) < 5 ||
+        Number(this.addPurchaseDetail.value.buyMH) > 34
+      ) {
+        this.notificationService.normalShowToast(
+          'Exceeding Purchase Limit of Silver Plan',
+          false
+        );
+        return;
+      }
+    } else if (this.purchasePlanDetails.planname === 'Gold') {
+      if (
+        Number(this.addPurchaseDetail.value.buyMH) < 35 ||
+        Number(this.addPurchaseDetail.value.buyMH) > 299
+      ) {
+        this.notificationService.normalShowToast(
+          'Exceeding Purchase Limit of Gold Plan',
+          false
+        );
+        return;
+      }
+    } else if (this.purchasePlanDetails.planname === 'Diamond') {
+      if (Number(this.addPurchaseDetail.value.buyMH) < 300) {
+        this.notificationService.normalShowToast(
+          'Exceeding Purchase Limit of Diamond Plan',
+          false
+        );
+        return;
+      }
     }
     const purchaseFlowDetails = new PurchaseFlowDetails();
     purchaseFlowDetails.planid = this.purchasePlanDetails.planid;

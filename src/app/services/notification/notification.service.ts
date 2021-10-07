@@ -20,4 +20,17 @@ export class NotificationService {
         toastData.present();
       });
   }
+
+  public normalShowToast(txtMessage: string, isScucess: boolean) {
+    this.toast
+      .create({
+        message: txtMessage,
+        position: 'top',
+        duration: 3000,
+        cssClass: isScucess ? 'success-class' : 'error-class',
+      })
+      .then((toastData) => {
+        toastData.present();
+      });
+  }
 }
