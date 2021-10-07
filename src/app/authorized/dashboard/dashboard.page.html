@@ -11,7 +11,7 @@
           <h2 class="title-large">
             {{dashboardMegaHashDetails[0]?.totalmh}} MH
           </h2>
-          <p class="ion-no-margin">Total Payout</p>
+          <p class="ion-no-margin">Total Accumulated ETH</p>
           <h2 class="title-middile ion-no-margin">
             ETH {{dashboardMegaHashDetails[0]?.ethtotalmined | number : '1.16'}}
           </h2>
@@ -110,7 +110,7 @@
   </ion-slides>
 
   <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Payout">
+    <mat-tab label="Return Value ">
       <div *ngIf="logCoinsDetails.length > 0">
         <table class="table table-striped">
           <thead>

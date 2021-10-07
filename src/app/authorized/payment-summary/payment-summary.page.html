@@ -3,73 +3,45 @@
 </ion-header>
 
 <ion-content>
-  <div class=" ion-text-center">
-    <h2>Silver Payment Summary</h2>
-    <ion-text slot="end">OPFCO{{transactionID}}</ion-text>
+  <div class="ion-text-center">
+    <p>Transaction Successful!!</p>
+    <ion-text slot="left"> Transaction Code: OFCPO{{transactionID}}</ion-text>
   </div>
- 
 
-    <h2></h2>
-
-
-  
-    <!-- <ion-item color="tertiary" lines="full">
-      <ion-label>Buy MH</ion-label>
-      <ion-text slot="end">{{buyMH}}</ion-text>
-    </ion-item>
-    <ion-item color="tertiary" lines="full">
-      <ion-label>Price</ion-label>
-      <ion-text slot="end">{{buyMH * 3000}}</ion-text>
-    </ion-item>
-    <ion-item color="primary" lines="full">
-      <ion-label slot="start">Discount</ion-label>
-      <ion-text slot="start" color="success"
-        >{{purchasePlanDetails?.discount}}%</ion-text
-      >
-      <ion-text slot="end"
-        >{{(buyMH * 3000 * purchasePlanDetails?.discount)/100}}</ion-text
-      >
-    </ion-item>
-    <ion-item color="primary" lines="full">
-      <ion-label slot="start">Maintence Charges</ion-label>
-      <ion-text slot="start">{{purchasePlanDetails?.maintenanceper}}%</ion-text>
-      <ion-text slot="end"
-        >{{(buyMH * 3000 * purchasePlanDetails?.maintenanceper)/100}}</ion-text
-      >
-    </ion-item>
-    <ion-item color="primary" lines="full">
-      <ion-label slot="start">Total Amount</ion-label>
-      <ion-text slot="end"
-        >{{(buyMH * 3000 * purchasePlanDetails?.maintenanceper)/100}}</ion-text
-      >
-    </ion-item> -->
-
-   
-  <h2 class=" ion-text-center">Payment Steps:</h2> 
+  <h2 class="ion-text-center">Payment Steps:</h2>
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Step: 1</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-  
-      <ion-label>You may choose any of the <br>payment option to make a payment</ion-label>
-      <p class=" ion-padding-top">
-        OPTIMUS FUTURE CARE
-        HDFC BANK<br>
-        ACCOUNT NUMBER: 50200061501326<br>
-        IFSC: HDFC0000917<br>
-        MICR: 497240001</p>
+      <ion-label
+        >You may choose any of the <br />payment option to make a payment<br />
+
+        <b>Bank Online Payment Transfer Option :</b><br
+      /></ion-label>
+      <p class="ion-padding-top">
+        OPTIMUS FUTURE CARE HDFC BANK<br />
+        ACCOUNT NUMBER: 50200061501326<br />
+        IFSC: HDFC0000917<br />
+        MICR: 497240001
+      </p>
     </ion-card-content>
   </ion-card>
-  <img align="center" src="assets/86efdf89-6fb3-4831-8f20-2a8ec33b1bbc.jfif" alt="">
+  <img
+    align="center"
+    src="assets/86efdf89-6fb3-4831-8f20-2a8ec33b1bbc.jfif"
+    alt=""
+  />
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Step: 2</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-label>After making payment, please send us the
-        screenshot on support@cryptohashh.com and also mention the
-        transactioncode in the subject line (mentioned at the top) </ion-label>
+      <ion-label
+        >After making payment, please send us the screenshot on
+        support@cryptohashh.com and also mention the transactioncode in the
+        subject line (mentioned at the top)
+      </ion-label>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -77,9 +49,10 @@
       <ion-card-subtitle>Step: 3</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-label>After reviewing your transaction, you will
-        receive an approval mail and your purchase
-        would be visible in dashbaord after login.</ion-label>
+      <ion-label
+        >After reviewing your transaction, you will receive an approval mail and
+        your purchase would be visible in dashbaord after login.</ion-label
+      >
     </ion-card-content>
   </ion-card>
 
