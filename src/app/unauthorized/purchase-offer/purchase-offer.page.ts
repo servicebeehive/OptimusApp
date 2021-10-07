@@ -1,8 +1,11 @@
+import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { PlanService } from 'src/app/services/plan/plan.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
+import { ImgpopupPage } from '../imgpopup/imgpopup.page';
 
 @Component({
   selector: 'app-purchase-offer',
@@ -15,7 +18,7 @@ export class PurchaseOfferPage implements OnInit {
   public planDetailsData: PlanDetailsModel[] = [];
   constructor(
     public sharedService: SharedService,
-    public planServices: PlanService
+    public planServices: PlanService,public modalController:ModalController
   ) {}
 
   ngOnInit() {
@@ -35,4 +38,16 @@ export class PurchaseOfferPage implements OnInit {
       this.planDetailsData = result.data;
     }
   }
+  public async openDailog<C>(componentC: ComponentType<C>) {
+    this.sharedService.showCloseButton = true;
+    const model = await this.modalController.create({
+      component: componentC,
+      cssClass: 'my-custom-class',
+    });
+    await model.present();
+  }
+  async onslide() {
+   
+      this.openDailog<ImgpopupPage>(ImgpopupPage);
+    }
 }
