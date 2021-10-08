@@ -129,7 +129,7 @@
           </tbody>
         </table>
       </div>
-      <div *ngIf="logCoinsDetails.length === 0">No Recond</div>
+      <div class="norecond" *ngIf="logCoinsDetails.length === 0">No Record Round</div>
     </mat-tab>
     <mat-tab label="Withdrawal">
       <div *ngIf="logWithdrawDetails.length > 0">
@@ -150,7 +150,8 @@
           </tbody>
         </table>
       </div>
-      <div *ngIf="logWithdrawDetails.length === 0">No Recond</div></mat-tab
+      <div class="norecond" *ngIf="logWithdrawDetails.length === 0">No Record Round</div>
+      </mat-tab
     >
     <mat-tab label="Purchase">
       <div *ngIf="logPurchaseDetails.length > 0">
@@ -173,7 +174,7 @@
           </tbody>
         </table>
       </div>
-      <div *ngIf="logPurchaseDetails.length === 0">No Recond</div></mat-tab
+      <div  class="norecond" *ngIf="logPurchaseDetails.length === 0">No Record Round</div></mat-tab
     >
     <mat-tab label="Referral" class="ion-text-center">
       <div *ngIf="logNetworkDetails.length > 0">
@@ -194,7 +195,7 @@
           </tbody>
         </table>
       </div>
-      <div *ngIf="logNetworkDetails.length === 0">No Recond</div>
+      <div  class="norecond" *ngIf="logNetworkDetails.length === 0">No Record Round</div>
     </mat-tab>
   </mat-tab-group>
 </ion-content>

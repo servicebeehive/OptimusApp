@@ -10,3 +10,24 @@ ion-card{ border-radius: 16px;}
 .ion-no-margin{ margin: 0 !important;}
 .card-box{  border-radius: 6px;color:#fff;  padding-top: 10px; width: 100%;}
 .first-card{background: #041e37;}
+table{ width:100% ;
+    thead{
+        tr{
+            background: #041e37;
+           
+            color: #fff;
+            text-shadow: none;
+            th{ font-weight: normal; text-shadow: none; text-align: left; padding:10px  ;}
+        }
+    }
+    tbody{
+        tr{
+        &:nth-child(even){
+            background-color: #f4f4f4;
+        }
+        td{ padding: 10px;}
+        }
+    }
+
+}
+.norecond{ text-align: center; padding: 10px;}
