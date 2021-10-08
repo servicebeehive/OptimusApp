@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { RegistrationPageRoutingModule } from './registration-routing.module';
 
 import { RegistrationPage } from './registration.page';
-import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input-directive.module';
+import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input/integer-input-directive.module';
+import { AlphabateInputModule } from 'src/app/common/directives/alphabate-input/alphabate-input.module';
 
 @NgModule({
   imports: [
@@ -16,8 +17,9 @@ import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-i
     IonicModule,
     RegistrationPageRoutingModule,
     ReactiveFormsModule,
-    IntegerInputDirectiveModule
+    IntegerInputDirectiveModule,
+    AlphabateInputModule,
   ],
-  declarations: [RegistrationPage]
+  declarations: [RegistrationPage],
 })
 export class RegistrationPageModule {}

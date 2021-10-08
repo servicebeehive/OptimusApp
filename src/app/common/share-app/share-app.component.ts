@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import { SharedService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
   selector: 'app-share-app',
@@ -8,29 +9,33 @@ import { NotificationService } from 'src/app/services/notification/notification.
   styleUrls: ['./share-app.component.scss'],
 })
 export class ShareAppComponent implements OnInit {
-  public linkvalue='https://play.google.com/store/apps/details?id=com.optimus.currency'
- 
-  constructor(public toastController: ToastController) { }
+  public linkvalue = this.sharedService.userRefer;
+
+  constructor(
+    public toastController: ToastController,
+    public sharedService: SharedService
+  ) {}
 
   ngOnInit() {}
-  public async copyContent(value){
-    let selBox = document.createElement('textarea');
+  public async copyContent(value) {
+    const selBox = document.createElement('textarea');
     selBox.value = value;
     document.body.appendChild(selBox);
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
     const toast = await this.toastController.create({
-      message: 'Link Copied',
+      message: 'User Code Copied',
       duration: 2000,
       position: 'top',
-      color:'success',
+      color: 'success',
       buttons: [
         {
           side: 'start',
-          icon: 'checkmark-done-outline',}]
+          icon: 'checkmark-done-outline',
+        },
+      ],
     });
     toast.present();
   }
-  
 }

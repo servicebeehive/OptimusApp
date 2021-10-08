@@ -85,6 +85,16 @@
                             >PURCHASE PLAN</a
                           >
                         </p>
+                        <p
+                          class="padding-bottom_2 padding-top_2"
+                          *ngIf="sharedService.showCloseButton"
+                        >
+                          <a
+                            class="purchasebtn"
+                            (click)="onClickPurchasePlan(plan)"
+                            >PURCHASE PLAN</a
+                          >
+                        </p>
                       </div>
                     </div>
                   </div>

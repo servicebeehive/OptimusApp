@@ -17,8 +17,8 @@ export class AppComponent {
   openEnd() {
     this.menu.open('end');
   }
-  bankDetail(){
-    this.router.navigate(['authorized/account-setting'])
+  bankDetail() {
+    this.router.navigate(['authorized/account-setting']);
     this.menu.close();
   }
 }

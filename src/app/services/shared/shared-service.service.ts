@@ -9,10 +9,12 @@ export class SharedService {
   public planDetails: PlanDetailsModel = new PlanDetailsModel();
   public checkLoginType = false;
   public showCloseButton = false;
+  public userRefer = '';
 
   constructor() {}
 
   public setPlanDetails(planDetails: PlanDetailsModel): void {
+    this.planDetails = new PlanDetailsModel();
     this.planDetails = planDetails;
   }
 
