@@ -34,7 +34,10 @@ export class WithdrawPage implements OnInit {
   ngOnInit() {}
 
   public withdrawSendOtp(): void {
-    if (Number(this.addWithdraw.value.withdrawUnit) > 2) {
+    if (
+      Number(this.addWithdraw.value.withdrawUnit) > 2 ||
+      Number(this.addWithdraw.value.withdrawUnit) <= 0
+    ) {
       this.notificationService.normalShowToast(
         'Exceeding Threshold Limit of 2MH',
         false
