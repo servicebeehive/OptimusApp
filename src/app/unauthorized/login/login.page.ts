@@ -49,6 +49,7 @@ export class LoginPage implements OnInit {
       .then((result: ReturnResult<userDetail>) => {
         if (result.success) {
           this.accountServices.setAccessToken(result.data);
+          this.sharedService.userRefer = result.data.usercode;
           if (this.sharedService.checkLoginType) {
             this.router.navigate(['authorized/purchase-flow']);
           } else {

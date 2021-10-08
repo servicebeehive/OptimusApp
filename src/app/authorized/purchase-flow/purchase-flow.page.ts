@@ -15,7 +15,7 @@ import { PaymentSummaryPage } from '../payment-summary/payment-summary.page';
   templateUrl: './purchase-flow.page.html',
   styleUrls: ['./purchase-flow.page.scss'],
 })
-export class PurchaseFlowPage implements OnInit {
+export class PurchaseFlowPage {
   public title = 'Purchase Flow';
   public purchasePlanDetails: PlanDetailsModel;
   public totalAmount = 0;
@@ -32,7 +32,7 @@ export class PurchaseFlowPage implements OnInit {
     public notificationService: NotificationService
   ) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
       console.log('purchasePlanDetails', this.purchasePlanDetails);
@@ -72,7 +72,7 @@ export class PurchaseFlowPage implements OnInit {
         Number(this.addPurchaseDetail.value.buyMH) > 34
       ) {
         this.notificationService.normalShowToast(
-          'Exceeding Purchase Limit of Silver Plan',
+          'Please Check the Purchase Limit(5-35 MH) of Silver Plan',
           false
         );
         return;
@@ -83,7 +83,7 @@ export class PurchaseFlowPage implements OnInit {
         Number(this.addPurchaseDetail.value.buyMH) > 299
       ) {
         this.notificationService.normalShowToast(
-          'Exceeding Purchase Limit of Gold Plan',
+          'Please Check the Purchase Limit(35-300 MH) of Gold Plan',
           false
         );
         return;
@@ -91,7 +91,7 @@ export class PurchaseFlowPage implements OnInit {
     } else if (this.purchasePlanDetails.planname === 'Diamond') {
       if (Number(this.addPurchaseDetail.value.buyMH) < 300) {
         this.notificationService.normalShowToast(
-          'Exceeding Purchase Limit of Diamond Plan',
+          'Please Check the Purchase Limit(< 300) of Diamond Plan',
           false
         );
         return;

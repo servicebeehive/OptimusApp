@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CalculatorPageRoutingModule } from './calculator-routing.module';
 import { CalculatorPage } from './calculator.page';
-import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input-directive.module';
+import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input/integer-input-directive.module';
 
 @NgModule({
   imports: [

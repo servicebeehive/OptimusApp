@@ -1,5 +1,6 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 import { ReturnResult } from 'src/app/models/return-result';
@@ -18,7 +19,9 @@ export class PurchaseOfferPage implements OnInit {
   public planDetailsData: PlanDetailsModel[] = [];
   constructor(
     public sharedService: SharedService,
-    public planServices: PlanService,public modalController:ModalController
+    public planServices: PlanService,
+    public modalController: ModalController,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -29,6 +32,10 @@ export class PurchaseOfferPage implements OnInit {
     const planDetails = new PlanDetailsModel();
     this.sharedService.setPlanDetails(selectedPalnDetails);
     this.sharedService.setCheckLoginType(true);
+    if (this.sharedService.showCloseButton) {
+      this.dismiss();
+      this.router.navigate(['authorized/purchase-flow']);
+    }
   }
 
   public async getPlanDetails() {
@@ -38,8 +45,8 @@ export class PurchaseOfferPage implements OnInit {
       this.planDetailsData = result.data;
     }
   }
+
   public async openDailog<C>(componentC: ComponentType<C>) {
-  
     const model = await this.modalController.create({
       component: componentC,
       cssClass: 'my-custom-class',
@@ -47,7 +54,14 @@ export class PurchaseOfferPage implements OnInit {
     await model.present();
   }
   async onslide() {
-   
-      this.openDailog<ImgpopupPage>(ImgpopupPage);
-    }
+    this.openDailog<ImgpopupPage>(ImgpopupPage);
+  }
+
+  public dismiss(): void {
+    this.sharedService.showCloseButton = false;
+    //this.isShowCloseButton = this.sharedService.showCloseButton;
+    this.modalController.dismiss({
+      dismissed: true,
+    });
+  }
 }
