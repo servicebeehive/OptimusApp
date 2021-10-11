@@ -73,12 +73,36 @@
               >Proceed For Payment</ion-button
             >
           </div>
+          <div class="ion-padding">
+            <ion-button
+              expand="block"
+              color="tertiary"
+              (click)="onClickCancel()"
+              >Cancel</ion-button
+            >
+          </div>
         </div>
         <div *ngIf="!sharedService.checkLoginType">
-          Please select any plan to Buy.
+          Please Select any plan to buy.
+          <ion-card class="ion-card">
+            <ion-item
+              *ngFor="let plan of purchasePlanDetailsArray; let i = index"
+            >
+              <ion-label>{{plan.planname}}</ion-label>
+              <ion-checkbox
+                [disabled]="!purchasePlanDetailsArray[i].isactive"
+                (click)="selection(plan);"
+              >
+              </ion-checkbox>
+            </ion-item>
+          </ion-card>
+          <div class="ion-padding">
+            <ion-button expand="block" color="tertiary" (click)="onViewPlan()"
+              >View Plan</ion-button
+            >
+          </div>
         </div>
       </form>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

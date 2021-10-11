@@ -14,6 +14,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpIntercertor } from './common/interceptor/http-intercertor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     },
     { provide: HTTP_INTERCEPTORS, useClass: HttpIntercertor, multi: true },
     Controllers,
+    FirebaseDynamicLinks,
+    SocialSharing,
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { NotificationService } from 'src/app/services/notification/notification.service';
+import { ModalController, ToastController } from '@ionic/angular';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
@@ -10,10 +10,14 @@ import { SharedService } from 'src/app/services/shared/shared-service.service';
 })
 export class ShareAppComponent implements OnInit {
   public linkvalue = this.sharedService.userRefer;
+  public url = 'https://projectoptimus.page.link/registration';
+  public message = 'Please click the below link';
 
   constructor(
     public toastController: ToastController,
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    public socialSharing: SocialSharing,
+    public modalController: ModalController
   ) {}
 
   ngOnInit() {}
@@ -37,5 +41,47 @@ export class ShareAppComponent implements OnInit {
       ],
     });
     toast.present();
+  }
+
+  shareFacebook() {
+    this.socialSharing
+      .shareViaFacebook(this.message, null, this.url)
+      .then(() => {
+        this.dismiss();
+      })
+      .catch((e) => {});
+  }
+
+  shareInstagram() {
+    this.socialSharing
+      .shareViaInstagram(this.message, null)
+      .then(() => {
+        this.dismiss();
+      })
+      .catch((e) => {});
+  }
+
+  shareTwitter() {
+    this.socialSharing
+      .shareViaTwitter(this.message, null, this.url)
+      .then(() => {
+        this.dismiss();
+      })
+      .catch((e) => {});
+  }
+
+  shareWhattApp() {
+    this.socialSharing
+      .shareViaWhatsApp(this.message, null, this.url)
+      .then(() => {
+        this.dismiss();
+      })
+      .catch((e) => {});
+  }
+
+  public dismiss(): void {
+    this.modalController.dismiss({
+      dismissed: true,
+    });
   }
 }

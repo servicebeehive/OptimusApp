@@ -18,7 +18,31 @@ import { PaymentSummaryPage } from '../payment-summary/payment-summary.page';
 export class PurchaseFlowPage {
   public title = 'Purchase Flow';
   public purchasePlanDetails: PlanDetailsModel;
+  public purchasePlanDetailsArray: PlanDetailsModel[];
   public totalAmount = 0;
+
+  public categories = [
+    {
+      name: 'Car Keys',
+      value: false,
+    },
+    {
+      name: 'Phone',
+      value: false,
+    },
+    {
+      name: 'ID/Drivers License',
+      value: false,
+    },
+    {
+      name: 'Wallet',
+      value: false,
+    },
+    {
+      name: 'Other',
+      value: false,
+    },
+  ];
 
   addPurchaseDetail = this.fb.group({
     buyMH: ['', [Validators.required]],
@@ -29,13 +53,16 @@ export class PurchaseFlowPage {
     public modalController: ModalController,
     public planService: PlanService,
     public fb: FormBuilder,
-    public notificationService: NotificationService
+    public notificationService: NotificationService,
+    public planServices: PlanService
   ) {}
 
   ionViewDidEnter() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
       console.log('purchasePlanDetails', this.purchasePlanDetails);
+    } else {
+      this.getPlanDetails();
     }
   }
 
@@ -113,5 +140,33 @@ export class PurchaseFlowPage {
           this.onClickPaymentSummary(res.data[0].inserted);
         }
       });
+  }
+
+  public async getPlanDetails() {
+    const result: ReturnResult<PlanDetailsModel[]> =
+      await this.planServices.getPlanDetails();
+    if (result.success) {
+      this.purchasePlanDetailsArray = result.data;
+    }
+  }
+
+  public async onViewPlan() {
+    this.sharedService.checkLoginType = true;
+  }
+
+  public async onClickCancel() {
+    this.sharedService.checkLoginType = false;
+    this.getPlanDetails();
+  }
+
+  selection(plan: PlanDetailsModel) {
+    this.purchasePlanDetailsArray.forEach((x) => {
+      if (x.planname !== plan.planname) {
+        x.isactive = !x.isactive;
+        if (!x.isactive) {
+          this.purchasePlanDetails = plan;
+        }
+      }
+    });
   }
 }
