@@ -10,7 +10,10 @@ import { SharedService } from 'src/app/services/shared/shared-service.service';
 })
 export class ShareAppComponent implements OnInit {
   public linkvalue = this.sharedService.userRefer;
-  public url = 'https://projectoptimus.page.link/registration';
+  // eslint-disable-next-line max-len
+  public url =
+    // eslint-disable-next-line max-len
+    `https://projectoptimus.page.link/?link=http://13.233.81.41/?Code%3D${this.linkvalue}&apn=com.optimus.currency&st=Registration&sd=Get+maximum+rewards+on+Signup`;
   public message = 'Please click the below link';
 
   constructor(

@@ -19,6 +19,7 @@ export class AppComponent {
     public sharedService: SharedService,
     public storage: Storage
   ) {
+    this.storage.create();
     this.inilizeApp();
   }
   openFirst() {
@@ -36,13 +37,11 @@ export class AppComponent {
 
   inilizeApp() {
     this.platform.ready().then(() => {
-      console.log('test_1');
       this.firebaseDynamicLinks.getDynamicLink().then(
         (res: any) => {
-          console.log('Receiving Firebase DL', res);
-          console.log('deepLink', res.deepLink);
-          this.storage.set('deepLink', res.deepLink);
-          this.sharedService.deepLink = res.deepLink;
+          if (res != null) {
+            this.storage.set('deepLink', res.deepLink);
+          }
         },
         (error: any) => {
           console.error('Firebase DL ERROR', error);

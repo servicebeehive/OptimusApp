@@ -44,11 +44,6 @@
               placeholder="Last Name "
             ></ion-input>
           </ion-col>
-          <p
-            *ngIf="addRegistrationDetail.controls['lName'].touched && addRegistrationDetail.controls['lName'].hasError('required')"
-          >
-            Last Name is required
-          </p>
           <ion-col size="12">
             <ion-input
               type="text"
@@ -122,6 +117,7 @@
               maxlength="8"
               formControlName="referralCode"
               placeholder="Referral Code"
+              [disabled]="true"
             ></ion-input>
           </ion-col>
           <ion-col size="12">

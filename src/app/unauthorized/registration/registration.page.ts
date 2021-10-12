@@ -8,6 +8,7 @@ import { ReturnResult } from 'src/app/models/return-result';
 import { LoginService } from 'src/app/services/login/login.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
+import { Url } from 'url';
 import { VerifyOtpPage } from '../verify-otp/verify-otp.page';
 import { CustomValidators } from './confirm-password.validator';
 
@@ -22,7 +23,7 @@ export class RegistrationPage implements OnInit {
   addRegistrationDetail = this.fb.group(
     {
       fName: ['', [Validators.required]],
-      lName: ['', Validators.required],
+      lName: [''],
       email: ['', [Validators.required, Validators.pattern(this.emailpattern)]],
       phoneNumber: ['', Validators.minLength(10)],
       referralCode: [''],
@@ -45,7 +46,10 @@ export class RegistrationPage implements OnInit {
   ) {
     this.storage.get('deepLink').then((res: string) => {
       if (res != null) {
-        this.addRegistrationDetail.get('referralCode')?.setValue(res);
+        const strUrl = new URL(res);
+        this.addRegistrationDetail
+          .get('referralCode')
+          ?.setValue(strUrl.search.substring(6));
       }
     });
   }
@@ -72,6 +76,7 @@ export class RegistrationPage implements OnInit {
       .postRegistrationDetail(registration_Detail)
       .then((result: ReturnResult<OtpDetail>) => {
         if (result.success) {
+          this.storage.remove('deepLink');
           this.notificationService.showToast<OtpDetail>(result);
           this.dismiss();
           this.onOtpVerify(registration_Detail.emailaddress);
