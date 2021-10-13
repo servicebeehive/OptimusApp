@@ -15,6 +15,10 @@ import { NotificationService } from 'src/app/services/notification/notification.
 export class VerifyOtpPage implements OnInit {
   public emailID = this.navParams.get('value');
 
+  verifyOtpDetail = this.fb.group({
+    optDetail: ['', Validators.required],
+  });
+
   constructor(
     public fb: FormBuilder,
     public modalController: ModalController,
@@ -22,10 +26,6 @@ export class VerifyOtpPage implements OnInit {
     public notificationService: NotificationService,
     public loginServices: LoginService
   ) {}
-
-  verifyOtpDetail = this.fb.group({
-    optDetail: ['', Validators.required],
-  });
 
   ngOnInit() {}
 
@@ -36,13 +36,13 @@ export class VerifyOtpPage implements OnInit {
   }
 
   public onVerifyOtp(): void {
-    const VerifyOtpData = new VerifyOtpModel();
-    VerifyOtpData.emailaddress = this.emailID;
-    VerifyOtpData.emailotp = this.verifyOtpDetail.value.optDetail;
-    VerifyOtpData.operationtype = 'VERIFY';
-    VerifyOtpData.tokenval = '';
+    const verifyOtpData = new VerifyOtpModel();
+    verifyOtpData.emailaddress = this.emailID;
+    verifyOtpData.emailotp = this.verifyOtpDetail.value.optDetail;
+    verifyOtpData.operationtype = 'VERIFY';
+    verifyOtpData.tokenval = '';
     this.loginServices
-      .verifyOtpDetail(VerifyOtpData)
+      .verifyOtpDetail(verifyOtpData)
       .then((result: ReturnResult) => {
         if (result.success) {
           this.notificationService.showToast(result);

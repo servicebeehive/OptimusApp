@@ -7,6 +7,7 @@ import { OtpDetail } from 'src/app/models/otp.model';
 import { RegistrationDetail } from 'src/app/models/registration.model';
 import { ReturnResult } from 'src/app/models/return-result';
 import { userDetail } from 'src/app/models/userdetail.model';
+import { VerifyForgotPasswordOtpModel } from 'src/app/models/verify-forgotpassword-otp.model';
 import { VerifyOtpModel } from 'src/app/models/verify-otp.model';
 import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
@@ -46,6 +47,15 @@ export class LoginService extends BaseService {
   ): Promise<ReturnResult> {
     return this.PostReturn<VerifyOtpModel, ReturnResult>(
       this.controllers.verifyuserotp,
+      verifyOtpDetailData
+    );
+  }
+
+  public async updatePassword(
+    verifyOtpDetailData: VerifyForgotPasswordOtpModel
+  ): Promise<ReturnResult> {
+    return this.PostReturn<VerifyForgotPasswordOtpModel, ReturnResult>(
+      this.controllers.resetoperation,
       verifyOtpDetailData
     );
   }
