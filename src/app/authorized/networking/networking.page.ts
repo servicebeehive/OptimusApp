@@ -89,8 +89,9 @@ export class NetworkingPage implements OnInit {
     this.treeControl.expandAll();
     text = text.toLowerCase();
     node.forEach((x) => {
-      x.fullname=x.fname+''+x.lname
-      console.log()
+      x.fullname=x.fname +' '+ x.lname+' '
+      console.log(x.fullname)
+    
       x.fullname = x.fullname.toLowerCase();
       x.ok = x.fullname.indexOf(text) >= 0;
       if (x.parent) {
