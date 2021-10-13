@@ -10,27 +10,59 @@
     <ion-grid>
       <ion-row class="ion-justify-content-center">
         <ion-col size="6">
-            <ion-img src="assets/logo.png" class="img-cricle" alt="logo-image"></ion-img>
+          <ion-img
+            src="assets/logo.png"
+            class="img-cricle"
+            alt="logo-image"
+          ></ion-img>
         </ion-col>
       </ion-row>
       <h3 class="ion-text-center text-white">Login</h3>
       <ion-grid>
-        <ion-row class="ion-padding-start ion-padding-end ion-justify-content-center">
+        <ion-row
+          class="ion-padding-start ion-padding-end ion-justify-content-center"
+        >
           <ion-col size="12">
-            <ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+            <ion-input
+              type="text"
+              formControlName="username"
+              placeholder="Username"
+            ></ion-input>
           </ion-col>
-          <ion-col size="12" class=" ion-margin-bottom">
-            <ion-input type="Password" formControlName="password" placeholder="Password"></ion-input>
+          <ion-col size="12" class="ion-margin-bottom">
+            <ion-input
+              type="Password"
+              formControlName="password"
+              placeholder="Password"
+            ></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-button type="submit" expand="block" [disabled]="addloginDetail.invalid" color="tertiary">Sign in</ion-button>
+            <ion-button
+              type="submit"
+              expand="block"
+              [disabled]="addloginDetail.invalid"
+              color="tertiary"
+              >Sign in</ion-button
+            >
           </ion-col>
           <ion-col size="12" class="ion-text-center">
-            <a href="" class="text-white " expand="block" color="clear" >Forgot Password?</a>
+            <a
+              class="text-white"
+              (click)="onClickForgotPassword()"
+              expand="block"
+              color="clear"
+              >Forgot Password?</a
+            >
           </ion-col>
           <ion-col size="12">
             <p class="ion-text-center text-white">Don't have an account?</p>
-            <ion-button expand="block" color="tertiary" fill="outline" (click)="onSignUp()">Sign up Now</ion-button>
+            <ion-button
+              expand="block"
+              color="tertiary"
+              fill="outline"
+              (click)="onSignUp()"
+              >Sign up Now</ion-button
+            >
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -15,4 +15,5 @@ export class Controllers {
   public readonly getwithdraw = `/api/v1/getwithdraw`;
   public readonly withdrawverify = `/api/v1/withdrawverify`;
   public readonly getdashboarddata = `/api/v1/getdashboarddata`;
+  public readonly resetoperation = `/api/v1/resetoperation`;
 }

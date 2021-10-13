@@ -13,6 +13,7 @@ import { AccountService } from 'src/app/services/account/account.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
 import { RegistrationPage } from '../registration/registration.page';
 
 @Component({
@@ -64,6 +65,14 @@ export class LoginPage implements OnInit {
   public async onSignUp() {
     const model = await this.modalController.create({
       component: RegistrationPage,
+      cssClass: 'my-custom-class',
+    });
+    await model.present();
+  }
+
+  public async onClickForgotPassword() {
+    const model = await this.modalController.create({
+      component: ForgotPasswordPage,
       cssClass: 'my-custom-class',
     });
     await model.present();

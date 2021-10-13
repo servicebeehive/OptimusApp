@@ -33,7 +33,7 @@
             formControlName="amount"
             type="number"
             placeholder="0"
-            (ionChange)="amountForMH($event,false)"
+            (ionInput)="amountForMH($event,false)"
           ></ion-input>
           <span class="right-text">₹</span>
         </ion-col>
@@ -46,7 +46,7 @@
             formControlName="megaHash"
             type="number"
             placeholder="0"
-            (ionChange)="amountForMH($event,true)"
+            (ionInput)="amountForMH($event,true)"
           ></ion-input>
           <span class="right-text">MH</span>
         </ion-col>

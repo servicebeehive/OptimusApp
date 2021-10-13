@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 
 @Injectable({
@@ -10,6 +9,7 @@ export class SharedService {
   public checkLoginType = false;
   public showCloseButton = false;
   public userRefer = '';
+  public deepLink = '';
 
   constructor() {}
 
