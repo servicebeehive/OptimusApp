@@ -1,7 +1,7 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { DashboardMegaHashDetailModel } from 'src/app/models/dashboard-megahash-detail.model';
 import { LogCoinsModel } from 'src/app/models/log-coins.mode';
 import { LogNetworkDetailsModel } from 'src/app/models/log-network.model';
@@ -48,7 +48,8 @@ export class DashboardPage implements OnInit {
     public router: Router,
     public modalController: ModalController,
     public sharedService: SharedService,
-    public dashboardService: DashboardService
+    public dashboardService: DashboardService,
+    public menu: MenuController
   ) {}
 
   ngOnInit() {}
@@ -82,6 +83,10 @@ export class DashboardPage implements OnInit {
     await this.getLogPurchaseDetail();
     await this.getLogWithdrawDetail();
     await this.getLogCoinDetail();
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(true, 'sidemenu');
   }
 
   public async getMegaHashDetailForUser() {

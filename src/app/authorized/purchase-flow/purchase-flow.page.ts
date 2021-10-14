@@ -60,7 +60,6 @@ export class PurchaseFlowPage {
   ionViewDidEnter() {
     if (this.sharedService.checkLoginType) {
       this.purchasePlanDetails = this.sharedService.planDetails;
-      console.log('purchasePlanDetails', this.purchasePlanDetails);
     } else {
       this.getPlanDetails();
     }

@@ -1,5 +1,6 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { Subscription, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CoinsDetailModel } from 'src/app/models/coins-details.model';
@@ -24,7 +25,8 @@ export class HomePage implements OnInit {
 
   constructor(
     public homeServices: HomeService,
-    public accountServices: AccountService
+    public accountServices: AccountService,
+    private menu: MenuController
   ) {}
 
   ngOnInit(): void {}
@@ -38,6 +40,7 @@ export class HomePage implements OnInit {
         })
       )
       .subscribe();
+    this.menu.enable(false);
   }
 
   public getListItem(): void {
