@@ -21,7 +21,7 @@
             <ion-item lines="full">
               <ion-label>1 MH</ion-label>
               <ion-text slot="end"
-                >{{purchasePlanDetails.perunitinrprice}} ₹</ion-text
+                >{{purchasePlanDetails?.perunitinrprice}} ₹</ion-text
               >
             </ion-item>
             <ion-item color="tertiary" lines="full">
@@ -39,7 +39,7 @@
               <ion-label>Price</ion-label>
               <ion-text slot="end"
                 >{{this.addPurchaseDetail.value.buyMH *
-                purchasePlanDetails.perunitinrprice}} ₹</ion-text
+                purchasePlanDetails?.perunitinrprice}} ₹</ion-text
               >
             </ion-item>
             <ion-item lines="full">
@@ -50,7 +50,7 @@
               <ion-text slot="end"
                 ><del
                   >{{(this.addPurchaseDetail.value.buyMH *
-                  purchasePlanDetails.perunitinrprice *
+                  purchasePlanDetails?.perunitinrprice *
                   purchasePlanDetails?.discount)/100}} ₹</del
                 ></ion-text
               >
@@ -62,7 +62,7 @@
               >
               <ion-text slot="end"
                 >{{(this.addPurchaseDetail.value.buyMH *
-                purchasePlanDetails.perunitinrprice *
+                purchasePlanDetails?.perunitinrprice *
                 purchasePlanDetails?.maintenanceper)/100}} ₹</ion-text
               >
             </ion-item>

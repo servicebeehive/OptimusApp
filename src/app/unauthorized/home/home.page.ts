@@ -1,11 +1,13 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Subscription, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CoinsDetailModel } from 'src/app/models/coins-details.model';
 import { AccountService } from 'src/app/services/account/account.service';
 import { HomeService } from 'src/app/services/home/home.service';
+import { SharedService } from 'src/app/services/shared/shared-service.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -26,7 +28,9 @@ export class HomePage implements OnInit {
   constructor(
     public homeServices: HomeService,
     public accountServices: AccountService,
-    private menu: MenuController
+    private menu: MenuController,
+    public router: Router,
+    public sharedService: SharedService
   ) {}
 
   ngOnInit(): void {}
