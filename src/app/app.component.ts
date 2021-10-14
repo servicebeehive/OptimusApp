@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, MenuController, Platform } from '@ionic/angular';
 import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links/ngx';
 import { SharedService } from './services/shared/shared-service.service';
 import { Storage } from '@ionic/storage-angular';
+import { AccountService } from './services/account/account.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  public islogeedIn = false;
   constructor(
     private menu: MenuController,
     public router: Router,
@@ -62,6 +64,5 @@ export class AppComponent {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
   }
 }

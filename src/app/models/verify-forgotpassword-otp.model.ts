@@ -1,12 +1,12 @@
 export class VerifyForgotPasswordOtpModel {
   public emailaddress: string;
-  public otp: number;
+  public otp: string;
   public operationtype: string;
   public newpassword: string;
 
   constructor() {
     this.emailaddress = '';
-    this.otp = 0;
+    this.otp = '';
     this.operationtype = '';
     this.newpassword = '';
   }

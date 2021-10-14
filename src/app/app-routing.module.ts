@@ -10,7 +10,11 @@ const routes: Routes = [
   {
     path: 'authorized',
     loadChildren: () => import('./authorized/authorized.module').then( m => m.AuthorizedPageModule)
+  },  {
+    path: 'menu',
+    loadChildren: () => import('./common/menu/menu.module').then( m => m.MenuPageModule)
   }
+
 ];
 
 @NgModule({

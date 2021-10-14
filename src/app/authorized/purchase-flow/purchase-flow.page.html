@@ -3,8 +3,6 @@
 </ion-header>
 
 <ion-content>
- 
-    
   <ion-card>
     <ion-card-content>
       <form [formGroup]="addPurchaseDetail">
@@ -22,7 +20,9 @@
             </ion-item>
             <ion-item lines="full">
               <ion-label>1 MH</ion-label>
-              <ion-text slot="end">3000 ₹</ion-text>
+              <ion-text slot="end"
+                >{{purchasePlanDetails.perunitinrprice}} ₹</ion-text
+              >
             </ion-item>
             <ion-item color="tertiary" lines="full">
               <ion-label>Buy MH</ion-label>
@@ -38,7 +38,8 @@
             <ion-item lines="full">
               <ion-label>Price</ion-label>
               <ion-text slot="end"
-                >{{this.addPurchaseDetail.value.buyMH * 3000}} ₹</ion-text
+                >{{this.addPurchaseDetail.value.buyMH *
+                purchasePlanDetails.perunitinrprice}} ₹</ion-text
               >
             </ion-item>
             <ion-item lines="full">
@@ -47,8 +48,11 @@
                 >{{purchasePlanDetails?.discount}}%</ion-text
               >
               <ion-text slot="end"
-                ><del>{{(this.addPurchaseDetail.value.buyMH * 3000 *
-                purchasePlanDetails?.discount)/100}} ₹</del></ion-text
+                ><del
+                  >{{(this.addPurchaseDetail.value.buyMH *
+                  purchasePlanDetails.perunitinrprice *
+                  purchasePlanDetails?.discount)/100}} ₹</del
+                ></ion-text
               >
             </ion-item>
             <ion-item lines="full">
@@ -57,7 +61,8 @@
                 >{{purchasePlanDetails?.maintenanceper}}%</ion-text
               >
               <ion-text slot="end"
-                >{{(this.addPurchaseDetail.value.buyMH * 3000 *
+                >{{(this.addPurchaseDetail.value.buyMH *
+                purchasePlanDetails.perunitinrprice *
                 purchasePlanDetails?.maintenanceper)/100}} ₹</ion-text
               >
             </ion-item>

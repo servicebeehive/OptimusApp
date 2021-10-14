@@ -49,7 +49,15 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   public onClickForgotPassword() {
-    this.showOpt = true;
+    const verifyOtp = new VerifyForgotPasswordOtpModel();
+    verifyOtp.emailaddress = this.addforgotPasswordForm.value.email;
+    verifyOtp.operationtype = 'ResetOTPSent';
+    this.loginService.updatePassword(verifyOtp).then((res: ReturnResult) => {
+      if (res.success) {
+        this.notificationServices.showToast(res);
+        this.showOpt = true;
+      }
+    });
   }
 
   public async onOtpVerify(): Promise<void> {

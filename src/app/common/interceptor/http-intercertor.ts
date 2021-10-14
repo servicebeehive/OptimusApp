@@ -28,7 +28,8 @@ export class HttpIntercertor implements HttpInterceptor {
     if (
       request.url.includes('login') ||
       request.url.includes('verifyuserotp') ||
-      request.url.includes('signupuser')
+      request.url.includes('signupuser') ||
+      request.url.includes('resetoperation')
     ) {
       request = request.clone({
         headers: new HttpHeaders({

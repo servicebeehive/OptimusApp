@@ -7,12 +7,10 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./authorized.page.scss'],
 })
 export class AuthorizedPage implements OnInit {
+  constructor(private menu: MenuController) {}
 
-  constructor(private menu: MenuController) { }
-
-  ngOnInit() {
-  }
-  openFirst(){
-    this.menu.toggle('sidemenu')
+  ngOnInit() {}
+  openFirst() {
+    this.menu.toggle('sidemenu');
   }
 }

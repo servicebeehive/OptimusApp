@@ -60,6 +60,10 @@ export class CalculatorPage implements OnInit {
       this.mHDetail = new PerHoursDataModel();
       this.mHDetail.day = value.data.day;
       this.mHDetail.month = value.data.month;
+    } else {
+      this.mHDetail = new PerHoursDataModel();
+      this.mHDetail.day.coins = 0;
+      this.mHDetail.month.coins = 0;
     }
   }
 }
