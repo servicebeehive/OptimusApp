@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
   };
   public timerSubscription: Subscription;
   public fetchedcoinDetail: CoinsDetailModel[] = [];
+  public dollorPrice = 0;
 
   constructor(
     public homeServices: HomeService,
@@ -36,6 +37,7 @@ export class HomePage implements OnInit {
   ngOnInit(): void {}
 
   ionViewDidEnter() {
+    this.dollorPrice = Number(this.sharedService.dollorPrice);
     this.getListItem();
     this.timerSubscription = timer(0, 7000)
       .pipe(
