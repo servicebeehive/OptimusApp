@@ -9,7 +9,8 @@ export class SharedService {
   public checkLoginType = false;
   public showCloseButton = false;
   public userRefer = '';
-  public deepLink = '';
+  public dollorPrice = '';
+  public perUnitPriceForCalculator = '';
 
   constructor() {}
 

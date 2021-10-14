@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { PerHoursDataModel } from 'src/app/models/per-hours-data.model';
 import { CalculatorService } from 'src/app/services/calculator/calculator.service';
+import { SharedService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
   selector: 'app-calculator',
@@ -11,6 +12,8 @@ import { CalculatorService } from 'src/app/services/calculator/calculator.servic
 })
 export class CalculatorPage implements OnInit {
   title = 'Calculator';
+  public dollorPrice = 0;
+  public perUnitPrice = 0;
   mHDetail = new PerHoursDataModel();
 
   calculateEthDetail = this.fb.group({
@@ -21,10 +24,14 @@ export class CalculatorPage implements OnInit {
   constructor(
     public modalController: ModalController,
     public fb: FormBuilder,
+    public sharedServices: SharedService,
     public calculatorService: CalculatorService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.perUnitPrice = Number(this.sharedServices.perUnitPriceForCalculator);
+    this.dollorPrice = Number(this.sharedServices.dollorPrice);
+  }
 
   //1mh = 3000 INR
 
@@ -38,11 +45,11 @@ export class CalculatorPage implements OnInit {
     if (isMHChange) {
       this.calculateEthDetail
         .get('amount')
-        ?.setValue(Number(eve.target.value) * 3000);
+        ?.setValue(Number(eve.target.value) * this.perUnitPrice);
     } else {
       this.calculateEthDetail
         .get('megaHash')
-        ?.setValue(Number(eve.target.value) / 3000);
+        ?.setValue(Number(eve.target.value) / this.perUnitPrice);
     }
   }
 

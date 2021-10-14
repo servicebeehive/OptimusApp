@@ -23,6 +23,8 @@ export class AppComponent {
   ) {
     this.storage.create();
     this.inilizeApp();
+    this.sharedService.dollorPrice = '74';
+    this.sharedService.perUnitPriceForCalculator = '3000';
   }
   openFirst() {
     this.menu.enable(true, 'sidemenu');
@@ -46,7 +48,7 @@ export class AppComponent {
           }
         },
         (error: any) => {
-          console.error('Firebase DL ERROR', error);
+          this.presentAlert(error);
         }
       );
     });

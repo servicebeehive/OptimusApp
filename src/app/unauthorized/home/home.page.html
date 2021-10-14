@@ -13,11 +13,11 @@
       >
         <h3 class="ion-no-margin">{{item.symbol.replace("USDT", " ₹")}}</h3>
         <p class="text-normal">
-          {{item.lastPrice * 74 | number : '1.2-2'}}<ion-icon
+          {{item.lastPrice * dollorPrice | number : '1.2-2'}}<ion-icon
             name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}"
             [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"
           ></ion-icon
-          >{{item.priceChangePercent*74| number : '1.2-2'}} %
+          >{{item.priceChangePercent*dollorPrice| number : '1.2-2'}} %
         </p>
       </li>
     </ul>
