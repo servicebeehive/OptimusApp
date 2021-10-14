@@ -5,6 +5,7 @@ import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 import { PurchaseFlowDetails } from 'src/app/models/purchase-flow.model';
 import { PurchasePlanID } from 'src/app/models/purchase-plan.model';
 import { ReturnResult } from 'src/app/models/return-result';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { PlanService } from 'src/app/services/plan/plan.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
@@ -31,7 +32,8 @@ export class PurchaseFlowPage {
     public planService: PlanService,
     public fb: FormBuilder,
     public notificationService: NotificationService,
-    public planServices: PlanService
+    public planServices: PlanService,
+    public alertService: AlertService
   ) {}
 
   ionViewDidEnter() {
@@ -51,6 +53,7 @@ export class PurchaseFlowPage {
       },
     });
     await model.present();
+    this.sharedService.checkLoginType = false;
   }
 
   public calculateTotalAmount(eve) {
@@ -71,7 +74,6 @@ export class PurchaseFlowPage {
   }
 
   public async onClickPayment() {
-    console.log('this.totalAmount', this.totalAmount);
     if (this.totalAmount === 0) {
       return;
     }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -8,6 +8,7 @@ import { AccountSettingPageRoutingModule } from './account-setting-routing.modul
 
 import { AccountSettingPage } from './account-setting.page';
 import { HeaderModule } from 'src/app/common/header/header.module';
+import { IntegerInputDirectiveModule } from 'src/app/common/directives/integer-input/integer-input-directive.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,8 @@ import { HeaderModule } from 'src/app/common/header/header.module';
     IonicModule,
     AccountSettingPageRoutingModule,
     HeaderModule,
+    ReactiveFormsModule,
+    IntegerInputDirectiveModule,
   ],
   declarations: [AccountSettingPage],
 })

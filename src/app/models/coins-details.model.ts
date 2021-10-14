@@ -8,7 +8,7 @@ export class CoinsDetailModel {
   public firstId?: number;
   public highPrice?: string;
   public lastId?: number;
-  public lastPrice?: string;
+  public lastPrice?: number;
   public lastQty?: string;
   public lowPrice?: string;
   public openPrice?: string;
@@ -31,7 +31,7 @@ export class CoinsDetailModel {
     this.firstId = 0;
     this.highPrice = '';
     this.lastId = 0;
-    this.lastPrice = '';
+    this.lastPrice = 0;
     this.lastQty = '';
     this.lowPrice = '';
     this.openPrice = '';

@@ -3,36 +3,81 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-  <ion-item>
-    <ion-label position="floating">Beneficiary name</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Account Number</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Confirm Account Number</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Bank Name</ion-label>
-    <ion-select placeholder="Select One">
-      <ion-select-option value="f">SBI</ion-select-option>
-      <ion-select-option value="m">PNB</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">IFSC code</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <div class=" ion-padding">
-    <ion-button color="tertiary" expand="block">Save</ion-button>
-  </div>
-  </ion-card-content>
-  </ion-card>
-  
-   
+  <form [formGroup]="addBankDetails">
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Beneficiary name*</ion-label>
+          <ion-input type="text" formControlName="beneficiaryName"> </ion-input>
+        </ion-item>
+        <p
+          *ngIf="addBankDetails.controls['beneficiaryName'].touched && addBankDetails.controls['beneficiaryName'].hasError('required')"
+        >
+          Beneficiary name is required
+        </p>
+        <ion-item>
+          <ion-label position="floating">Account Number</ion-label>
+          <ion-input
+            type="text"
+            formControlName="accountNumber"
+            appIntegerInputDirective
+            inputmode="numeric"
+          >
+          </ion-input>
+        </ion-item>
+        <p
+          *ngIf="addBankDetails.controls['accountNumber'].touched && addBankDetails.controls['accountNumber'].hasError('required')"
+        >
+          Account Number is required
+        </p>
+        <ion-item>
+          <ion-label position="floating">Confirm Account Number</ion-label>
+          <ion-input
+            type="text"
+            formControlName="confirmAccountNumber"
+            appIntegerInputDirective
+            inputmode="numeric"
+          >
+          </ion-input>
+        </ion-item>
+        <p
+          *ngIf="addBankDetails.controls['confirmAccountNumber'].touched && addBankDetails.controls['confirmAccountNumber'].hasError('required')"
+        >
+          Confirm Account Number is required
+        </p>
+        <p
+          *ngIf="addBankDetails.controls['confirmAccountNumber'].touched && addBankDetails.controls['confirmAccountNumber'].hasError('noAccountNumberMatch')"
+        >
+          Account Number Must Match
+        </p>
+        <ion-item>
+          <ion-label position="floating">Bank Name</ion-label>
+          <ion-input type="text" formControlName="bankName"> </ion-input>
+        </ion-item>
+        <p
+          *ngIf="addBankDetails.controls['bankName'].touched && addBankDetails.controls['bankName'].hasError('required')"
+        >
+          Bank Name is required
+        </p>
+        <ion-item>
+          <ion-label position="floating">IFSC code</ion-label>
+          <ion-input type="text" formControlName="ifscCode"> </ion-input>
+        </ion-item>
+        <p
+          *ngIf="addBankDetails.controls['ifscCode'].touched && addBankDetails.controls['ifscCode'].hasError('required')"
+        >
+          Ifsc Code is required
+        </p>
+        <div class="ion-padding">
+          <ion-button
+            color="tertiary"
+            (click)="onClickAddBankDetails()"
+            expand="block"
+            [disabled]="addBankDetails.invalid"
+            >Save</ion-button
+          >
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </form>
 </ion-content>
