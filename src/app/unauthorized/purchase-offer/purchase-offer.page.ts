@@ -64,4 +64,27 @@ export class PurchaseOfferPage implements OnInit {
       dismissed: true,
     });
   }
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    //speed: 400,
+    spaceBetween: 10,
+  };
+  showitem: any = true
+  outofStok=false
+  async swipeEvent(event) {
+  const index: number = await event.target.getActiveIndex();
+
+  if(index==0)
+  {
+    this.showitem=true
+  }
+  else if(index==1 || index==3 || index==4 || index==5  ){
+    this.showitem= false
+    this.outofStok=true
+  }
+
+
+ 
+}
 }

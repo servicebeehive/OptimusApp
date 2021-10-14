@@ -21,7 +21,7 @@ import { ShareAppComponent } from 'src/app/common/share-app/share-app.component'
   styleUrls: ['./networking.page.scss'],
 })
 export class NetworkingPage implements OnInit {
-  public title = 'Networking';
+  public title = 'Referral';
   // eslint-disable-next-line @typescript-eslint/naming-convention
   // TREE_DATA: NetworkDetailModel[] = [];
 
@@ -89,8 +89,11 @@ export class NetworkingPage implements OnInit {
     this.treeControl.expandAll();
     text = text.toLowerCase();
     node.forEach((x) => {
-      x.fname = x.fname.toLowerCase();
-      x.ok = x.fname.indexOf(text) >= 0;
+      x.fullname=x.fname +' '+ x.lname+' '
+      console.log(x.fullname)
+    
+      x.fullname = x.fullname.toLowerCase();
+      x.ok = x.fullname.indexOf(text) >= 0;
       if (x.parent) {
         this.setParentOk(text, x.parent, x.ok);
       }

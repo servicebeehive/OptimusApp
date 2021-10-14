@@ -1,6 +1,7 @@
 export class NetworkDetailModel {
   public fname: string;
   public lname: string;
+  public fullname:string;
   public usercode: string;
   public parentcode: string;
   public emailid: string;

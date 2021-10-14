@@ -6,11 +6,11 @@
   <ng-marquee scrolldirection="left" speed="normal" duration="90s">
     <ul class="d-flex">
       <li color="secondary" lines="full" class="d-flex" *ngFor="let item of fetchedcoinDetail">
-        <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " $")}}
+        <h3 class=" ion-no-margin">{{item.symbol.replace("USDT", " ₹")}}
         </h3>
-        <p class="text-normal">{{item.lastPrice}}<ion-icon
+        <p class="text-normal">{{item.lastPrice*74}}<ion-icon
             name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}"
-            [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"></ion-icon>{{item.priceChangePercent}} %
+            [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"></ion-icon>{{item.priceChangePercent*74| number : '1.2-2'}} %
         </p>
       </li>
     </ul>
