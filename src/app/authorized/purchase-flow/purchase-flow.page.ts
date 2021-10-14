@@ -21,29 +21,6 @@ export class PurchaseFlowPage {
   public purchasePlanDetailsArray: PlanDetailsModel[];
   public totalAmount = 0;
 
-  public categories = [
-    {
-      name: 'Car Keys',
-      value: false,
-    },
-    {
-      name: 'Phone',
-      value: false,
-    },
-    {
-      name: 'ID/Drivers License',
-      value: false,
-    },
-    {
-      name: 'Wallet',
-      value: false,
-    },
-    {
-      name: 'Other',
-      value: false,
-    },
-  ];
-
   addPurchaseDetail = this.fb.group({
     buyMH: ['', [Validators.required]],
   });
@@ -78,17 +55,23 @@ export class PurchaseFlowPage {
 
   public calculateTotalAmount(eve) {
     this.totalAmount =
-      Number(eve.target.value) * 3000 -
+      Number(eve.target.value) * this.purchasePlanDetails.perunitinrprice -
       Number(
-        (eve.target.value * 3000 * this.purchasePlanDetails.discount) / 100
+        (eve.target.value *
+          this.purchasePlanDetails.perunitinrprice *
+          this.purchasePlanDetails.discount) /
+          100
       ) +
       Number(
-        (eve.target.value * 3000 * this.purchasePlanDetails.maintenanceper) /
+        (eve.target.value *
+          this.purchasePlanDetails.perunitinrprice *
+          this.purchasePlanDetails.maintenanceper) /
           100
       );
   }
 
   public async onClickPayment() {
+    console.log('this.totalAmount', this.totalAmount);
     if (this.totalAmount === 0) {
       return;
     }
@@ -151,6 +134,7 @@ export class PurchaseFlowPage {
 
   public async onViewPlan() {
     this.sharedService.checkLoginType = true;
+    this.addPurchaseDetail.reset();
   }
 
   public async onClickCancel() {
