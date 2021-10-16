@@ -18,6 +18,8 @@ export class PlanDetailsModel {
   createdon?: Date;
   createdby?: string;
   updatedon?: Date;
+  discountedprice?: number;
+  totalprice?: number;
 
   constructor() {
     this.planid = 0;
@@ -39,5 +41,7 @@ export class PlanDetailsModel {
     this.createdon = new Date();
     this.createdby = '';
     this.updatedon = new Date();
+    this.discountedprice = 0;
+    this.totalprice = 0;
   }
 }
