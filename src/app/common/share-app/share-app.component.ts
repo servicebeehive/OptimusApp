@@ -46,40 +46,15 @@ export class ShareAppComponent implements OnInit {
     toast.present();
   }
 
-  shareFacebook() {
+  shareApp() {
     this.socialSharing
-      .shareViaFacebook(this.message, null, this.url)
+      .share(this.message, null, null, this.url)
       .then(() => {
         this.dismiss();
       })
-      .catch((e) => {});
-  }
-
-  shareInstagram() {
-    this.socialSharing
-      .shareViaInstagram(this.message, null)
-      .then(() => {
-        this.dismiss();
-      })
-      .catch((e) => {});
-  }
-
-  shareTwitter() {
-    this.socialSharing
-      .shareViaTwitter(this.message, null, this.url)
-      .then(() => {
-        this.dismiss();
-      })
-      .catch((e) => {});
-  }
-
-  shareWhattApp() {
-    this.socialSharing
-      .shareViaWhatsApp(this.message, null, this.url)
-      .then(() => {
-        this.dismiss();
-      })
-      .catch((e) => {});
+      .catch((e) => {
+        console.log('error', e);
+      });
   }
 
   public dismiss(): void {

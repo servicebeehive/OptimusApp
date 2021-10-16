@@ -6,6 +6,7 @@ export class userDetail {
   mobileno: number;
   msg: string;
   usercode: string;
+  attribute1: string;
   constructor() {
     this.fname = '';
     this.lname = '';
@@ -14,5 +15,6 @@ export class userDetail {
     this.mobileno = 0;
     this.msg = '';
     this.usercode = '';
+    this.attribute1 = '';
   }
 }

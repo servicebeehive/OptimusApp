@@ -19,6 +19,7 @@ export class AppComponent {
     public alertController: AlertController,
     public platform: Platform,
     public sharedService: SharedService,
+    public accountServices: AccountService,
     public storage: Storage
   ) {
     this.storage.create();

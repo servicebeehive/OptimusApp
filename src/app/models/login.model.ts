@@ -1,7 +1,7 @@
 export class loginDetail {
-  emailaddress: string
-  pwd: string
-  logintype: string
+  emailaddress: string;
+  pwd: string;
+  logintype: string;
   constructor() {
     this.emailaddress = '';
     this.pwd = '';
