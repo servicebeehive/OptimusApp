@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { AccountService } from 'src/app/services/account/account.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 import { CalculatorPage } from 'src/app/unauthorized/calculator/calculator.page';
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     public router: Router,
     public accountServices: AccountService,
     public sharedService: SharedService,
-    public modalController: ModalController
+    public modalController: ModalController, public menu:MenuController
   ) {
     this.islogeedIn = this.accountServices.isLoggedIn();
     this.isShowCloseButton = this.sharedService.showCloseButton;
@@ -51,5 +51,8 @@ export class HeaderComponent implements OnInit {
     this.modalController.dismiss({
       dismissed: true,
     });
+  }
+  openFirst() {
+    this.menu.toggle('sidemenu');
   }
 }

@@ -139,9 +139,11 @@
                               aria-hidden="true"
                             ></i>
                             <span itemprop="price" id="silver"
-                              >₹ {{plan?.perunitinrprice * plan?.minimumunit}}
+                              >₹ {{plan?.discountedprice}}
                             </span>
-                            <!-- <sup>00</sup> -->
+                            <del class="del">
+                            ₹ {{plan?.totalprice}}
+                          </del>
                           </li>
                           <li class="ethp">
                             67% <span>ETH Availability</span>
