@@ -10,7 +10,6 @@ export class AuthorizedPage implements OnInit {
   constructor(private menu: MenuController) {}
 
   ngOnInit() {}
-  openFirst() {
-    this.menu.toggle('sidemenu');
-  }
+  
+ 
 }

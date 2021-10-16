@@ -31,5 +31,31 @@
   background: #e5e5e5;
 }
 ion-item {
-  font-size: 14px;
+  font-size: 14px; --min-height: 38px;
+
 }
+ion-label {
+  margin: 6px 0px 6px !important 
+}
+.mat-tab-header{
+
+    justify-content: center;
+    background: #e9d16f;
+    border-radius: 60px;
+    margin: 0 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+ 
+} 
+.mat-tab-label-active{
+  background: #041e37;
+  border-radius: 60px;
+  opacity: 1 !important;
+  height: 34px;
+  color: #fff;    
+}
+ion-card{    border: 1px solid #d4d4d487;}
+.mat-tab-label {
+  height: 30px !important;}
+.mat-ink-bar{ display: none;}
+.in-item{    margin: 6px 0px !important;}

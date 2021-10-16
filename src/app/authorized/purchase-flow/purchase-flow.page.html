@@ -9,8 +9,8 @@
         <div *ngIf="sharedService.checkLoginType">
           <ion-list>
             <ion-item lines="full">
-              <ion-label>Plan Type</ion-label>
-              <ion-text slot="end">{{purchasePlanDetails?.planname}}</ion-text>
+              <ion-label><strong>Plan Type</strong></ion-label>
+              <ion-text slot="end"><strong>{{purchasePlanDetails?.planname}}</strong></ion-text>
             </ion-item>
             <ion-item lines="full">
               <ion-label>Contract Period</ion-label>
@@ -48,11 +48,10 @@
                 >{{purchasePlanDetails?.discount}}%</ion-text
               >
               <ion-text slot="end"
-                ><del
-                  >{{(this.addPurchaseDetail.value.buyMH *
+                >
+                  {{(this.addPurchaseDetail.value.buyMH *
                   purchasePlanDetails?.perunitinrprice *
-                  purchasePlanDetails?.discount)/100}} ₹</del
-                ></ion-text
+                  purchasePlanDetails?.discount)/100}} ₹</ion-text
               >
             </ion-item>
             <ion-item lines="full">
@@ -91,7 +90,7 @@
         </div>
         <div *ngIf="!sharedService.checkLoginType">
           Please Select any plan to buy.
-          <ion-card class="ion-card">
+          
             <ion-item
               *ngFor="let plan of purchasePlanDetailsArray; let i = index"
             >
@@ -102,7 +101,7 @@
               >
               </ion-checkbox>
             </ion-item>
-          </ion-card>
+       
           <div class="ion-padding">
             <ion-button expand="block" color="tertiary" (click)="onViewPlan()"
               >View Plan</ion-button
