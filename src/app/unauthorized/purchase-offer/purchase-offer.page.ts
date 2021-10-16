@@ -25,6 +25,7 @@ export class PurchaseOfferPage implements OnInit {
   };
   showitem: any = true;
   outofStok = false;
+  
 
   constructor(
     public sharedService: SharedService,
@@ -79,6 +80,7 @@ export class PurchaseOfferPage implements OnInit {
 
     if (index === 0) {
       this.showitem = true;
+      this.outofStok=false
     } else if (index === 1 || index === 3 || index === 4 || index === 5) {
       this.showitem = false;
       this.outofStok = true;

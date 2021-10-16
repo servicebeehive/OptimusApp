@@ -1,4 +1,14 @@
 <ion-toolbar color="primary">
+  <ion-button
+  slot="start"
+  fill="clear"
+  color="tertiary"
+  class="ion-no-padding"
+  *ngIf="islogeedIn"
+  (click)="openFirst()"
+><ion-icon name="menu-outline" slot="icon-only"></ion-icon>
+ 
+</ion-button>
   <h3 class="ion-text-left header" color="tertiary">
     <img width="40" src="assets/logo.png" alt="" />
     <p>
