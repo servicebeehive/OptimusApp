@@ -29,7 +29,8 @@ export class HttpIntercertor implements HttpInterceptor {
       request.url.includes('login') ||
       request.url.includes('verifyuserotp') ||
       request.url.includes('signupuser') ||
-      request.url.includes('resetoperation')
+      request.url.includes('resetoperation') ||
+      request.url.includes('getadminsettingdata')
     ) {
       request = request.clone({
         headers: new HttpHeaders({
@@ -39,7 +40,8 @@ export class HttpIntercertor implements HttpInterceptor {
       });
     } else if (
       request.url.includes('getnetworkdata') ||
-      request.url.includes('getpaymethod')
+      request.url.includes('getpaymethod') ||
+      request.url.includes('getuserprofiledetails')
     ) {
       const tokendata = {
         emailaddress: !this.accountSrvices.getEmail()

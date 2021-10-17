@@ -17,4 +17,6 @@ export class Controllers {
   public readonly getdashboarddata = `/api/v1/getdashboarddata`;
   public readonly resetoperation = `/api/v1/resetoperation`;
   public readonly getuserbankinfo = `/api/v1/getuserbankinfo`;
+  public readonly getuserprofiledetails = `/api/v1/getuserprofiledetails`;
+  public readonly getadminsettingdata = `/api/v1/getadminsettingdata`;
 }

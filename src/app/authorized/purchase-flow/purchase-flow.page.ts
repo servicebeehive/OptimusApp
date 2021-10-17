@@ -135,11 +135,19 @@ export class PurchaseFlowPage {
   }
 
   public async onViewPlan() {
+    if (!this.purchasePlanDetails) {
+      this.notificationService.normalShowToast(
+        'Please select any Plan to View',
+        false
+      );
+      return;
+    }
     this.sharedService.checkLoginType = true;
     this.addPurchaseDetail.reset();
   }
 
   public async onClickCancel() {
+    this.purchasePlanDetails = null;
     this.sharedService.checkLoginType = false;
     this.getPlanDetails();
   }
@@ -150,6 +158,8 @@ export class PurchaseFlowPage {
         x.isactive = !x.isactive;
         if (!x.isactive) {
           this.purchasePlanDetails = plan;
+        } else {
+          this.purchasePlanDetails = null;
         }
       }
     });

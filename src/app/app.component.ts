@@ -1,10 +1,13 @@
+/* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, MenuController, Platform } from '@ionic/angular';
 import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links/ngx';
 import { SharedService } from './services/shared/shared-service.service';
 import { Storage } from '@ionic/storage-angular';
-import { AccountService } from './services/account/account.service';
+import { LoginService } from './services/login/login.service';
+import { AdminSettingData } from './models/admin-setting.model';
+import { ReturnResult } from './models/return-result';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,6 +15,7 @@ import { AccountService } from './services/account/account.service';
 })
 export class AppComponent {
   public islogeedIn = false;
+  public adminSettingData: AdminSettingData;
   constructor(
     private menu: MenuController,
     public router: Router,
@@ -19,13 +23,12 @@ export class AppComponent {
     public alertController: AlertController,
     public platform: Platform,
     public sharedService: SharedService,
-    public accountServices: AccountService,
+    public loginService: LoginService,
     public storage: Storage
   ) {
     this.storage.create();
     this.inilizeApp();
-    this.sharedService.dollorPrice = '74';
-    this.sharedService.perUnitPriceForCalculator = '3000';
+    this.getAdminSettingData();
   }
   openFirst() {
     this.menu.enable(true, 'sidemenu');
@@ -67,5 +70,19 @@ export class AppComponent {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
+  }
+
+  public async getAdminSettingData() {
+    const result: ReturnResult<AdminSettingData> =
+      await this.loginService.getAdminData();
+    if (result.success) {
+      this.adminSettingData = result.data;
+      this.sharedService.dollorPrice = this.adminSettingData
+        .isusdratebyadminactive
+        ? this.adminSettingData.usdratebyadmin
+        : this.adminSettingData.usdratebyexch;
+      this.sharedService.perUnitPriceForCalculator =
+        this.adminSettingData.totalunit;
+    }
   }
 }

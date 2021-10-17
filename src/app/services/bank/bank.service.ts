@@ -4,6 +4,7 @@ import { BankInfoDetails } from 'src/app/models/bank-info.model';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { ReturnResult } from 'src/app/models/return-result';
+import { UserInfoDetails } from 'src/app/models/user-info.model';
 import { BaseService } from '../base/base.service';
 import { ConfigService } from '../config/config.service';
 
@@ -25,6 +26,12 @@ export class BankService extends BaseService {
     return this.PostReturn<BankInfoDetails, ReturnResult>(
       this.controllers.getuserbankinfo,
       bankInfoDetailsData
+    );
+  }
+
+  public async getUserProfileDetails(): Promise<ReturnResult<UserInfoDetails>> {
+    return this.Post<ReturnResult<UserInfoDetails>>(
+      this.controllers.getuserprofiledetails
     );
   }
 }
