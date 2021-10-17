@@ -28,9 +28,12 @@ export class NetworkingPage implements OnInit {
   treeControl: NestedTreeControl<NetworkDetailModel>;
   dataSourcee: MatTreeNestedDataSource<NetworkDetailModel>;
 
-  constructor(public networkService: NetworkService,  public router: Router,
+  constructor(
+    public networkService: NetworkService,
+    public router: Router,
     public modalController: ModalController,
-    public sharedService: SharedService) {
+    public sharedService: SharedService
+  ) {
     this.treeControl = new NestedTreeControl<NetworkDetailModel>(
       this.getChildren
     );
@@ -89,9 +92,8 @@ export class NetworkingPage implements OnInit {
     this.treeControl.expandAll();
     text = text.toLowerCase();
     node.forEach((x) => {
-      x.fullname=x.fname +' '+ x.lname+' '
-      console.log(x.fullname)
-    
+      x.fullname = x.fname + ' ' + x.lname + ' ';
+
       x.fullname = x.fullname.toLowerCase();
       x.ok = x.fullname.indexOf(text) >= 0;
       if (x.parent) {
@@ -128,7 +130,6 @@ export class NetworkingPage implements OnInit {
     await model.present();
   }
   async onslide() {
-   
-      this.openDailog<ShareAppComponent>(ShareAppComponent);
-    }
+    this.openDailog<ShareAppComponent>(ShareAppComponent);
+  }
 }

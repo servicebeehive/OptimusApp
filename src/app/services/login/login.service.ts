@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AdminSettingData } from 'src/app/models/admin-setting.model';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { loginDetail } from 'src/app/models/login.model';
@@ -57,6 +58,12 @@ export class LoginService extends BaseService {
     return this.PostReturn<VerifyForgotPasswordOtpModel, ReturnResult>(
       this.controllers.resetoperation,
       verifyOtpDetailData
+    );
+  }
+
+  public async getAdminData(): Promise<ReturnResult<AdminSettingData>> {
+    return this.Get<ReturnResult<AdminSettingData>>(
+      this.controllers.getadminsettingdata
     );
   }
 }

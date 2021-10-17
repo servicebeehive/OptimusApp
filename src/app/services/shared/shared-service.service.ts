@@ -9,8 +9,8 @@ export class SharedService {
   public checkLoginType = false;
   public showCloseButton = false;
   public userRefer = '';
-  public dollorPrice = '';
-  public perUnitPriceForCalculator = '';
+  public dollorPrice = 0;
+  public perUnitPriceForCalculator = 0;
 
   constructor() {}
 
