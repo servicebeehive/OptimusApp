@@ -111,7 +111,7 @@
 
           <ion-col size="12">
             <ion-input
-              type="text"
+              type="text" 
               appAlphabatesInput
               pattern="[A-Z]*"
               maxlength="8"
@@ -121,8 +121,8 @@
             ></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-item lines="none">
-              <ion-label class="text-white"
+            <ion-item lines="none" class="ion-item">
+              <ion-label  class="text-white ion-padding-start"
                 >I Agree with
                 <a
                   href="https://cryptohashh.com/PrivacyPolicy.php"
@@ -140,8 +140,8 @@
               <ion-checkbox
                 slot="start"
                 formControlName="checkTermsCondition"
-                color="tertiary"
-              ></ion-checkbox>
+                color="light"
+              ></ion-checkbox> 
             </ion-item>
           </ion-col>
         </ion-row>
@@ -151,7 +151,7 @@
           class="ion-padding-start ion-padding-end ion-justify-content-center"
         >
           <ion-col>
-            <ion-button
+            <ion-button class="btn-round"
               type="submit"
               [disabled]="addRegistrationDetail.invalid"
               expand="block"
