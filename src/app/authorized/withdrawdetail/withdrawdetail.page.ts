@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithdrawdetailPage implements OnInit {
   public title = 'Withdraw Detial';
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public ionViewDidEnter() {
+    console.log('Test');
   }
-
 }
