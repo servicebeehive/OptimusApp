@@ -17,7 +17,7 @@
             name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}"
             [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"
           ></ion-icon
-          >{{item.priceChangePercent*dollorPrice| number : '1.2-2'}} %
+          >{{item.priceChangePercent| number : '1.2-2'}} %
         </p>
       </li>
     </ul>
@@ -30,9 +30,7 @@
     <ion-slide>
       <img src="assets/hslider2.jpeg" class="img-radius" alt="">
     </ion-slide>
-    <ion-slide>
-      <img src="assets/hslider3.jpeg" class="img-radius" alt="">
-    </ion-slide>
+  
     <ion-slide>
       <img src="assets/hslider4.jpeg" class="img-radius" alt="">
     </ion-slide>
