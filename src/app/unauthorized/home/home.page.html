@@ -23,11 +23,26 @@
     </ul>
   </ng-marquee>
   <div class="ion-padding ion-text-center">
-    <h1 class="ion-no-margin">Crypto Currency Mining</h1>
-    <p>
-      Cryptocurrency Mining is the most profitable method of earning now-a-days.
-      <br />Start mining today and get the most ROI out of it.
-    </p>
+    <ion-slides pager="true"    [options]="slideOpts2">
+      <ion-slide>
+        <img src="assets/hslider1.jpeg" class="img-radius" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/hslider2.jpeg" class="img-radius" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/hslider3.jpeg" class="img-radius" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/hslider4.jpeg" class="img-radius" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/hslider5.jpeg" class="img-radius" alt="">
+    </ion-slide>
+    
+    
+    </ion-slides>
   </div>
+
   <img src="{{bannerUrl}}" alt="" />
 </ion-content>
