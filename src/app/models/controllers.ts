@@ -19,4 +19,5 @@ export class Controllers {
   public readonly getuserbankinfo = `/api/v1/getuserbankinfo`;
   public readonly getuserprofiledetails = `/api/v1/getuserprofiledetails`;
   public readonly getadminsettingdata = `/api/v1/getadminsettingdata`;
+  public readonly getwithdrwoperation = `/api/v1/getwithdrwoperation`;
 }
