@@ -90,12 +90,14 @@ export class DashboardPage implements OnInit {
   }
 
   public async getMegaHashDetailForUser() {
+    this.sharedService.dashboardMegaHashDetails = null;
     const dashboardDetails = new DashboardDetails();
     dashboardDetails.operationtype = 'MHR';
     const value: ReturnResult<DashboardMegaHashDetailModel[]> =
       await this.dashboardService.getMegaHashDetail(dashboardDetails);
     if (value.success) {
       this.dashboardMegaHashDetails = value.data;
+      this.sharedService.dashboardMegaHashDetails = value.data;
     }
   }
 

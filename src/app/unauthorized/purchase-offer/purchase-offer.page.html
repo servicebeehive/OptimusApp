@@ -18,105 +18,114 @@
           </div>
         </div>
       </div>
-      <ion-slides pager="false"  (ionSlideDidChange)="swipeEvent($event)"  [options]="slideOpts">
-      <ion-slide>
-    <ion-card >
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>ETH</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/ethone.svg"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>BTC</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/btcone.svg"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>LTC</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/ltcone.svg"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>Ravion</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/revange.png"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>Zcase</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/zecone.svg"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-  <ion-slide>
-    <ion-card>
-          <ion-card-content class="">
-            <ion-item  class="ion-no-padding" lines="none">
-              <ion-label>
-               <strong>XMR</strong>
-              </ion-label>
-              <ion-img slot="end"
-                style="width: 40px"
-                src="assets/icon/monero.svg"
-                slot="end"
-              ></ion-img>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-  </ion-slide>
-    </ion-slides>
-    
+      <ion-slides
+        pager="false"
+        (ionSlideDidChange)="swipeEvent($event)"
+        [options]="slideOpts"
+      >
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>ETH</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/ethone.svg"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>BTC</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/btcone.svg"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>LTC</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/ltcone.svg"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>Ravion</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/revange.png"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>Zcase</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/zecone.svg"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <ion-card-content class="">
+              <ion-item class="ion-no-padding" lines="none">
+                <ion-label>
+                  <strong>XMR</strong>
+                </ion-label>
+                <ion-img
+                  slot="end"
+                  style="width: 40px"
+                  src="assets/icon/monero.svg"
+                  slot="end"
+                ></ion-img>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
 
       <section class="pt-5 pb-5" *ngIf="this.showitem">
         <div class="container">
@@ -141,9 +150,7 @@
                             <span itemprop="price" id="silver"
                               >₹ {{plan?.discountedprice}}
                             </span>
-                            <del class="del">
-                            ₹ {{plan?.totalprice}}
-                          </del>
+                            <del class="del"> ₹ {{plan?.totalprice}} </del>
                           </li>
                           <li class="ethp">
                             67% <span>ETH Availability</span>
@@ -157,7 +164,7 @@
                           </li>
 
                           <li class="gmp-plan">
-                            24 Months Ethereum Mining *
+                            {{plan?.contract}} Months Ethereum Mining *
                             <div>
                               <span itemprop="name">Limited supply</span>
                             </div>
@@ -206,14 +213,16 @@
           <!-- /.row -->
         </div>
       </section>
-      <section *ngIf="this.outofStok" class=" ion-padding">
-        <ion-card class=" ion-no-margin">
-          <ion-card-content class=" ion-text-center">
-            <img  src="assets/icon/out-of-stock.png" width="80" />
-            <br>
-            <h2 class=" ion-no-margin ion-no-padding" color="primary">We're Sorry</h2>
-          <p color="danger">This Plan is currently out of stock</p>
-           </ion-card-content>
+      <section *ngIf="this.outofStok" class="ion-padding">
+        <ion-card class="ion-no-margin">
+          <ion-card-content class="ion-text-center">
+            <img src="assets/icon/out-of-stock.png" width="80" />
+            <br />
+            <h2 class="ion-no-margin ion-no-padding" color="primary">
+              We're Sorry
+            </h2>
+            <p color="danger">This Plan is currently out of stock</p>
+          </ion-card-content>
         </ion-card>
       </section>
     </div>

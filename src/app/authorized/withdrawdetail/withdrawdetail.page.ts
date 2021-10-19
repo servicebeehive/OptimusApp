@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ReturnResult } from 'src/app/models/return-result';
+import { WithdrawDetails } from 'src/app/models/withdraw-details.mode';
+import { GetWithdrawDetails } from 'src/app/models/withdraw-get-details.mode';
+import { WithdrawService } from 'src/app/services/withdraw/withdraw.service';
 
 @Component({
   selector: 'app-withdrawdetail',
@@ -7,11 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WithdrawdetailPage implements OnInit {
   public title = 'Withdraw Detial';
-  constructor() {}
+  public withdrawDetails: WithdrawDetails[];
+  constructor(public withdrawService: WithdrawService) {}
 
   ngOnInit() {}
 
   public ionViewDidEnter() {
-    console.log('Test');
+    const getWithdrawDetails = new GetWithdrawDetails();
+    getWithdrawDetails.operationtype = 'WITHDRAWDETAILS';
+    this.withdrawService
+      .getWithdrawDetails(getWithdrawDetails)
+      .then((res: ReturnResult<WithdrawDetails[]>) => {
+        if (res.success) {
+          this.withdrawDetails = res.data;
+        }
+      });
   }
 }
