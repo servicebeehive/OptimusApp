@@ -11,9 +11,9 @@
         class="d-flex"
         *ngFor="let item of fetchedcoinDetail"
       >
-        <h3 class="ion-no-margin">{{item.symbol.replace("USDT", " ₹")}}</h3>
+        <h3 class="ion-no-margin">{{item.symbol.replace("USDT","")}} <span class="padding-left-5">₹</span></h3>
         <p class="text-normal">
-          {{item.lastPrice * dollorPrice | number : '1.2-2'}}<ion-icon
+          {{item.lastPrice * dollorPrice | number : '1.1-4'}} <ion-icon
             name="{{item.priceChangePercent > 0 ? 'caret-up-outline' : 'caret-down-outline'}}"
             [color]="item.priceChangePercent > 0 ? 'success' : 'danger'"
           ></ion-icon
