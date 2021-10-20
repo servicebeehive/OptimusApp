@@ -43,10 +43,8 @@ export class LoginPage implements OnInit {
   public async onSignin(): Promise<void> {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     const loginDetail_data = new loginDetail();
-    // loginDetail_data.emailaddress = this.addloginDetail.value.username;
-    // loginDetail_data.pwd = this.addloginDetail.value.password;
-    loginDetail_data.emailaddress = 'premsharma.bspr@gmail.com';
-    loginDetail_data.pwd = '8208184497';
+    loginDetail_data.emailaddress = this.addloginDetail.value.username;
+    loginDetail_data.pwd = this.addloginDetail.value.password;
     this.loginService
       .getUserDetails(loginDetail_data)
       .then((result: ReturnResult<userDetail>) => {
