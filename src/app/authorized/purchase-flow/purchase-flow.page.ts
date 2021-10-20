@@ -77,32 +77,32 @@ export class PurchaseFlowPage {
     if (this.totalAmount === 0) {
       return;
     }
-    if (this.purchasePlanDetails.planname === 'Silver') {
+    if (this.purchasePlanDetails.planid === 1) {
       if (
         Number(this.addPurchaseDetail.value.buyMH) < 5 ||
         Number(this.addPurchaseDetail.value.buyMH) > 34
       ) {
         this.notificationService.normalShowToast(
-          'Please Check the Purchase Limit(5-35 MH) of Silver Plan',
+          'Please Check the Purchase Limit(5-35 MH) for this Plan',
           false
         );
         return;
       }
-    } else if (this.purchasePlanDetails.planname === 'Gold') {
+    } else if (this.purchasePlanDetails.planid === 2) {
       if (
         Number(this.addPurchaseDetail.value.buyMH) < 35 ||
         Number(this.addPurchaseDetail.value.buyMH) > 299
       ) {
         this.notificationService.normalShowToast(
-          'Please Check the Purchase Limit(35-300 MH) of Gold Plan',
+          'Please Check the Purchase Limit(35-300 MH) for this Plan',
           false
         );
         return;
       }
-    } else if (this.purchasePlanDetails.planname === 'Diamond') {
+    } else if (this.purchasePlanDetails.planid === 3) {
       if (Number(this.addPurchaseDetail.value.buyMH) < 300) {
         this.notificationService.normalShowToast(
-          'Please Check the Purchase Limit(< 300) of Diamond Plan',
+          'Please Check the Purchase Limit(< 300) for this Plan',
           false
         );
         return;
@@ -117,13 +117,20 @@ export class PurchaseFlowPage {
     purchaseFlowDetails.totalamount = this.totalAmount;
     purchaseFlowDetails.unit = Number(this.addPurchaseDetail.value.buyMH);
     purchaseFlowDetails.operationtype = 'BUY';
-    this.planService
-      .postPayment(purchaseFlowDetails)
-      .then((res: ReturnResult<PurchasePlanID[]>) => {
-        if (res.success) {
-          this.onClickPaymentSummary(res.data[0].inserted);
-        }
-      });
+    const data = await this.alertService.presentAlertConfirm(
+      'Purchase Plan',
+      'Are you sure you want to proceed further !!'
+    );
+    console.log('data', data);
+    if (data) {
+      this.planService
+        .postPayment(purchaseFlowDetails)
+        .then((res: ReturnResult<PurchasePlanID[]>) => {
+          if (res.success) {
+            this.onClickPaymentSummary(res.data[0].inserted);
+          }
+        });
+    }
   }
 
   public async getPlanDetails() {
