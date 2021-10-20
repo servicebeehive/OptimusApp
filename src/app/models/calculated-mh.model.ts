@@ -4,3 +4,11 @@ export class CalulatedCoinsDetailModel {
   public status: boolean;
   public data: PerHoursDataModel;
 }
+
+export class CalulatedAmount {
+  public price: string;
+}
+
+export class CalulatedMH {
+  public calculatedvalue: number;
+}

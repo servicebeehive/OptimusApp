@@ -121,7 +121,6 @@ export class PurchaseFlowPage {
       'Purchase Plan',
       'Are you sure you want to proceed further !!'
     );
-    console.log('data', data);
     if (data) {
       this.planService
         .postPayment(purchaseFlowDetails)

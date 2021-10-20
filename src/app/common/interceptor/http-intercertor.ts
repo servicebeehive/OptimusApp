@@ -30,7 +30,8 @@ export class HttpIntercertor implements HttpInterceptor {
       request.url.includes('verifyuserotp') ||
       request.url.includes('signupuser') ||
       request.url.includes('resetoperation') ||
-      request.url.includes('getadminsettingdata')
+      request.url.includes('getadminsettingdata') ||
+      request.url.includes('getmeghahashcalc')
     ) {
       request = request.clone({
         headers: new HttpHeaders({
