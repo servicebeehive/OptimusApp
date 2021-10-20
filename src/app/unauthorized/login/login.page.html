@@ -23,7 +23,8 @@
             <ion-input type="Password" formControlName="password" placeholder="Password"></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-button type="submit" expand="block" color="tertiary">Sign in</ion-button>
+            <ion-button type="submit" expand="block" [disabled]="addloginDetail.invalid" color="tertiary">Sign in
+            </ion-button>
           </ion-col>
           <ion-col size="12" class="ion-text-center">
             <a class="text-white" (click)="onClickForgotPassword()" expand="block" color="clear">Forgot Password?</a>
