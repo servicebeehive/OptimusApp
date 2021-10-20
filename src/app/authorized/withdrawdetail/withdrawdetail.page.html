@@ -7,9 +7,9 @@
 </ion-header>
 
 <ion-content>
-  <h2 class=" ion-text-center">WithDraw Detial </h2>
+  <h2 class=" ion-text-center">withdrawal Detial </h2>
   <ion-card>
-    <ion-card-content>
+    <ion-card-content *ngIf="withdrawDetails?.length > 0">
       <div *ngFor="let withdrawDetail of withdrawDetails; let i = index">
         <ion-item color="tertiary" lines="full">
           <ion-label>
@@ -45,5 +45,6 @@
         </ion-item>
       </div>
     </ion-card-content>
+    <div *ngIf="withdrawDetails?.length === 0">No Withdrawal Yet</div>
   </ion-card>
 </ion-content>

@@ -51,7 +51,17 @@ export class WithdrawPage implements OnInit {
       Number(this.addWithdraw.value.withdrawUnit) <= 0
     ) {
       this.notificationService.normalShowToast(
-        'Exceeding Threshold Limit of 2MH',
+        'Less Than Withdraw Limit of 2MH',
+        false
+      );
+      return;
+    }
+    if (
+      Number(this.addWithdraw.value.withdrawUnit) >
+      this.megaHashDetails[0].ethtotalmined
+    ) {
+      this.notificationService.normalShowToast(
+        'Please check your Withdrawl ETH amount',
         false
       );
       return;

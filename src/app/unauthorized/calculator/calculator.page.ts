@@ -41,16 +41,9 @@ export class CalculatorPage implements OnInit {
     });
   }
 
-  amountForMH(eve, isMHChange) {
-    if (isMHChange) {
-      this.calculateEthDetail
-        .get('amount')
-        ?.setValue(Number(eve.target.value) * this.perUnitPrice);
-    } else {
-      this.calculateEthDetail
-        .get('megaHash')
-        ?.setValue(Number(eve.target.value) / this.perUnitPrice);
-    }
+  amountForMHClauculate(eve) {
+    console.log('eve.target.value');
+    this.calculateEthDetail.get('megaHash')?.setValue(eve.target.value);
   }
 
   public async onCalculate() {

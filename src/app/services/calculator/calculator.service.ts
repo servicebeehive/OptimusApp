@@ -27,4 +27,13 @@ export class CalculatorService extends BaseService {
       baseMH
     );
   }
+
+  public async getmeghahashcalc(
+    baseMH: number
+  ): Promise<CalulatedCoinsDetailModel> {
+    return this.GetWithValue<CalulatedCoinsDetailModel>(
+      this.controllers.getmeghahashcalc,
+      baseMH
+    );
+  }
 }
