@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      <ion-slides pager="false"  (ionSlideDidChange)="swipeEvent($event)"  [options]="slideOpts">
+      <ion-slides pager="true"  (ionSlideDidChange)="swipeEvent($event)"  [options]="slideOpts">
       <ion-slide>
     <ion-card >
           <ion-card-content class="">
@@ -209,7 +209,7 @@
       <section *ngIf="this.outofStok" class=" ion-padding">
         <ion-card class=" ion-no-margin">
           <ion-card-content class=" ion-text-center ionoutof">
-            <img  src="assets/icon/out-of-stock.png" width="80" />
+            <img  src="assets/icon/out-of-stock.png" width="120" />
             <br>
             <h2 class=" ion-no-margin ion-no-padding" color="primary">We're Sorry</h2>
           <p color="danger">This Plan is currently out of stock</p>
