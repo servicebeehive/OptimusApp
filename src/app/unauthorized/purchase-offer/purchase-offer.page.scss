@@ -421,14 +421,19 @@ span.limittime {
    border-width: 10px;
    margin-top: -8px;
 }
-// ion-card{ width: 100%;}
+ion-slide{
+   ion-card{ width: 75%;}
+}
 .ion-no-margin{ margin: 0;}
 del{    font-size:18px !important;
    display: block;
    margin-top: 10px;
    color: #84848480;}
-   .ionoutof{    min-height: 418px;
+   .ionoutof{    min-height:480px;
       justify-content: center;
       display: flex;
       flex-direction: column;
       align-items: center;}
+::ng-deep .swiper-pagination-bullet {
+         background: #1b1b1b !important;
+     }
