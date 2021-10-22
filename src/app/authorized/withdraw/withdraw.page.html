@@ -9,7 +9,7 @@
         <div *ngIf="!isShowOtpPanel">
           <ion-list>
             <ion-item lines="full">
-              <ion-label>Withdrow Details</ion-label>
+              <ion-label>Withdrawal Details</ion-label>
               <a routerLink="/authorized/withdrawdetail">View Details</a>
             </ion-item>
             <ion-item lines="full">
@@ -19,7 +19,7 @@
             </ion-item>
             <ion-item lines="full">
               <ion-label>Withdrawal Limit</ion-label>
-              <ion-text slot="end" color="success">2 ETH</ion-text>
+              <ion-text slot="end" color="success">{{withDrawLimit}} ETH</ion-text>
             </ion-item>
 
             <ion-item color="tertiary" lines="full">
