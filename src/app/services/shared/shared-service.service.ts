@@ -13,6 +13,7 @@ export class SharedService {
   public dollorPrice = 0;
   public perUnitPriceForCalculator = 0;
   public dashboardMegaHashDetails: DashboardMegaHashDetailModel[] = [];
+  public withDrawLimit = 0;
 
   constructor() {}
 

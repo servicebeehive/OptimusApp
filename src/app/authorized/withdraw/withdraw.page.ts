@@ -20,6 +20,7 @@ export class WithdrawPage implements OnInit {
   public isShowOtpPanel = false;
   public withdrawid = 0;
   public megaHashDetails: DashboardMegaHashDetailModel[] = [];
+  public withDrawLimit = 0;
 
   addWithdraw = this.fb.group({
     withdrawUnit: ['', Validators.required],
@@ -39,6 +40,7 @@ export class WithdrawPage implements OnInit {
 
   async ionViewDidEnter() {
     await this.getMegaHashDetailForUser();
+    this.withDrawLimit = this.sharedService.withDrawLimit;
   }
 
   public async getMegaHashDetailForUser() {
@@ -47,11 +49,11 @@ export class WithdrawPage implements OnInit {
 
   public withdrawSendOtp(): void {
     if (
-      Number(this.addWithdraw.value.withdrawUnit) < 2 ||
+      Number(this.addWithdraw.value.withdrawUnit) < this.withDrawLimit ||
       Number(this.addWithdraw.value.withdrawUnit) <= 0
     ) {
       this.notificationService.normalShowToast(
-        'Less Than Withdraw Limit of 2MH',
+        `Less Than Withdraw Limit of ${this.withDrawLimit}MH`,
         false
       );
       return;
@@ -61,7 +63,7 @@ export class WithdrawPage implements OnInit {
       this.megaHashDetails[0].ethtotalmined
     ) {
       this.notificationService.normalShowToast(
-        'Please check your Withdrawl ETH amount',
+        'Please check your Withdraw ETH amount',
         false
       );
       return;
