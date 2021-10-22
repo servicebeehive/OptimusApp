@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CalulatedCoinsDetailModel } from 'src/app/models/calculated-mh.model';
+import {
+  CalulatedAmount,
+  CalulatedCoinsDetailModel,
+  CalulatedMH,
+} from 'src/app/models/calculated-mh.model';
 import { Controllers } from 'src/app/models/controllers';
 import { IConfig } from 'src/app/models/iconfig';
 import { ReturnResult } from 'src/app/models/return-result';
@@ -25,6 +29,15 @@ export class CalculatorService extends BaseService {
     return this.GetWithValue<CalulatedCoinsDetailModel>(
       this.controllers.getcalulcatedcoindetails,
       baseMH
+    );
+  }
+
+  public async getmeghahashcalc(
+    calulatedAmountData: CalulatedAmount
+  ): Promise<ReturnResult<CalulatedMH[]>> {
+    return this.PostReturn<CalulatedAmount, ReturnResult<CalulatedMH[]>>(
+      this.controllers.getmeghahashcalc,
+      calulatedAmountData
     );
   }
 }

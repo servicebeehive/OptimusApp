@@ -12,12 +12,4 @@ export class AboutNetworkingPage implements OnInit {
   constructor(public alertService: AlertService) {}
 
   ngOnInit() {}
-
-  async testAlert() {
-    const data = await this.alertService.presentAlertConfirm(
-      'TestHeader',
-      'TestMessage'
-    );
-    console.log('data', data);
-  }
 }

@@ -6,67 +6,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <h2 class=" ion-text-center">WithDraw Detial </h2>
+<ion-content>
+  <h2 class=" ion-text-center">Withdrawal Details </h2>
   <ion-card>
-    <ion-card-content>
- <ion-item color="tertiary" lines="full">
- 
-    <ion-label>
-      WithDraw date/time<br>
-      22/09/2021 3:63 IST
-    </ion-label>
-    <ion-text slot="end" class=" text-align-right">Status<br>
-      <ion-icon name="ellipse" class="ion-align-items-center" color="medium"></ion-icon> Proccess
-    </ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      Currency
-    </ion-label>
-    <ion-text slot="end" class=" ion-align-items-end">ETH</ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      QTY
-    </ion-label>
-    <ion-text slot="end"  class=" ion-align-items-end">5</ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      Process Date & Time
-    </ion-label>
-    <ion-text slot="end"  class=" ion-align-items-end"> 22/09/2021 3:63 IST</ion-text>
-  </ion-item>
-  <ion-item color="tertiary" lines="full">
- 
-    <ion-label>
-      WithDraw date/time<br>
-      22/09/2021 3:63 IST
-    </ion-label>
-    <ion-text slot="end" class=" text-align-right">Status<br>
-      <ion-icon name="ellipse" class="ion-align-items-center" color="success"></ion-icon> Approved
-    </ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      Currency
-    </ion-label>
-    <ion-text slot="end" class=" ion-align-items-end" >ETH</ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      QTY
-    </ion-label>
-    <ion-text slot="end"  class=" ion-align-items-end">5</ion-text>
-  </ion-item>
-  <ion-item  lines="full">
-    <ion-label>
-      Process Date & Time
-    </ion-label>
-    <ion-text slot="end"  class=" ion-align-items-end"> 22/09/2021 3:63 IST</ion-text>
-  </ion-item>
-
-</ion-card-content>
-</ion-card>
+    <ion-card-content *ngIf="withdrawDetails?.length > 0">
+      <div *ngFor="let withdrawDetail of withdrawDetails; let i = index">
+        <ion-item color="tertiary" lines="full">
+          <ion-label>
+            WithDraw date/time<br>
+            {{withdrawDetail?.withdrawdate | date :'medium' }} IST
+          </ion-label>
+          <ion-text *ngIf='withdrawDetail?.status === "P"' slot="end" class=" text-align-right">Status<br>
+            <ion-icon name="ellipse" class="ion-align-items-center" color="medium"></ion-icon> In Proccess
+          </ion-text>
+          <ion-text *ngIf='withdrawDetail?.status === "A"' slot="end" class=" text-align-right">Status<br>
+            <ion-icon name="ellipse" class="ion-align-items-center" color="success"></ion-icon> Approved
+          </ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label>
+            Currency
+          </ion-label>
+          <ion-text slot="end" class=" ion-align-items-end">ETH</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label>
+            QTY
+          </ion-label>
+          <ion-text slot="end" class=" ion-align-items-end">{{withdrawDetail?.withdrawunit}}</ion-text>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label>
+            Process Date & Time
+          </ion-label>
+          <ion-text slot="end" class=" ion-align-items-end"> {{withdrawDetail?.processdate | date :'medium' }} <span
+              *ngIf='withdrawDetail?.processdate !== null'>IST</span>
+          </ion-text>
+        </ion-item>
+      </div>
+    </ion-card-content>
+    <div *ngIf="withdrawDetails?.length === 0">No Withdrawal Yet</div>
+  </ion-card>
 </ion-content>

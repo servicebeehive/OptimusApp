@@ -11,16 +11,12 @@
           <h2 class="title-large">
             {{dashboardMegaHashDetails[0]?.totalmh}} MH
           </h2>
-          <p class="ion-no-margin">Total Accumulated ETH</p>
+          <p class="ion-no-margin">Total Mined ETH</p>
           <h2 class="title-middile ion-no-margin">
-            ETH {{dashboardMegaHashDetails[0]?.ethtotalmined | number : '1.16'}}
+            ETH {{dashboardMegaHashDetails[0]?.ethtotalmined | number : '1.10'}}
           </h2>
         </ion-label>
-        <ion-img
-          style="width: 40px"
-          src="assets/icon/ethereum.svg"
-          slot="end"
-        ></ion-img>
+        <ion-img style="width: 40px" src="assets/icon/ethereum.svg" slot="end"></ion-img>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -42,67 +38,46 @@
     <ion-card-content class="">
       <ion-item lines="full" class="ion-no-padding">
         <ion-label> Total Referral(#) </ion-label>
-        <ion-text slot="end"
-          >{{dashboardMegaHashDetails[0]?.totalchild}}</ion-text
-        >
+        <ion-text slot="end">{{dashboardMegaHashDetails[0]?.totalchild}}</ion-text>
       </ion-item>
 
       <ion-item lines="full" class="ion-no-padding">
         <ion-label> Total incentive (in MH) </ion-label>
-        <ion-text slot="end"
-          >{{dashboardMegaHashDetails[0]?.totalincunit}}</ion-text
-        >
+        <ion-text slot="end">{{dashboardMegaHashDetails[0]?.totalincunit}}</ion-text>
       </ion-item>
       <ion-item lines="none" class="ion-no-padding">
         <ion-label> Total incentive (in Cash) </ion-label>
-        <ion-text slot="end"
-          >{{dashboardMegaHashDetails[0]?.totalincamount }}</ion-text
-        >
+        <ion-text slot="end">{{dashboardMegaHashDetails[0]?.totalincamount }}</ion-text>
       </ion-item>
     </ion-card-content>
   </ion-card>
   <ion-slides pager="false" class="ion-padding" [options]="slideOpts">
     <ion-slide>
-      <ion-card
-        (click)="onslide('purchase-offer')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
+      <ion-card (click)="onslide('purchase-offer')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/gift-card.png" alt="" />
         <h4>Plans and offer</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card
-        (click)="onslide('know-mining')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
+      <ion-card (click)="onslide('know-mining')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/idea.png" alt="" />
         <h4>Know Mining</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card
-        (click)="onslide('why-optimus')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
+      <ion-card (click)="onslide('why-optimus')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/problem.png" alt="" />
         <h4>Why Us?</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card
-        (click)="onslide('about-networking')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
+      <ion-card (click)="onslide('about-networking')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/customer.png" alt="" />
         <h4>About Referral</h4>
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card
-        (click)="onslide('support')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
+      <ion-card (click)="onslide('support')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/technical-support.png" alt="" />
         <h4>Support</h4>
       </ion-card>
@@ -160,8 +135,7 @@
         </table>
       </div>
       <div class="norecond" *ngIf="logWithdrawDetails.length === 0">No Record Round</div>
-      </mat-tab
-    >
+    </mat-tab>
     <mat-tab label="Purchase">
       <div *ngIf="logPurchaseDetails.length > 0">
         <table class="table table-striped">
@@ -183,8 +157,8 @@
           </tbody>
         </table>
       </div>
-      <div  class="norecond" *ngIf="logPurchaseDetails.length === 0">No Record Round</div></mat-tab
-    >
+      <div class="norecond" *ngIf="logPurchaseDetails.length === 0">No Record Round</div>
+    </mat-tab>
     <mat-tab label="Referral" class="ion-text-center">
       <div *ngIf="logNetworkDetails.length > 0">
         <table class="table table-striped">
@@ -204,7 +178,7 @@
           </tbody>
         </table>
       </div>
-      <div  class="norecond" *ngIf="logNetworkDetails.length === 0">No Record Round</div>
+      <div class="norecond" *ngIf="logNetworkDetails.length === 0">No Record Round</div>
     </mat-tab>
   </mat-tab-group>
 </ion-content>

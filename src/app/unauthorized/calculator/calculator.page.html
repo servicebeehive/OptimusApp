@@ -8,55 +8,40 @@
   </ion-toolbar>
 </ion-header>
 <div class=" ion-padding">
-<ion-card >
-  <ion-card-content class="">
-    <ion-item color="none" class="ion-no-padding" lines="none">
-      <ion-label>
-        <ion-text>ETH </ion-text>
-        <p class="ion-no-margin">Mining Calculator</p>
-      </ion-label>
-      <ion-img
-        style="width: 40px"
-        src="assets/icon/ethereum.svg"
-        slot="end"
-      ></ion-img>
-    </ion-item>
-  </ion-card-content>
-</ion-card>
+  <ion-card>
+    <ion-card-content class="">
+      <ion-item color="none" class="ion-no-padding" lines="none">
+        <ion-label>
+          <ion-text>ETH </ion-text>
+          <p class="ion-no-margin">Mining Calculator</p>
+        </ion-label>
+        <ion-img style="width: 40px" src="assets/icon/ethereum.svg" slot="end"></ion-img>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </div>
 <ion-content color="primary">
   <form [formGroup]="calculateEthDetail">
     <ion-grid>
       <ion-row>
         <ion-col size="5">
-          <ion-input
-            class="bg-input"
-            formControlName="amount"
-            type="number"
-            placeholder="0"
-            (ionInput)="amountForMH($event,false)"
-          ></ion-input>
+          <ion-input class="bg-input" formControlName="amount" type="number" placeholder="0"
+            (ionBlur)="amountForMHClauculate($event)"></ion-input>
           <span class="right-text">₹</span>
         </ion-col>
         <ion-col size="2" class="ion-justify-content-center ion-text-center">
           =
         </ion-col>
         <ion-col size="5">
-          <ion-input
-            class="bg-input"
-            formControlName="megaHash"
-            type="number"
-            placeholder="0"
-            (ionInput)="amountForMH($event,true)"
-          ></ion-input>
+          <ion-input class="bg-input" formControlName="megaHash" type="number" [disabled]=true placeholder="0">
+          </ion-input>
           <span class="right-text">MH</span>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <ion-button color="tertiary" expand="block" (click)="onCalculate()"
-            >Calculate</ion-button
-          >
+          <ion-button color="tertiary" expand="block" [disabled]="calculateEthDetail.invalid" (click)="onCalculate()">
+            Calculate</ion-button>
         </ion-col>
       </ion-row>
 

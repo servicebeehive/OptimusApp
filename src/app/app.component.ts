@@ -83,6 +83,8 @@ export class AppComponent {
         : this.adminSettingData.usdratebyexch;
       this.sharedService.perUnitPriceForCalculator =
         this.adminSettingData.totalunit;
+      this.sharedService.withDrawLimit =
+        this.adminSettingData.withdrawthreshlimit;
     }
   }
 }

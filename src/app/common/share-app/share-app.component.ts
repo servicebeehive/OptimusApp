@@ -13,10 +13,10 @@ export class ShareAppComponent implements OnInit {
   // eslint-disable-next-line max-len
   public url =
     // eslint-disable-next-line max-len
-    //`https://projectoptimus.page.link/?link=http://13.233.81.41/?Code%3D${this.linkvalue}&apn=com.optimus.currency&st=Registration&sd=Get+maximum+rewards+on+Signup`;
-    //public url =
-    // eslint-disable-next-line max-len
-    `https://projectoptimus.page.link/?link=http://13.233.81.41/?Code%3D${this.linkvalue}&apn=com.optimus.currency&afl=https://www.cryptohashh.com/index.php`;
+    `https://projectoptimus.page.link/?link=http://13.233.81.41/?Code%3D${this.linkvalue}&apn=com.optimus.currency&st=Registration&sd=Get+maximum+rewards+on+Signup`;
+  //public url =
+  // eslint-disable-next-line max-len
+  // `https://projectoptimus.page.link/?link=http://13.233.81.41/?Code%3D${this.linkvalue}&apn=com.optimus.currency&afl=https://www.cryptohashh.com/index.php`;
   public message = 'Please click the below link';
 
   constructor(

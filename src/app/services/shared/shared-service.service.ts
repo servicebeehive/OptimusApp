@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DashboardMegaHashDetailModel } from 'src/app/models/dashboard-megahash-detail.model';
 import { PlanDetailsModel } from 'src/app/models/plan-details.model';
 
 @Injectable({
@@ -11,6 +12,8 @@ export class SharedService {
   public userRefer = '';
   public dollorPrice = 0;
   public perUnitPriceForCalculator = 0;
+  public dashboardMegaHashDetails: DashboardMegaHashDetailModel[] = [];
+  public withDrawLimit = 0;
 
   constructor() {}
 
