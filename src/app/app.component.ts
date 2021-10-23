@@ -87,4 +87,8 @@ export class AppComponent {
         this.adminSettingData.withdrawthreshlimit;
     }
   }
+  support(){
+    this.router.navigate(['authorized/support'])
+    this.menu.close();
+  }
 }
