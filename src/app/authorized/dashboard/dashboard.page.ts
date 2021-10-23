@@ -13,6 +13,7 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
 import { AboutNetworkingPage } from 'src/app/unauthorized/about-networking/about-networking.page';
 import { KnowMiningPage } from 'src/app/unauthorized/know-mining/know-mining.page';
+import { OfferPage } from 'src/app/unauthorized/offer/offer.page';
 import { PurchaseOfferPage } from 'src/app/unauthorized/purchase-offer/purchase-offer.page';
 import { WhyOptimusPage } from 'src/app/unauthorized/why-optimus/why-optimus.page';
 import { SupportPage } from '../support/support.page';
@@ -38,7 +39,7 @@ export class DashboardPage implements OnInit {
   public logCoinsDetails: LogCoinsModel[] = [];
   public isDisabled = true;
   slideOpts = {
-    initialSlide: 1,
+    initialSlide: 0,
     slidesPerView: 2,
     speed: 400,
     spaceBetween: 10,
@@ -139,5 +140,18 @@ export class DashboardPage implements OnInit {
     if (value.success) {
       this.logCoinsDetails = value.data;
     }
+  }
+
+
+
+  async onoffer() {
+    this.openDailog<OfferPage>(OfferPage);
+  }
+  public dismiss(): void {
+    this.sharedService.showCloseButton = false;
+    //this.isShowCloseButton = this.sharedService.showCloseButton;
+    this.modalController.dismiss({
+      dismissed: true,
+    });
   }
 }

@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content color="primary" [fullscreen]="true">
-  <ng-marquee scrolldirection="left" speed="normal" duration="90s">
+  <ng-marquee scrolldirection="left" class="bg-mr" speed="normal" duration="90s">
     <ul class="d-flex">
       <li
         color="secondary"
@@ -22,7 +22,12 @@
       </li>
     </ul>
   </ng-marquee>
-  <img src="assets/offer2.gif" alt="" class="offerui">
+  <ng-marquee class="offer"  scrolldirection="alternate" speed="drowsy" [stopOnHover]="true" >
+   <div class="offerinner" (click)="onslide()">  <img src="assets/offer2.gif" alt=""  class="offerui"> Offer @ Pre Launch; Valid till 45 days</div>
+   
+  </ng-marquee>
+  
+
   <!-- <ng-marquee scrolldirection="left" speed="normal" duration="10s">Diwali Offer</ng-marquee> -->
   <!-- <div class="ion-text-center">
     <ion-slides pager="true"    [options]="slideOpts2">
@@ -44,5 +49,5 @@
     </ion-slides>
   </div> -->
 
-  <img src="{{bannerUrl}}" alt="" />
+  <img src="{{bannerUrl}}" class="top-120" alt="" />
 </ion-content>

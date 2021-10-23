@@ -1,13 +1,14 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { Subscription, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CoinsDetailModel } from 'src/app/models/coins-details.model';
 import { AccountService } from 'src/app/services/account/account.service';
 import { HomeService } from 'src/app/services/home/home.service';
 import { SharedService } from 'src/app/services/shared/shared-service.service';
+import { OfferPage } from '../offer/offer.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -31,6 +32,7 @@ export class HomePage implements OnInit {
     public accountServices: AccountService,
     private menu: MenuController,
     public router: Router,
+    public modalController: ModalController,
     public sharedService: SharedService
   ) {}
   slideOpts2 = {grabCursor: true,
@@ -117,5 +119,23 @@ export class HomePage implements OnInit {
 
   ionViewDidLeave(): void {
     this.timerSubscription.unsubscribe();
+  }
+  public async openDailog<C>(componentC: ComponentType<C>) {
+    const model = await this.modalController.create({
+      component: componentC,
+      cssClass: 'my-custom-class',
+    });
+    await model.present();
+  }
+
+  async onslide() {
+    this.openDailog<OfferPage>(OfferPage);
+  }
+  public dismiss(): void {
+    this.sharedService.showCloseButton = false;
+    //this.isShowCloseButton = this.sharedService.showCloseButton;
+    this.modalController.dismiss({
+      dismissed: true,
+    });
   }
 }

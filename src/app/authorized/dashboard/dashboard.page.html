@@ -53,6 +53,15 @@
   </ion-card>
   <ion-slides pager="false" class="ion-padding" [options]="slideOpts">
     <ion-slide>
+      <ion-card
+        (click)="onoffer()"
+        class="ion-text-center first-card card-box ion-no-margin"
+      >
+        <img align="center" src="assets/icon/offer.gif" class="img-64" alt="" />
+      
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
       <ion-card (click)="onslide('purchase-offer')" class="ion-text-center first-card card-box ion-no-margin">
         <img align="center" src="assets/icon/gift-card.png" alt="" />
         <h4>Plans and offer</h4>
@@ -82,15 +91,7 @@
         <h4>Support</h4>
       </ion-card>
     </ion-slide>
-    <ion-slide>
-      <ion-card
-        (click)="onslide('support')"
-        class="ion-text-center first-card card-box ion-no-margin"
-      >
-        <img align="center" src="assets/icon/offer.gif" width="64" alt="" />
-        <h4>Offer</h4>
-      </ion-card>
-    </ion-slide>
+  
   </ion-slides>
 
   <mat-tab-group mat-align-tabs="center">
