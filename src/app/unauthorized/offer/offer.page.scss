@@ -1,0 +1,41 @@
+.card-panel{   position: relative;
+margin: 10px;
+padding-left:89px;
+box-shadow: 2px 2px 8px #000;
+border-radius: 10px;
+min-height: 60px;
+display: flex;
+align-items: center;padding-right: 10px;background: #fff; color: #000;}
+.card-panel-inner{       position: absolute;
+    left: 0;
+    padding: 10px;
+    top: 0;
+    bottom: 0;
+    background: #ffc800;
+    color: #fff;
+    border-radius: 10px 0 0 10px;
+    font-size: 15px;
+    width: 80px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+span{font-size: 25px;}
+
+}
+table{ width: 100%; margin-top: 15px; margin-bottom: 10px;
+thead{
+    tr{    background: #dbbe57;
+        height: 36px;
+        color: #000;
+        font-size: 18px;}
+}
+tbody{
+    tr{
+        border-top: 1px solid #ffffff4a;
+        height: 36px;
+        &:nth-child(even){
+            background: #00000061;
+        }
+        td{ padding: 8px;}
+    }
+}
+}

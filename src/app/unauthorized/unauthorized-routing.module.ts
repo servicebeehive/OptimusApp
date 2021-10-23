@@ -106,10 +106,12 @@ const routes: Routes = [
       import('./calculator/calculator.module').then(
         (m) => m.CalculatorPageModule
       ),
-  },  {
+  },
+  {
     path: 'imgpopup',
     loadChildren: () => import('./imgpopup/imgpopup.module').then( m => m.ImgpopupPageModule)
   },
+ 
 
 ];
 
